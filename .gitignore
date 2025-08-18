@@ -6,3 +6,21 @@ node_modules/
 .env
 node_modules/
 data/*.tmp
+
+# local only
+.env
+node_modules/
+data/x_raw.json
+
+
+# local only
+.env
+node_modules/
+data/x_raw.json
+
+
+# local only
+.env
+node_modules/
+data/x_raw.json
+
