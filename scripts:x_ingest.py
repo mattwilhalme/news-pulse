@@ -1,84 +1,81 @@
-# scripts/x_ingest.py
-# Fetches last 14 days of posts from accounts_x.txt using snscrape and writes data/x_posts.json
+#!/usr/bin/env python3
+"""
+Ingest X (Twitter) posts for specific brand accounts using snscrape.
+Fetches the last 14 days of posts, including engagement metrics.
+Outputs JSON into data/x_raw.json.
+"""
 
-import json, subprocess, sys, time, pathlib, datetime, re
-from datetime import timezone, timedelta
+import subprocess
+import sys
+import json
+import os
+from datetime import datetime, timedelta
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-ACC_FILE = ROOT / "accounts_x.txt"
-OUT_DIR = ROOT / "data"
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-OUT_FILE = OUT_DIR / "x_posts.json"
+# List of X handles to scrape
+HANDLES = [
+    "nytimes",
+    "washingtonpost",
+    "wsj",
+    "ap",
+    "cnn",
+    "abc",
+    "nbcnews",
+    "cbsnews"
+]
 
-DAYS = 14
-since = (datetime.datetime.now(timezone.utc) - datetime.timedelta(days=DAYS)).strftime("%Y-%m-%d")
+OUTFILE = "data/x_raw.json"
+
 
 def run_snscrape(query):
-    # Returns JSON lines from snscrape; each line is a JSON object
-    cmd = ["snscrape", "--jsonl", query]
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    for line in p.stdout:
-        if line.strip():
-            yield json.loads(line)
-    p.wait()
+    """
+    Run snscrape as a subprocess and yield parsed JSON lines.
+    Uses the current Python executable to ensure the right environment.
+    """
+    cmd = [sys.executable, "-m", "snscrape", "--jsonl", query]
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-def normalize(t):
-    # t is a raw snscrape tweet dict
-    content = t.get("content") or ""
-    urls = []
-    # collect expandedUrls if present, else from content
-    for u in (t.get("outlinks") or []):
-        urls.append(u)
-    # quick URL regex fallback
-    urls += re.findall(r'https?://\S+', content)
-    urls = list(dict.fromkeys(urls))  # dedupe, keep order
-
-    has_link = len(urls) > 0
-    # basic link domains for quick filtering/heatmap of story links
-    domains = []
-    for u in urls:
+    for line in process.stdout:
+        line = line.strip()
+        if not line:
+            continue
         try:
-            domains.append(re.sub(r"^www\.", "", re.findall(r"https?://([^/]+)/?", u)[0]))
-        except:
-            pass
+            yield json.loads(line)
+        except json.JSONDecodeError:
+            continue
 
-    return {
-        "id": t.get("id"),
-        "date": t.get("date"),                      # ISO timestamp (UTC)
-        "username": t.get("user", {}).get("username"),
-        "displayname": t.get("user", {}).get("displayname"),
-        "url": t.get("url"),
-        "content": content,
-        "replyCount": t.get("replyCount") or 0,
-        "retweetCount": t.get("retweetCount") or 0,
-        "likeCount": t.get("likeCount") or 0,
-        "quoteCount": t.get("quoteCount") or 0,
-        "viewCount": t.get("viewCount") or 0,
-        "has_link": has_link,
-        "link_urls": urls,
-        "link_domains": list(dict.fromkeys(domains)),
-    }
+    process.wait()
+
 
 def main():
-    if not ACC_FILE.exists():
-        print(f"Missing {ACC_FILE} — create it with one handle per line.")
-        sys.exit(1)
+    since = (datetime.utcnow() - timedelta(days=14)).strftime("%Y-%m-%d")
+    all_posts = []
 
-    handles = [h.strip() for h in ACC_FILE.read_text().splitlines() if h.strip() and not h.strip().startswith("#")]
+    for handle in HANDLES:
+        print(f"Fetching posts for @{handle} since {since}...")
+        query = f"from:{handle} since:{since}"
+        for post in run_snscrape(query):
+            # Only keep fields we care about
+            item = {
+                "id": post.get("id"),
+                "date": post.get("date"),
+                "content": post.get("content"),
+                "url": post.get("url"),
+                "user": post.get("user", {}).get("username"),
+                "replyCount": post.get("replyCount"),
+                "retweetCount": post.get("retweetCount"),
+                "likeCount": post.get("likeCount"),
+                "quoteCount": post.get("quoteCount"),
+            }
+            all_posts.append(item)
 
-    all_rows = []
-    for h in handles:
-        # Query: from:handle since:YYYY-MM-DD
-        q = f"twitter-user:{h} since:{since}"
-        # Note: "twitter-user:" works in snscrape >= 0.7.0; older versions use "from:"
-        # If needed, switch to: q = f"from:{h} since:{since}"
-        for raw in run_snscrape(q):
-            all_rows.append(normalize(raw))
+    # Ensure output folder exists
+    os.makedirs("data", exist_ok=True)
 
-    # Sort newest first
-    all_rows.sort(key=lambda r: r["date"] or "", reverse=True)
-    OUT_FILE.write_text(json.dumps(all_rows, indent=2))
-    print(f"Wrote {len(all_rows)} posts to {OUT_FILE}")
+    with open(OUTFILE, "w", encoding="utf-8") as f:
+        json.dump(all_posts, f, indent=2)
+
+    print(f"✅ Saved {len(all_posts)} posts to {OUTFILE}")
+
 
 if __name__ == "__main__":
     main()
