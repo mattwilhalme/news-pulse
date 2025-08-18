@@ -46,7 +46,7 @@
     "publisher_name": "New York Times",
     "title": "Republican Bid to Help Trump Move Past Epstein Falls Flat",
     "url": "https://www.nytimes.com/2025/08/18/us/politics/republicans-epstein-files.html",
-    "created_at": "2025-08-18T17:48:35.000Z",
+    "created_at": "2025-08-18T20:14:26.000Z",
     "section": {
       "_": "United States Politics and Government",
       "$": {
@@ -60,7 +60,7 @@
     "publisher_name": "New York Times",
     "title": "Why Rip Currents From Hurricane Erin Are So Dangerous to the East Coast",
     "url": "https://www.nytimes.com/2025/08/18/weather/hurricane-erin-rip-current-east-coast-carolina.html",
-    "created_at": "2025-08-18T19:59:58.000Z",
+    "created_at": "2025-08-18T20:39:29.000Z",
     "section": {
       "_": "Hurricanes and Tropical Storms",
       "$": {
@@ -68,6 +68,62 @@
       }
     },
     "description": "Rip currents are the third leading cause of deaths from hurricanes, and they can happen on a sunny day hundreds of miles from the storm."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Hamas Accepts New Gaza Cease-Fire Proposal, Officials Say",
+    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/hamas-israel-gaza-ceasefire.html",
+    "created_at": "2025-08-18T20:20:29.000Z",
+    "section": {
+      "_": "Gaza Strip",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_geo"
+      }
+    },
+    "description": "It was unclear whether Prime Minister Benjamin Netanyahu of Israel was on board with the terms, which came as Qatar and Egypt were intensifying mediation efforts."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Protests Highlight Growing Discontent With Netanyahu and the Gaza War",
+    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-protests-gaza-netanyahu-hostages.html",
+    "created_at": "2025-08-18T13:40:58.000Z",
+    "section": {
+      "_": "Israel-Gaza War (2023- )",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Many Israelis feel that freeing the hostages cannot happen if the government refuses to come to terms with Hamas and pursues its policy of trying to eliminate the group militarily."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Immigration Enforcement Takes Key Role in Trump’s D.C. Crime Crackdown",
+    "url": "https://www.nytimes.com/2025/08/18/us/trump-immigration-dc-crime.html",
+    "created_at": "2025-08-18T20:19:41.000Z",
+    "section": {
+      "_": "Illegal Immigration",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Immigrants who live and work in the city say they want violent crime lowered but fear that ICE efforts could make it worse."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "As Trump’s Policies Take Hold, Springfield, Ohio, Loses Its Haitian Work Force",
+    "url": "https://www.nytimes.com/2025/08/18/us/springfield-ohio-haitian-immigrants-trump.html",
+    "created_at": "2025-08-18T14:17:13.000Z",
+    "section": {
+      "_": "Haitian-Americans",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Springfield faced a crisis after Donald Trump falsely claimed Haitians were eating pets. Now his policies are driving out workers like Wilford Rinvil, who left for Canada."
   },
   {
     "publisher_id": "nyt",
@@ -110,20 +166,6 @@
       }
     },
     "description": "Across the Iberian Peninsula, thousands are trying to quell deadly flames amid dangerously hot weather."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Protests Highlight Growing Discontent With Netanyahu and the Gaza War",
-    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-protests-gaza-netanyahu-hostages.html",
-    "created_at": "2025-08-18T13:40:58.000Z",
-    "section": {
-      "_": "Israel-Gaza War (2023- )",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Many Israelis feel that freeing the hostages cannot happen if the government refuses to come to terms with Hamas and pursues its policy of trying to eliminate the group militarily."
   },
   {
     "publisher_id": "nyt",
@@ -180,34 +222,6 @@
       }
     },
     "description": "Plentiful supply and weak demand has helped bring down fuel prices, which President Trump has often cited as a measure of his success."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "They Were Treated Like Orphans. But They Knew the Truth.",
-    "url": "https://www.nytimes.com/2025/08/18/magazine/syria-assad-children-orphanages.html",
-    "created_at": "2025-08-18T09:01:37.000Z",
-    "section": {
-      "_": "Syria",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_geo"
-      }
-    },
-    "description": "In Syria, the Assad regime took hundreds of children away from their parents. A Times investigation reveals the workings of the operation — and how one family fought to reunite."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Takeaways From The Times’s Investigation Into Syria’s Missing Children",
-    "url": "https://www.nytimes.com/2025/08/18/magazine/takeaways-syria-missing-children.html",
-    "created_at": "2025-08-18T09:01:56.000Z",
-    "section": {
-      "_": "Missing Persons",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "The Assad regime took hundreds of children away from their parents and hid them in orphanages."
   },
   {
     "publisher_id": "nyt",
@@ -964,18 +978,18 @@
     "publisher_name": "ABC News",
     "title": "Texas Democrats return to state, clearing way for new congressional maps",
     "url": "https://abcnews.go.com/Politics/texas-democrats-return-state-clearing-new-congressional-maps/story?id=124745691",
-    "created_at": "2025-08-18T19:01:25.000Z",
+    "created_at": "2025-08-18T20:29:07.000Z",
     "section": "Politics",
     "description": "Texas House Democrats returning to Austin after standoff over proposed congressional maps, potentially clearing the way for GOP to net as many as five U.S. House seats."
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Measles outbreak that sickened more than 700 declared over in Texas",
-    "url": "https://abcnews.go.com/Health/measles-outbreak-sickened-700-declared-texas/story?id=124749372",
-    "created_at": "2025-08-18T19:35:01.000Z",
-    "section": "Health",
-    "description": "A measles outbreak in Texas that infected more than 700 people has officially been declared over, state health officials announced on Monday."
+    "title": "'Ketamine Queen,' woman who sold drugs to Matthew Perry, to plead guilty: DOJ",
+    "url": "https://abcnews.go.com/US/ketamine-queen-woman-sold-drugs-friends-star-matthew/story?id=124758056",
+    "created_at": "2025-08-18T20:26:50.000Z",
+    "section": "US",
+    "description": "Jasveen Sangha has agreed to plead guilty to five federal charges, including selling actor Matthew Perry the dose of ketamine that caused his death in October 2023."
   },
   {
     "publisher_id": "abc",
@@ -1196,11 +1210,20 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Texas Republicans plan redistricting vote after Democrats end two-week standoff",
-    "url": "https://www.nbcnews.com/politics/elections/texas-democrats-return-state-ending-two-week-standoff-redistricting-rcna225243",
-    "created_at": "2025-08-18T14:18:57.000Z",
+    "title": "Texas Democrats end two-week standoff over redistricting effort",
+    "url": "https://www.nbcnews.com/now/video/texas-democrats-end-two-week-standoff-over-redistricting-effort-245216325845",
+    "created_at": "2025-08-18T18:53:30.000Z",
     "section": "",
-    "description": "The Texas House gaveled in on Monday with a quorum for the first time in two weeks after Democratic lawmakers who fled the state returned following a standoff over Republicans' redistricting effort"
+    "description": "Democratic members of the Texas House are vowing to take their fight over Republican redistricting efforts to court. Members of the caucus previously fled the state to disrupt voting on redistricting."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "'Ketamine Queen' to plead guilty in Matthew Perry's death, officials say",
+    "url": "https://www.nbcnews.com/news/us-news/ketamine-queen-plead-guilty-matthew-perrys-death-officials-say-rcna225712",
+    "created_at": "2025-08-18T20:07:03.000Z",
+    "section": "",
+    "description": "A California woman known as the “Ketamine Queen” has agreed to plead guilty to federal drug charges in connection with Matthew Perry’s fatal overdose two years ago"
   },
   {
     "publisher_id": "nbc",
@@ -1210,15 +1233,6 @@
     "created_at": "2025-08-18T19:20:24.000Z",
     "section": "",
     "description": "Hurricane Erin strengthened back into a Category 4 behemoth over the weekend, the latest shift in what has been a remarkably fast-changing storm"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Idaho Survivor Told Police Bryan Kohberger Said Victim's Name",
-    "url": "https://www.today.com/video/bryan-kohberger-said-victim-s-name-during-attack-docs-reveal-245186117873",
-    "created_at": "2025-08-18T11:48:07.000Z",
-    "section": "",
-    "description": "Newly released documents from Idaho State Police reveal a surviving roommate told officers she heard Bryan Kohberger call one of the victims by name during the attack that left four college students, Madison Mogen, Kaylee Goncalves, Xana Kernodle and Ethan Chapin dead. The roommate told officers she heard a male voice say, \"It's ok Kaylee, I'm here for you.\" NBC’s Morgan Chesky reports for TODAY."
   },
   {
     "publisher_id": "nbc",
@@ -1246,6 +1260,15 @@
     "created_at": "2025-08-12T11:10:22.000Z",
     "section": "",
     "description": "Watch live coverage as White House Press Secretary Karoline Leavitt holds a press briefing."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "'Ketamine Queen' to plead guilty in Matthew Perry's death, officials say",
+    "url": "https://www.nbcnews.com/news/us-news/ketamine-queen-plead-guilty-matthew-perrys-death-officials-say-rcna225712",
+    "created_at": "2025-08-18T20:07:03.000Z",
+    "section": "",
+    "description": "A California woman known as the “Ketamine Queen” has agreed to plead guilty to federal drug charges in connection with Matthew Perry’s fatal overdose two years ago"
   },
   {
     "publisher_id": "nbc",
@@ -1331,15 +1354,6 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Bryan Kohberger said name of victim during attack on Idaho students, documents show",
-    "url": "https://www.nbcnews.com/news/us-news/bryan-kohberger-said-name-victim-attack-idaho-students-documents-show-rcna225553",
-    "created_at": "2025-08-18T14:46:09.000Z",
-    "section": "",
-    "description": "A surviving roommate who encountered the masked intruder who slaughtered four University of Idaho students in an off-campus home in 2022 initially told investigators she heard an unknown male voice refer to a victim by her name"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
     "title": "Hand soap recall: What you need to know",
     "url": "https://www.nbcnews.com/select/shopping/hand-soap-recall-rcna224873",
     "created_at": "2025-08-14T13:50:38.000Z",
@@ -1385,9 +1399,27 @@
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
+    "title": "8/18: CBS Morning News",
+    "url": "https://www.cbsnews.com/video/081825-cbs-morning-news/",
+    "created_at": "2025-08-18T20:33:19.000Z",
+    "section": "",
+    "description": "President Trump to meet with Ukrainian President Volodymyr Zelenskyy and European leaders at White House; Closing arguments underway in Jimmy Lai's national security trial in Hong Kong."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Geoffrey Hinton: \"The Godfather of AI\" | 60 Minutes Archive",
+    "url": "https://www.cbsnews.com/video/geoffrey-hinton-the-godfather-of-ai-60-minutes-archive/",
+    "created_at": "2025-08-18T20:16:13.000Z",
+    "section": "",
+    "description": "In 2023, artificial intelligence pioneer Geoffrey Hinton shared his thoughts on AI's benefits and dangers with Scott Pelley, warning that there was no guaranteed path to safety as AI advanced."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
     "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
     "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
-    "created_at": "2025-08-18T20:05:58.000Z",
+    "created_at": "2025-08-18T20:14:31.000Z",
     "section": "",
     "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
   },
@@ -1408,15 +1440,6 @@
     "created_at": "2025-08-18T19:57:34.000Z",
     "section": "",
     "description": "The life and work of journalist and educator David Diaz was celebrated Thursday, on the eve of what would've been his 83rd birthday."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "8/18: CBS Morning News",
-    "url": "https://www.cbsnews.com/video/081825-cbs-morning-news/",
-    "created_at": "2025-08-18T19:57:14.000Z",
-    "section": "",
-    "description": "President Trump to meet with Ukrainian President Volodymyr Zelenskyy and European leaders at White House; Closing arguments underway in Jimmy Lai's national security trial in Hong Kong."
   },
   {
     "publisher_id": "cbs",
@@ -1570,15 +1593,6 @@
     "created_at": "2025-08-18T18:16:12.000Z",
     "section": "",
     "description": "The Los Angeles Metro has temporarily renamed the Hyde Park Station near Crenshaw Boulevard and Slauson Avenue the \"Nipsey Hussle Station.\""
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "How much interest will you pay on a $25,000 credit card balance each year?",
-    "url": "https://www.cbsnews.com/news/interest-charges-on-25000-credit-card-balance/",
-    "created_at": "2025-08-18T18:12:05.000Z",
-    "section": "",
-    "description": "A $25,000 credit card balance can rack up serious interest. Here's how much you could end up paying annually."
   },
   {
     "publisher_id": "cbs",
