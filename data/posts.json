@@ -310,6 +310,33 @@
   {
     "publisher_id": "wapo",
     "publisher_name": "Washington Post",
+    "title": "Zelensky’s diplomatic strategy for Trump boils down to two words: ‘Thank you’",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T20:52:48.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Live updates: Trump pledges ‘a lot of help’ to Ukraine in congenial Oval Office meeting",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
+    "created_at": "2025-08-18T20:52:48.000Z",
+    "section": "",
+    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "As the meeting with President Donald Trump, Ukrainian President Volodymyr Zelensky and other European leaders was...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T20:31:19.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
     "title": "Zelensky praised meeting with Trump",
     "url": "https://www.washingtonpost.com",
     "created_at": "2025-08-18T19:55:30.000Z",
@@ -396,15 +423,6 @@
     "created_at": "2025-08-18T18:27:53.000Z",
     "section": "",
     "description": ""
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Live updates: Trump pledges ‘a lot of help’ to Ukraine in congenial Oval Office meeting",
-    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
-    "created_at": "2025-08-18T19:55:30.000Z",
-    "section": "",
-    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
   },
   {
     "publisher_id": "wapo",
@@ -958,9 +976,9 @@
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Key takeaways from Trump and Zelenskyy's Oval Office meeting to discuss Ukraine",
+    "title": "Key takeaways from Trump and Zelenskyy's meeting, pivotal talks with European leaders",
     "url": "https://abcnews.go.com/Politics/key-takeaways-trump-zelenskyys-oval-office-meeting-discuss/story?id=124751645",
-    "created_at": "2025-08-18T19:01:25.000Z",
+    "created_at": "2025-08-18T20:55:45.000Z",
     "section": "Politics",
     "description": "President Donald Trump and Ukrainian President Volodymyr Zelenskyy's met at the White House for a high-stakes talks on Ukraine's future and Russia's invasion."
   },
@@ -1264,6 +1282,15 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
+    "title": "A Ryder Cup putt changed his life. Now he’s the captain of the United States team.",
+    "url": "https://www.nbcnews.com/sports/golf/ryder-cup-keegan-bradley-captain-golf-rcna225674",
+    "created_at": "2025-08-18T20:43:28.000Z",
+    "section": "",
+    "description": "Keegan Bradley, 39, will be the youngest captain of a Ryder Cup squad since Arnold Palmer in 1963."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
     "title": "'Ketamine Queen' to plead guilty in Matthew Perry's death, officials say",
     "url": "https://www.nbcnews.com/news/us-news/ketamine-queen-plead-guilty-matthew-perrys-death-officials-say-rcna225712",
     "created_at": "2025-08-18T20:07:03.000Z",
@@ -1345,15 +1372,6 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Despite RFK Jr.'s claims, vaccine panels have had record-low conflicts for years, study finds",
-    "url": "https://www.nbcnews.com/health/health-news/conflicts-vaccine-panels-record-lows-kennedys-firings-rcna225219",
-    "created_at": "2025-08-18T15:02:08.000Z",
-    "section": "",
-    "description": "When Health Secretary Robert F. Kennedy Jr."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
     "title": "Hand soap recall: What you need to know",
     "url": "https://www.nbcnews.com/select/shopping/hand-soap-recall-rcna224873",
     "created_at": "2025-08-14T13:50:38.000Z",
@@ -1395,6 +1413,15 @@
     "created_at": "2025-08-18T18:57:08.000Z",
     "section": "",
     "description": "A former Michigan State grad student blamed her thyroid cancer on the school, which allegedly told her that \"exposure was harmless\" when she worked with various pesticides and herbicides, she and her lawyers said on Monday"
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Are buy now, pay later plans eligible for debt forgiveness?",
+    "url": "https://www.cbsnews.com/news/are-buy-now-pay-later-plans-eligible-for-debt-forgiveness/",
+    "created_at": "2025-08-18T20:46:45.000Z",
+    "section": "",
+    "description": "Struggling with your buy now, pay later debt? Here's what to know about including it in a debt forgiveness plan."
   },
   {
     "publisher_id": "cbs",
@@ -1584,15 +1611,6 @@
     "created_at": "2025-08-18T18:18:00.000Z",
     "section": "",
     "description": "President Trump and Ukrainian President Volodymyr Zelenskyy appeared before cameras in the Oval Office Monday amid efforts to end Russia's war in Ukraine. CBS News' Nancy Cordes and Holly Williams report."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Nipsey Hussle honored with LA Metro station renaming",
-    "url": "https://www.cbsnews.com/losangeles/news/nipsey-hussle-metro-station-renamed-los-angeles/",
-    "created_at": "2025-08-18T18:16:12.000Z",
-    "section": "",
-    "description": "The Los Angeles Metro has temporarily renamed the Hyde Park Station near Crenshaw Boulevard and Slauson Avenue the \"Nipsey Hussle Station.\""
   },
   {
     "publisher_id": "cbs",
