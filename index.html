@@ -2,102 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>News Pulse (Minimal)</title>
+  <title>News Pulse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font: 16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
-    h1 { margin: 0 0 8px; }
-    .grid { display: grid; gap: 16px; }
-    .card { padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
-    .heatmap { display: grid; grid-template-columns: repeat(24, 1fr); gap: 2px; }
-    .cell { width: 100%; padding-top: 100%; position: relative; background: #f2f2f2; }
-    .cell > span { position: absolute; inset: 0; display: none; font-size: 10px; align-items: center; justify-content: center; }
-    .legend { font-size: 12px; color: #666; }
-    .muted { color: #666; font-size: 14px; }
-    a { color: #0b5bd3; text-decoration: none; }
+    :root{
+      --bg: #0b1320;
+      --panel: #121a2b;
+      --panel-2: #0f1726;
+      --text: #e6ecff;
+      --muted: #9fb0d9;
+      --accent: #5aa9ff;
+      --accent-2: #2f6adf;
+      --border: #1f2940;
+      --good: #22d3ee;
+    }
+    *{box-sizing:border-box}
+    body{ margin:0; font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text);}
+    a{ color: var(--accent); text-decoration: none;}
+    header{ padding: 22px 22px 0; }
+    .wrap{ max-width: 1200px; margin: 0 auto; padding: 0 22px 40px; }
+    h1{ font-size: 28px; margin: 0 0 6px;}
+    .muted{ color: var(--muted); }
+    .grid{ display:grid; gap:16px; grid-template-columns: 1fr 1fr; }
+    .card{ background: linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid var(--border); border-radius: 14px; padding: 16px 16px 18px; box-shadow: 0 4px 14px rgba(0,0,0,.25);}
+    .card h2{ margin:0 0 10px; font-size: 18px;}
+    .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    button{ background: var(--accent-2); color: #fff; border: 0; border-radius: 10px; padding: 8px 12px; cursor: pointer; font-weight:600; }
+    button:hover{ filter: brightness(1.1); }
+    table{ width: 100%; border-collapse: collapse; }
+    th, td{ padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+    th{ color: var(--muted); font-weight:600; }
+    .kpi{ display:flex; gap:18px; }
+    .kpi .pill{ background: rgba(95,146,255,.1); border:1px solid var(--border); padding:8px 10px; border-radius: 12px; }
+    .pill .label{ color: var(--muted); font-size: 12px; }
+    .pill .value{ font-weight: 700; font-size: 16px; }
+    /* Heatmap */
+    .heat-wrap{ overflow-x: auto; }
+    .heat-head{ display:grid; grid-template-columns: 80px repeat(24, 36px); gap:6px; align-items:end; margin-bottom: 6px; }
+    .heat-head div{ text-align:center; color: var(--muted); font-size: 12px; }
+    .heat-grid{ display:grid; grid-template-columns: 80px repeat(24, 36px); gap:6px; }
+    .dow{ color: var(--muted); font-size: 12px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; }
+    .cell{ width:36px; height:28px; border-radius:6px; border:1px solid var(--border); background:#0c1633; position:relative; }
+    .cell::after{ content: attr(data-count); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:10px; color:#dbeafe; opacity:0.0; }
+    .cell:hover::after{ opacity:0.9; }
+    .legend{ color: var(--muted); font-size: 12px; }
   </style>
 </head>
 <body>
-  <h1>News Pulse</h1>
-  <p class="muted">Zero-budget MVP. Static page that reads JSON from <code>/data</code>.</p>
+  <header class="wrap">
+    <h1>News Pulse</h1>
+    <div class="muted">Static dashboard. Data updates via GitHub Actions.</div>
+  </header>
 
-  <div class="grid" style="grid-template-columns: 1fr 1fr;">
-    <div class="card">
-      <h2>Insights</h2>
-      <p id="generated">Generated: —</p>
-      <p id="summary">No summary yet.</p>
-      <ul id="bullets"></ul>
-    </div>
-    <div class="card">
-      <h2>Publish Heatmap (UTC)</h2>
-      <div class="legend">Rows = Sun→Sat, Columns = 0–23h UTC (darker = more posts)</div>
-      <div id="heatmap" class="heatmap"></div>
-    </div>
-  </div>
+  <main class="wrap">
+    <div class="grid">
+      <section class="card">
+        <h2>Insights</h2>
+        <div class="kpi" id="kpis">
+          <div class="pill"><div class="label">Last Updated</div><div class="value" id="updated">—</div></div>
+          <div class="pill"><div class="label">Total Posts (14d)</div><div class="value" id="total">—</div></div>
+          <div class="pill"><div class="label">Timezone</div><div class="value">PT (America/Los_Angeles)</div></div>
+        </div>
+        <p id="summary" style="margin-top:12px;">No summary yet.</p>
+        <ul id="bullets"></ul>
+        <div class="row" style="margin-top:8px;">
+          <button id="downloadCsv">Download CSV</button>
+        </div>
+      </section>
 
-  <div class="card" style="margin-top:16px;">
-    <h2>Recent Posts</h2>
-    <p class="muted" id="count"></p>
-    <table id="table">
-      <thead><tr><th>Publisher</th><th>Title</th><th>Published (UTC)</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <p class="muted">(Showing first 50 rows.)</p>
-  </div>
+      <section class="card">
+        <h2>Publish Heatmap (PT, 24-hour)</h2>
+        <div class="legend" style="margin-bottom:8px;">Rows = Sun→Sat, Columns = 0–23 (PT). Darker blue = more published items in that hour.</div>
+        <div class="heat-wrap">
+          <div class="heat-head" id="heatHead"></div>
+          <div class="heat-grid" id="heatGrid"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>Recent Posts (PT time)</h2>
+      <p class="muted" id="count"></p>
+      <table id="table">
+        <thead><tr><th>Publisher</th><th>Title</th><th>Published (PT)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="muted">(Showing first 50 rows.)</p>
+    </section>
+  </main>
 
 <script>
+// ----- Utilities -----
+const PT_ZONE = 'America/Los_Angeles';
+
+function toPTDate(dIso){
+  try{
+    const d = new Date(dIso);
+    const fmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: PT_ZONE,
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute:'2-digit', hour12: false
+    });
+    return fmt.format(d) + ' PT';
+  }catch(e){ return dIso || ''; }
+}
+
+function getPTParts(dIso){
+  const d = new Date(dIso);
+  const dowName = new Intl.DateTimeFormat('en-US', { timeZone: PT_ZONE, weekday:'short' }).format(d);
+  const map = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
+  const dow = map[dowName] ?? 0;
+  const hour = Number(new Intl.DateTimeFormat('en-US',{timeZone:PT_ZONE,hour:'2-digit',hour12:false}).format(d));
+  return { dow, hour };
+}
+
+function csvEscape(s){
+  if (s == null) return '';
+  s = String(s);
+  if (s.includes('"') || s.includes(',') || s.includes('\\n')){
+    return '"' + s.replace(/"/g,'""') + '"';
+  }
+  return s;
+}
+
+function downloadCSV(rows, filename='posts_pt.csv'){
+  const header = ['publisher','title','url','published_pt','section'];
+  const lines = [header.join(',')];
+  for (const r of rows){
+    lines.push([
+      csvEscape(r.publisher_name || r.publisher || ''),
+      csvEscape(r.title || ''),
+      csvEscape(r.url || ''),
+      csvEscape(toPTDate(r.created_at)),
+      csvEscape(r.section || '')
+    ].join(','));
+  }
+  const blob = new Blob([lines.join('\\n')], {type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+// ----- Main -----
 (async function(){
-  const [posts, heatmap, insights] = await Promise.all([
+  const [posts, insights] = await Promise.all([
     fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
-    fetch('./data/heatmap.json').then(r=>r.json()).catch(()=>[]),
     fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
   ]);
 
-  // Insights
-  document.getElementById('generated').textContent = 'Generated: ' + (insights.generated_at || '—');
+  document.getElementById('updated').textContent = insights.generated_at ? toPTDate(insights.generated_at) : '—';
+  document.getElementById('total').textContent = insights?.metrics?.total_posts ?? posts.length;
+
   document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
   const ul = document.getElementById('bullets');
-  (insights.bullets || []).forEach(b => {
-    const li = document.createElement('li');
-    li.textContent = b; ul.appendChild(li);
-  });
+  (insights.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
 
-  // Heatmap (7 rows x 24 cols)
-  const max = heatmap.reduce((m, x) => Math.max(m, x.count || 0), 0) || 1;
-  const hm = document.getElementById('heatmap');
-  hm.style.gridTemplateRows = 'repeat(7, 1fr)';
-  const get = (dow, hour) => heatmap.find(h => h.dow===dow && h.hour===hour)?.count || 0;
-  for (let dow=0; dow<7; dow++){
-    for (let hour=0; hour<24; hour++){
-      const v = get(dow, hour);
-      const cell = document.createElement('div');
-      cell.className = 'cell';
-      const intensity = v/max; // 0..1
-      const shade = Math.round(242 - intensity*200);
-      cell.style.background = `rgb(${shade},${shade},${shade})`;
-      cell.title = `D${dow} ${hour}:00 — ${v} posts`;
-      hm.appendChild(cell);
-    }
+  const grid = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
+  for (const p of posts){
+    const {dow, hour} = getPTParts(p.created_at);
+    grid[dow][hour] += 1;
   }
 
-  // Table
+  const hh = document.getElementById('heatHead');
+  hh.innerHTML = '<div></div>' + Array.from({length:24}, (_,h)=>`<div>${h}</div>`).join('');
+
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const hg = document.getElementById('heatGrid');
+  let max = 1;
+  for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, grid[d][h]);
+  function cellColor(v){
+    const t = v/max;
+    const r = Math.round(13 + (20 - 13)* (1-t));
+    const g = Math.round(27 + (60 - 27)* (1-t));
+    const b = Math.round(51 + (140 - 51)* (1-t));
+    return `rgb(${r},${g},${b})`;
+  }
+  let html = '';
+  for (let d=0; d<7; d++){
+    html += `<div class="dow">${days[d]}</div>`;
+    for (let h=0; h<24; h++){
+      const v = grid[d][h];
+      html += `<div class="cell" style="background:${cellColor(v)}" title="${days[d]} ${h}:00 PT — ${v} posts" data-count="${v}"></div>`;
+    }
+  }
+  hg.innerHTML = html;
+
   const tbody = document.querySelector('#table tbody');
   document.getElementById('count').textContent = `Showing ${posts.length} items (last 14 days)`;
-  posts
-    .sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
-    .slice(0, 50)
-    .forEach(p => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${p.publisher_name || ''}</td>
-        <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
-        <td>${p.created_at || ''}</td>
-      `;
-      tbody.appendChild(tr);
-    });
+  posts.sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
+       .slice(0, 50)
+       .forEach(p => {
+         const tr = document.createElement('tr');
+         tr.innerHTML = `
+           <td>${p.publisher_name || ''}</td>
+           <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
+           <td>${toPTDate(p.created_at)}</td>
+         `;
+         tbody.appendChild(tr);
+       });
 
+  document.getElementById('downloadCsv').addEventListener('click', ()=> downloadCSV(posts));
 })();
 </script>
 </body>
