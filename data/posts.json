@@ -4,7 +4,7 @@
     "publisher_name": "New York Times",
     "title": "Russian Attacks Kill 10 in Ukraine, Hours Before Trump-Zelensky Meeting",
     "url": "https://www.nytimes.com/2025/08/18/us/russia-attacks-kharkiv-zaporizhzhia-ukraine.html",
-    "created_at": "2025-08-18T13:39:17.000Z",
+    "created_at": "2025-08-18T19:22:13.000Z",
     "section": {
       "_": "Ukraine",
       "$": {
@@ -16,44 +16,72 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Zelensky Brings Backup to Trump Meeting, and Why Young Firefighters Are Getting Sick",
-    "url": "https://www.nytimes.com/2025/08/18/podcasts/the-headlines/zelensky-white-house-firefighters-sick.html",
-    "created_at": "2025-08-18T11:02:31.000Z",
+    "title": "Newsmax Will Pay $67 Million to Settle Dominion Defamation Lawsuit",
+    "url": "https://www.nytimes.com/2025/08/18/business/media/newsmax-dominion-defamation-lawsuit-settlement.html",
+    "created_at": "2025-08-18T16:30:48.000Z",
     "section": {
-      "_": "Wildfires",
+      "_": "Libel and Slander",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Plus, selling your likeness for $750."
+    "description": "Dominion Voting Systems sued the right-wing cable channel for broadcasting false claims that the voting machine company had rigged votes in the 2020 presidential election."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Texas Democrats Set to End Walkout Over Redistricting, Allowing Redrawn Map to Pass",
-    "url": "https://www.nytimes.com/2025/08/18/us/politics/redistricting-texas-maps.html",
-    "created_at": "2025-08-18T14:27:22.000Z",
+    "title": "The Madden Sisters Don’t Want to Be Institutionalized",
+    "url": "https://www.nytimes.com/2025/08/18/magazine/medicaid-cuts-home-care-disabilities.html",
+    "created_at": "2025-08-18T17:04:52.000Z",
+    "section": {
+      "_": "Medicaid",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Medicaid pays for most of the in-home care that lets disabled Americans live independently. Will coming cuts put that care in jeopardy?"
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Republican Bid to Help Trump Move Past Epstein Falls Flat",
+    "url": "https://www.nytimes.com/2025/08/18/us/politics/republicans-epstein-files.html",
+    "created_at": "2025-08-18T17:48:35.000Z",
     "section": {
       "_": "United States Politics and Government",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Democratic lawmakers returned to Texas after fleeing the state for two weeks. Republicans are ready to quickly pass a new congressional map called for by President Trump."
+    "description": "Republicans in Congress managed to recess for the summer without voting on the issue, but it has continued to dog them and awaits them when they return."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Protests Highlight Growing Discontent With Netanyahu and the Gaza War",
-    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-protests-gaza-netanyahu-hostages.html",
-    "created_at": "2025-08-18T13:40:58.000Z",
+    "title": "Why Rip Currents From Hurricane Erin Are So Dangerous to the East Coast",
+    "url": "https://www.nytimes.com/2025/08/18/weather/hurricane-erin-rip-current-east-coast-carolina.html",
+    "created_at": "2025-08-18T19:08:45.000Z",
     "section": {
-      "_": "Israel-Gaza War (2023- )",
+      "_": "Hurricanes and Tropical Storms",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Many Israelis feel that freeing the hostages cannot happen if the government refuses to come to terms with Hamas and pursues its policy of trying to eliminate the group militarily."
+    "description": "Rip currents are the third leading cause of deaths from hurricanes, and they can happen on a sunny day hundreds of miles from the storm."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Texas Democrats End Walkout Over Redistricting, Allowing Redrawn Map to Pass",
+    "url": "https://www.nytimes.com/2025/08/18/us/politics/redistricting-texas-maps.html",
+    "created_at": "2025-08-18T19:28:32.000Z",
+    "section": {
+      "_": "United States Politics and Government",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "A crowd of supporters cheered the Democratic lawmakers’ return, but Republicans are ready to approve the new congressional map called for by President Trump that Democrats tried to block."
   },
   {
     "publisher_id": "nyt",
@@ -72,72 +100,86 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Spain’s Old Ways May Show How to Keep Cool",
-    "url": "https://www.nytimes.com/2025/08/16/world/europe/heat-spain-global-warming.html",
-    "created_at": "2025-08-16T04:01:18.000Z",
+    "title": "Spain Calls in More Soldiers to Fight Wildfires",
+    "url": "https://www.nytimes.com/2025/08/18/world/europe/spain-wildfires-europe-heat.html",
+    "created_at": "2025-08-18T16:23:31.000Z",
     "section": {
-      "_": "Heat and Heat Waves",
+      "_": "Wildfires",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "The tradition of the siesta is no accident. Spain has been living with extreme heat for centuries, and its people have ways of coping."
+    "description": "Across the Iberian Peninsula, thousands are trying to quell deadly flames amid dangerously hot weather."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "The Case for or Against Exercise: A Reader’s Quandary",
-    "url": "https://www.nytimes.com/2025/08/18/books/review/writers-exercise-books.html",
-    "created_at": "2025-08-18T09:02:11.000Z",
+    "title": "Protests Highlight Growing Discontent With Netanyahu and the Gaza War",
+    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-protests-gaza-netanyahu-hostages.html",
+    "created_at": "2025-08-18T13:40:58.000Z",
     "section": {
-      "_": "Books and Literature",
+      "_": "Israel-Gaza War (2023- )",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Turning to books for workout inspiration is probably a terrible idea."
+    "description": "Many Israelis feel that freeing the hostages cannot happen if the government refuses to come to terms with Hamas and pursues its policy of trying to eliminate the group militarily."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Trump Wants to Fight Democrats on Crime. They’re Treading Cautiously.",
-    "url": "https://www.nytimes.com/2025/08/18/us/politics/trump-democrats-crime.html",
-    "created_at": "2025-08-18T12:57:36.000Z",
+    "title": "Wegovy Gets F.D.A. Approval for MASH",
+    "url": "https://www.nytimes.com/2025/08/18/well/fda-approves-wegovy-mash-liver-disease-fibrosis.html",
+    "created_at": "2025-08-18T17:21:18.000Z",
+    "section": {
+      "_": "GLP-1 RAs (Drug)",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Wegovy has been approved for use among the growing number of Americans who have MASH."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "These Majestic Seabirds Never Stop Pooping",
+    "url": "https://www.nytimes.com/2025/08/18/science/seabirds-never-stop-pooping.html",
+    "created_at": "2025-08-18T15:00:06.000Z",
+    "section": {
+      "_": "Birds",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Streaked shearwaters keep a very regular rhythm throughout their daily foraging flights, shedding about 5 percent of their body mass every hour."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Will Oil Demand Peak Soon? Trump Administration Doesn’t Want to Hear It.",
+    "url": "https://www.nytimes.com/2025/08/18/climate/iea-trump-energy-data-peak-oil.html",
+    "created_at": "2025-08-18T14:23:41.000Z",
+    "section": {
+      "_": "Global Warming",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "It is lashing out at the world’s leading energy organization for saying oil and gas use could start declining as the world pivots to cleaner alternatives."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Oil and Gas Prices Are Falling, a Boon for Drivers, and Trump",
+    "url": "https://www.nytimes.com/2025/08/18/business/energy-environment/oil-gasoline-prices-trump.html",
+    "created_at": "2025-08-18T18:35:47.000Z",
     "section": {
       "_": "United States Politics and Government",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Democrats see the federal takeover of Washington as a way for President Trump to stoke fear for political gain. But they are mindful that issues of public safety continue to resonate with their own supporters."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "As Trump Cracks Down in D.C., Homeless Feel Doubly at Risk",
-    "url": "https://www.nytimes.com/2025/08/18/us/politics/washington-dc-homeless.html",
-    "created_at": "2025-08-18T09:02:34.000Z",
-    "section": {
-      "_": "United States Politics and Government",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Some on the street have been forced to move, while others are fearful they could be next. Many face an even more uncertain future."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "MSNBC to Change Its Name to MS NOW",
-    "url": "https://www.nytimes.com/2025/08/18/business/media/msnbc-new-name-ms-now.html",
-    "created_at": "2025-08-18T13:10:45.000Z",
-    "section": {
-      "_": "Television",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "The cable news network is changing its name this year because a corporate spinoff is separating MSNBC from its cousin, NBC News."
+    "description": "Plentiful supply and weak demand has helped bring down fuel prices, which President Trump has often cited as a measure of his success."
   },
   {
     "publisher_id": "nyt",
@@ -170,76 +212,6 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Trump’s Tariffs Will Crush India’s Exporters, Threatening Livelihoods",
-    "url": "https://www.nytimes.com/2025/08/18/business/trump-tariffs-india-economy.html",
-    "created_at": "2025-08-18T08:07:55.000Z",
-    "section": {
-      "_": "India",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_geo"
-      }
-    },
-    "description": "New U.S. taxes on American imports, even at 25 percent, will hurt many Indian businesses and may put vast numbers of people out of work."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "The Bull and Bear Cases for Another Market Rally",
-    "url": "https://www.nytimes.com/2025/08/18/business/dealbook/sp-500-market-valuations.html",
-    "created_at": "2025-08-18T12:21:58.000Z",
-    "section": {
-      "_": "internal-storyline-no",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Stocks are still flying high. But doubts are creeping in about the S&P 500’s run, as some analysts have flashbacks to valuations during the dotcom boom."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Marco Rubio Once Filed a Brief Embracing Birthright Citizenship",
-    "url": "https://www.nytimes.com/2025/08/18/us/politics/marco-rubio-birthright-citizenship.html",
-    "created_at": "2025-08-18T14:28:30.000Z",
-    "section": {
-      "_": "United States Politics and Government",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Rubio, a son of immigrants and now secretary of state, was responding to a 2016 lawsuit questioning his eligibility for the presidency."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "A Risky Bet: Louisville’s Democratic Mayor Accommodates ICE",
-    "url": "https://www.nytimes.com/2025/08/18/us/louisville-ice-sanctuary-city.html",
-    "created_at": "2025-08-18T14:36:42.000Z",
-    "section": {
-      "_": "Illegal Immigration",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Craig Greenberg’s move, requested by the Trump administration, allows federal agents more time to detain immigrants who are held at the city’s jail."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Air Canada Flight Attendant Strike Declared Illegal by Labor Board",
-    "url": "https://www.nytimes.com/2025/08/18/world/canada/air-canada-strike-flight-attendant-labor-board.html",
-    "created_at": "2025-08-18T15:00:03.000Z",
-    "section": {
-      "_": "Air Canada",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_org"
-      }
-    },
-    "description": "The Canada Industrial Relations Board ordered the flight attendants’ union to call off the job action by midday."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
     "title": "What My Daughter Told ChatGPT Before She Took Her Life",
     "url": "https://www.nytimes.com/2025/08/18/opinion/chat-gpt-mental-health-suicide.html",
     "created_at": "2025-08-18T09:01:50.000Z",
@@ -254,86 +226,414 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Allowing Churches to Endorse Politicians Can Be Perfectly Liberal",
-    "url": "https://www.nytimes.com/2025/08/18/opinion/irs-church-free-speech.html",
-    "created_at": "2025-08-18T09:01:01.000Z",
+    "title": "America Is Giving Up a Lifesaving Medical Breakthrough: mRNA",
+    "url": "https://www.nytimes.com/2025/08/18/opinion/mrna-vaccines.html",
+    "created_at": "2025-08-18T17:19:18.000Z",
     "section": {
-      "_": "Internal Revenue Service",
+      "_": "Coronavirus (2019-nCoV)",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Giving up on mRNA is a dangerous decision."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Air Canada Flight Attendants Remain on Strike After Walkout Deemed Illegal",
+    "url": "https://www.nytimes.com/2025/08/18/world/canada/air-canada-strike-flight-attendant-labor-board.html",
+    "created_at": "2025-08-18T17:35:42.000Z",
+    "section": {
+      "_": "Air Canada",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/nyt_org"
       }
     },
-    "description": "The I.R.S. just needs to get the details right."
+    "description": "But the flight attendants’ union said its members would continue their walkout."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Syria’s Lost Children",
-    "url": "https://www.nytimes.com/2025/08/18/briefing/syrias-lost-children.html",
-    "created_at": "2025-08-18T11:14:07.000Z",
+    "title": "MSNBC to Change Its Name to MS NOW",
+    "url": "https://www.nytimes.com/2025/08/18/business/media/msnbc-new-name-ms-now.html",
+    "created_at": "2025-08-18T17:58:59.000Z",
     "section": {
-      "_": "internal-storyline-no",
+      "_": "Television",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "The Assad regime disappeared thousands of children. We go inside an investigation into what happened to them."
+    "description": "The cable news network is changing its name this year because a corporate spinoff is separating MSNBC from its cousin, NBC News."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Two Police Officers Are Shot and Killed at House in Utah",
-    "url": "https://www.nytimes.com/2025/08/18/us/tremonton-utah-police-shooting.html",
-    "created_at": "2025-08-18T14:39:29.000Z",
+    "title": "Two Gunmen in Attack at a Brooklyn Bar Were Among Those Killed",
+    "url": "https://www.nytimes.com/2025/08/18/nyregion/brooklyn-lounge-shooting.html",
+    "created_at": "2025-08-18T18:05:07.000Z",
     "section": {
-      "_": "Police",
+      "_": "Murders, Attempted Murders and Homicides",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "The officers were responding to a domestic disturbance on Sunday when a man came outside and opened fire, the police said."
+    "description": "The Sunday morning shootout at Taste of the City Lounge in Crown Heights happened after a gang-related dispute, the police said."
   },
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "At China’s Humanoid Robot Games, Athletes Fell Down a Lot",
-    "url": "https://www.nytimes.com/2025/08/18/world/asia/china-humanoid-robot-games.html",
-    "created_at": "2025-08-18T08:33:26.000Z",
+    "title": "Jules Witcover, Political Reporter and Columnist, Dies at 98",
+    "url": "https://www.nytimes.com/2025/08/18/business/media/jules-witcover-dead.html",
+    "created_at": "2025-08-18T18:32:00.000Z",
     "section": {
-      "_": "Robots and Robotics",
+      "_": "Witcover, Jules (1927-2025)",
       "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_per"
       }
     },
-    "description": "The Humanoid Robot Games in Beijing — featuring running, kickboxing and soccer — highlighted advancements in robotics. Limitations, too."
+    "description": "A journalist of the old school, he covered presidential races and political affairs for several newspapers and in many books, as well as in a long-running column, “Politics Today.”"
   },
   {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "He Left a Belarus Prison 132 Pounds Lighter, but Just as Outspoken",
-    "url": "https://www.nytimes.com/2025/08/18/world/europe/sergei-tikhanovsky-belarus-prisoner.html",
-    "created_at": "2025-08-18T09:00:55.000Z",
-    "section": {
-      "_": "Political Prisoners",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "The release of Sergei Tikhanovsky and 13 other political prisoners in Belarus was a diplomatic win for the Trump administration."
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Zelensky dresses up for Trump, five months after disastrous February encounter",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-fatigues-ukraine-peace/",
+    "created_at": "2025-08-18T19:45:32.000Z",
+    "section": "",
+    "description": "President Donald Trump and others mocked Ukrainian President Volodymyr Zelensky in March when he showed up at the White House in his customary military-style fatigues. Zelensky apparently got the message."
   },
   {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "A New Way to Reduce Children’s Deaths: Cash",
-    "url": "https://www.nytimes.com/2025/08/18/health/cash-transfer-kenya-poverty.html",
-    "created_at": "2025-08-18T04:01:04.000Z",
-    "section": {
-      "_": "your-feed-science",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Simply giving money to poor families at certain times reduced deaths among young children by nearly half, a new study found."
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Live updates: Trump pledges ‘a lot of help’ to Ukraine in congenial Oval Office meeting",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
+    "created_at": "2025-08-18T19:42:11.000Z",
+    "section": "",
+    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump says Zelensky and European leaders would discuss territory exchange",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:42:11.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Macron says European leaders are united on finding peace",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:28:01.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump, who’s touted his role as world peacemaker during his second term, said Monday...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:17:59.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Mark Rutte, the NATO secretary general, said having the U.S. and European colleagues agree to participate...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:14:57.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "There were fewer smiles on show as European and NATO leaders gathered for a photo in...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:08:32.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump, opening a meeting with European and NATO leaders at the White House, says...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:02:56.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump says he will ‘lead a movement’ to eliminate mail-in voting",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-mail-in-constitution-elections/",
+    "created_at": "2025-08-18T19:01:55.000Z",
+    "section": "",
+    "description": "The Constitution gives states the authority to regulate how elections are run, making it unlikely Trump can change voting rules unilaterally."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "As President Donald Trump met with Ukrainian President Volodymyr Zelensky and other European leaders, the Democratic...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T18:27:53.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump-Zelensky meeting has very different tone than last Oval Office encounter",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T18:14:05.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "A notable difference between President Donald Trump’s appearances with Russian President Vladimir Putin at Friday’s Alaska...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T18:01:10.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump appears to concede to Putin’s demands to continue bombing",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:57:39.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump said Monday he will call Russian President Vladimir Putin after his White House...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:54:03.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Zelensky dons dressier attire for second meeting with Trump",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:47:36.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump claims victory in his week-long war against D.C. crime",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:47:19.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump again backed off the need for an immediate ceasefire between Ukraine and Russia,...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:46:50.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump muses about a war allowing him to serve beyond 2028",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:46:11.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Democrats return to Texas, clearing way for GOP to draw new map",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/texas-redistricting-democrats-return/",
+    "created_at": "2025-08-18T17:44:49.000Z",
+    "section": "",
+    "description": "Texas Democratic lawmakers left two weeks ago to block a GOP plan to redraw the state’s congressional districts. They said they were returning now that California Democrats are adopting a counterproposal."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump said Monday that the United States would be “involved” in keeping peace in...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:39:01.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Trump said he believes Russian President Vladimir Putin is sincere when he says the war...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:35:25.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Inside the Oval Office, Ukrainian President Volodymyr Zelensky gave President Donald Trump a letter from his...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:34:59.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "President Donald Trump again raised the possibility Monday of a joint meeting with Russian President Vladimir...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:31:43.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Grateful smiles as European leaders arrive, despite dark agenda",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:30:33.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "While welcoming Ukrainian President Volodymyr Zelensky to the Oval Office, President Donald Trump said “there’s a...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:25:03.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Ukrainian President Volodymyr Zelensky has arrived at the White House for his meeting with President Donald...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:19:55.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Ahead of Ukrainian President Volodymyr Zelensky’s arrival, soldiers holding U.S. state flags lined the driveway to...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:08:46.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "There’s an unusual sequence Monday at the White House that’s a bit of a power move...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T17:03:49.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "European leaders are continuing to arrive at the White House for their meeting with President Donald...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:51:44.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Ukrainian President Volodymyr Zelensky shared a video on X showing smiles and hugs with European and...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:51:10.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Ursula von der Leyen, the president of the European Union Commission, marked her arrival in Washington...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:50:57.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Jules Witcover, political columnist who relished the horse race, dies at 98",
+    "url": "https://www.washingtonpost.com/obituaries/2025/08/18/jules-witcover-dead/",
+    "created_at": "2025-08-18T16:40:53.000Z",
+    "section": "",
+    "description": "He was one of the best-sourced political reporters of his generation, known for a long-running column he wrote with Baltimore Sun colleague Jack Germond."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "European and NATO leaders are beginning to arrive at the White House for meetings with Ukrainian...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:25:36.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Russia pounds Ukraine as Zelensky, Europe backers prepare to meet with Trump",
+    "url": "https://www.washingtonpost.com/world/2025/08/18/ukraine-russia-zelensky-trump-meeting/",
+    "created_at": "2025-08-18T16:16:32.000Z",
+    "section": "",
+    "description": "Zelensky and the European leaders are expected to push Trump on the nature of the security guarantees to protect Ukraine from future Russian attacks."
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Who is expected to attend Monday’s meeting",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:15:28.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Italian Prime Minister Giorgia Meloni has warned “there are no easy solutions” to ending the war...",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:05:32.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Thune says Senate is ready to provide ‘economic leverage’ in talks",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T16:01:38.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Trump security guarantees for Ukraine unclear to Europeans ahead of visit",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T15:50:24.000Z",
+    "section": "",
+    "description": ""
   },
   {
     "publisher_id": "wapo",
@@ -343,15 +643,6 @@
     "created_at": "2025-08-18T15:37:24.000Z",
     "section": "",
     "description": ""
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Live updates: Trump to host Zelensky, European leaders at White House for talks on Russia-Ukraine war",
-    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
-    "created_at": "2025-08-18T15:37:24.000Z",
-    "section": "",
-    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
   },
   {
     "publisher_id": "wapo",
@@ -379,15 +670,6 @@
     "created_at": "2025-08-18T15:07:24.000Z",
     "section": "",
     "description": ""
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Democrats are returning to Texas, clearing way for GOP to draw new map",
-    "url": "https://www.washingtonpost.com/politics/2025/08/18/texas-redistricting-democrats-return/",
-    "created_at": "2025-08-18T14:54:31.000Z",
-    "section": "",
-    "description": "Texas Democratic lawmakers left two weeks ago to block a GOP plan to redraw the state’s congressional districts. They said they were returning now that California Democrats are adopting a counterproposal."
   },
   {
     "publisher_id": "wapo",
@@ -440,15 +722,6 @@
     "title": "Former NATO supreme allied commander Adm. James Stavridis (U.S. Navy, Ret.) posted an AI-generated image on...",
     "url": "https://www.washingtonpost.com",
     "created_at": "2025-08-18T14:03:56.000Z",
-    "section": "",
-    "description": ""
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Who is expected to attend Monday’s meeting",
-    "url": "https://www.washingtonpost.com",
-    "created_at": "2025-08-18T13:50:28.000Z",
     "section": "",
     "description": ""
   },
@@ -514,15 +787,6 @@
     "created_at": "2025-08-18T13:00:17.000Z",
     "section": "",
     "description": ""
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Russia pounds Ukraine as Zelensky, Europe backers prepare to meet with Trump",
-    "url": "https://www.washingtonpost.com/world/2025/08/18/ukraine-russia-zelensky-trump-meeting/",
-    "created_at": "2025-08-18T12:42:34.000Z",
-    "section": "",
-    "description": "Zelensky and the European leaders are expected to push Trump on the nature of the security guarantees to protect Ukraine from future Russian attacks."
   },
   {
     "publisher_id": "wapo",
@@ -671,38 +935,38 @@
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Trump says Zelenskyy can end Russia war 'almost immediately' before White House meet",
-    "url": "https://abcnews.go.com/International/trump-zelenskyy-end-russia-war-immediately-white-house/story?id=124734583",
-    "created_at": "2025-08-18T12:13:14.000Z",
-    "section": "International",
-    "description": "President Donald Trump on Sunday teased what he said would be a \"big day\" as Ukrainian President Volodymyr Zelenskyy prepares for a White House meeting."
+    "title": "Key takeaways from Trump and Zelenskyy's Oval Office meeting to discuss Ukraine",
+    "url": "https://abcnews.go.com/Politics/key-takeaways-trump-zelenskyys-oval-office-meeting-discuss/story?id=124751645",
+    "created_at": "2025-08-18T19:01:25.000Z",
+    "section": "Politics",
+    "description": "President Donald Trump and Ukrainian President Volodymyr Zelenskyy's met at the White House for a high-stakes talks on Ukraine's future and Russia's invasion."
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
     "title": "LIVE:  ABC News Live",
     "url": "https://abcnews.go.com/Live/video/abcnews-live-41463246",
-    "created_at": "2025-08-15T23:54:19.000Z",
+    "created_at": "2025-08-18T19:41:37.000Z",
     "section": "Live",
     "description": "24/7 coverage of breaking news and live events"
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Deadly Russian drone, missile barrage on Ukraine marks Trump-Zelenskyy talks",
-    "url": "https://abcnews.go.com/International/russian-drone-strike-ukraine-apartments-kills-trump-zelenskyy/story?id=124735105",
-    "created_at": "2025-08-18T13:44:33.000Z",
-    "section": "International",
-    "description": "At least seven people, including two children, were killed by a Russian drone strike in the northeastern Ukrainian city of Kharkiv on Sunday night."
+    "title": "Texas Democrats return to state, clearing way for new congressional maps",
+    "url": "https://abcnews.go.com/Politics/texas-democrats-return-state-clearing-new-congressional-maps/story?id=124745691",
+    "created_at": "2025-08-18T19:01:25.000Z",
+    "section": "Politics",
+    "description": "Texas House Democrats returning to Austin after standoff over proposed congressional maps, potentially clearing the way for GOP to net as many as five U.S. House seats."
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Dominion Voting Systems settles defamation lawsuit with Newsmax for $67 million",
-    "url": "https://abcnews.go.com/US/dominion-voting-systems-settles-defamation-lawsuit-newsmax-2020/story?id=124743311",
-    "created_at": "2025-08-18T14:48:43.000Z",
-    "section": "US",
-    "description": "Voting machine company Dominion has settled its defamation lawsuit against conservative media outlet Newsmax for $67 million, according to an SEC filing from the outlet."
+    "title": "Measles outbreak that sickened more than 700 declared over in Texas",
+    "url": "https://abcnews.go.com/Health/measles-outbreak-sickened-700-declared-texas/story?id=124749372",
+    "created_at": "2025-08-18T19:35:01.000Z",
+    "section": "Health",
+    "description": "A measles outbreak in Texas that infected more than 700 people has officially been declared over, state health officials announced on Monday."
   },
   {
     "publisher_id": "abc",
@@ -896,38 +1160,47 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Top European Leaders Join Zelenskyy for WH Meeting With Trump",
-    "url": "https://www.today.com/video/trump-tells-zelenskyy-to-cede-crimea-not-join-nato-to-end-war-245188165611",
-    "created_at": "2025-08-18T11:17:33.000Z",
+    "title": "How Trump and Zelenskyy's second Oval Office meeting differed from the first",
+    "url": "https://www.nbcnews.com/video/how-trump-and-zelenskyy-s-second-oval-office-meeting-differed-from-the-first-245212741600",
+    "created_at": "2025-08-18T18:00:59.000Z",
     "section": "",
-    "description": "President Donald Trump is set to host Volodymyr Zelenskyy at the White House where the Ukrainian president will be joined by the leaders of France, Germany and the United Kingdom to present a united front in their efforts to end Russia’s war with Ukraine. It comes just days after Trump’s face-to-face with Putin in Alaska in which no agreements were reached. NBC’s Garrett Haake reports and Meet the Press moderator Kristen Welker provides analysis for TODAY."
+    "description": "NBC News' Peter Alexander and Keir Simmons report on how President Donald Trump's second meeting in the Oval Office with Ukrainian President Volodymyr Zelenskyy contrasted with their first meeting six months prior."
   },
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "What is Ukraine's Donbas region, and why is it so important in Trump talks?",
-    "url": "https://www.nbcnews.com/world/ukraine/ukraine-donbas-region-putin-trump-talks-war-russia-rcna225442",
-    "created_at": "2025-08-18T13:56:47.000Z",
+    "title": "Trump to meet with Merz, Starmer and Macron as Europe looms large in any peace deal",
+    "url": "https://www.nbcnews.com/politics/white-house/trump-pressures-ukraine-end-war-ahead-zelenskyy-meeting-rcna225476",
+    "created_at": "2025-08-18T07:30:40.000Z",
     "section": "",
-    "description": "The Donbas region of eastern Ukraine will be crucial to President Trump's talks with Zelenskyy and European leaders after his summit with Russia's Vladimir Putin. What is the Donbas and where is it?"
+    "description": "Ukraine’s President Volodymyr Zelenskyy meets with President Donald Trump at the White House, just days after Trump and Russia’s President Vladimir Putin left an Alaska summit without a ceasefire deal."
   },
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Texas Democrats return to the state, ending two-week standoff over redistricting",
+    "title": "Ukrainians watch peace talks as Russian bombing continues",
+    "url": "https://www.nbcnews.com/video/ukrainians-watch-peace-talks-as-russian-bombing-continues-245214789627",
+    "created_at": "2025-08-18T18:17:21.000Z",
+    "section": "",
+    "description": "Russia has continued to bomb Ukrainian civilians as peace talks to end the war are ongoing. NBC News’ Richard Engel details Ukrainian reaction to the meetings and what could happen to the people who may have to surrender to Russia."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Texas Republicans plan redistricting vote after Democrats end two-week standoff",
     "url": "https://www.nbcnews.com/politics/elections/texas-democrats-return-state-ending-two-week-standoff-redistricting-rcna225243",
     "created_at": "2025-08-18T14:18:57.000Z",
     "section": "",
-    "description": "Texas Democratic lawmakers said they had returned to the state Monday after a two-week absence that temporarily blocked Republican leaders from enacting a plan aimed at padding their party's majority in the U.S."
+    "description": "The Texas House gaveled in on Monday with a quorum for the first time in two weeks after Democratic lawmakers who fled the state returned following a standoff over Republicans' redistricting effort"
   },
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Hurricane Erin Restrengthens to Category 4: Where it's Headed",
-    "url": "https://www.today.com/video/hurricane-erin-restrengthens-to-category-4-what-to-expect-245187653689",
-    "created_at": "2025-08-18T11:24:12.000Z",
+    "title": "Climate change is increasing the risk of rapidly intensifying storms. Hurricane Erin is the latest example.",
+    "url": "https://www.nbcnews.com/science/science-news/climate-change-increasing-risk-rapidly-intensifying-storms-hurricane-e-rcna225568",
+    "created_at": "2025-08-18T19:20:24.000Z",
     "section": "",
-    "description": "After pummeling the Caribbean as a Category 3 hurricane over the weekend, Hurricane Erin has restrengthened to a Category 4 and is expected to bring life-threatening waves and rip currents up and down the East Coast. NBC’s Jesse Kirsch reports and TODAY’s Dylan Dreyer tracks the latest forecast."
+    "description": "Hurricane Erin strengthened back into a Category 4 behemoth over the weekend, the latest shift in what has been a remarkably fast-changing storm"
   },
   {
     "publisher_id": "nbc",
@@ -950,11 +1223,92 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Trump meets with Zelenskyy and European leaders",
-    "url": "https://www.nbcnews.com/video/watch-live-trump-meets-with-zelenskyy-and-european-leaders-245187653805",
-    "created_at": "2025-08-18T12:02:19.000Z",
+    "title": "Fake Labubu dolls known as 'Lafufus' are choking hazards that could kill kids, government warns",
+    "url": "https://www.nbcnews.com/news/us-news/fake-labubu-dolls-knows-lafufus-are-serious-choking-hazards-kill-kids-rcna225691",
+    "created_at": "2025-08-18T19:37:38.000Z",
     "section": "",
-    "description": "Watch live coverage as President Trump holds meetings with Ukrainian President Zelenskyy and other European leaders at the White House. This comes just days after Trump's meeting with Russian President Putin in Alaska on a potential ceasefire deal for the war in Ukraine."
+    "description": "The government is urging people to be wary of fake Labubu dolls known as \"Lafufus\" as the knock-off versions \"pose a serious risk of choking and death to young children.\""
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "White House holds press briefing",
+    "url": "https://www.nbcnews.com/video/watch-live-white-house-holds-press-briefing-236804677569",
+    "created_at": "2025-08-12T11:10:22.000Z",
+    "section": "",
+    "description": "Watch live coverage as White House Press Secretary Karoline Leavitt holds a press briefing."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Fake Labubu dolls known as 'Lafufus' are choking hazards that could kill kids, government warns",
+    "url": "https://www.nbcnews.com/news/us-news/fake-labubu-dolls-knows-lafufus-are-serious-choking-hazards-kill-kids-rcna225691",
+    "created_at": "2025-08-18T19:37:38.000Z",
+    "section": "",
+    "description": "The government is urging people to be wary of fake Labubu dolls known as \"Lafufus\" as the knock-off versions \"pose a serious risk of choking and death to young children.\""
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Police find 'inconsistencies' after mom says 7-month-old boy was kidnapped outside California store",
+    "url": "https://www.nbcnews.com/news/us-news/police-find-inconsistencies-mom-says-7-month-old-boy-was-kidnapped-cal-rcna225661",
+    "created_at": "2025-08-18T19:28:00.000Z",
+    "section": "",
+    "description": "Authorities searching for a 7-month-old boy who was reportedly kidnapped outside a California store said his mother has provided inconsistent statements, and foul play cannot be ruled out"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Climate change is increasing the risk of rapidly intensifying storms. Hurricane Erin is the latest example.",
+    "url": "https://www.nbcnews.com/science/science-news/climate-change-increasing-risk-rapidly-intensifying-storms-hurricane-e-rcna225568",
+    "created_at": "2025-08-18T19:20:24.000Z",
+    "section": "",
+    "description": "Hurricane Erin strengthened back into a Category 4 behemoth over the weekend, the latest shift in what has been a remarkably fast-changing storm"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Former MSU student says she got cancer after using chemicals school called 'harmless'",
+    "url": "https://www.nbcnews.com/news/us-news/former-michigan-state-student-says-got-cancer-using-chemicals-school-c-rcna225572",
+    "created_at": "2025-08-18T18:57:08.000Z",
+    "section": "",
+    "description": "A former Michigan State grad student blamed her thyroid cancer on the school, which allegedly told her that \"exposure was harmless\" when she worked with various pesticides and herbicides, she and her lawyers said on Monday"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Hundreds of thousands protest Gaza war as frustration grows in Israel about new offensive",
+    "url": "https://www.nbcnews.com/world/israel/israel-gaza-military-offensive-nationwide-protests-netanyahu-rcna225549",
+    "created_at": "2025-08-18T18:13:51.000Z",
+    "section": "",
+    "description": "Hundreds of thousands of people shouted slogans and booed mentions of Prime Minister Benjamin Netanyahu at nationwide protests across Israel about the Gaza war."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Nebraska college basketball player drowns in Utah reservoir",
+    "url": "https://www.nbcnews.com/news/us-news/nebraska-college-basketball-player-drowns-utah-reservoir-rcna225636",
+    "created_at": "2025-08-18T17:43:53.000Z",
+    "section": "",
+    "description": "A University of Nebraska Omaha basketball player was identified as a drowning victim at a reservoir in the Salt Lake City area over the weekend after divers recovered his body."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Newsmax to pay $67M to settle defamation lawsuit from voting machine company",
+    "url": "https://www.nbcnews.com/news/us-news/newsmax-pay-67m-settle-defamation-lawsuit-voting-machine-company-rcna225604",
+    "created_at": "2025-08-18T16:14:58.000Z",
+    "section": "",
+    "description": "The conservative cable news channel Newsmax will pay $67 million to settle a defamation lawsuit brought by the voting machine company Dominion over baseless claims that the 2020 presidential election was rigged, according to a new regulatory filing"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Storm tracker: Follow Hurricane Erin’s path, wind speeds and forecast",
+    "url": "https://www.nbcnews.com/weather/hurricanes/hurricane-erin-map-tracker-nyc-projection-category-tropical-storm-rcna225574",
+    "created_at": "2025-08-18T16:00:05.000Z",
+    "section": "",
+    "description": "The first hurricane of the 2025 Atlantic season is also one of the largest, fastest-growing hurricanes in recorded history"
   },
   {
     "publisher_id": "nbc",
@@ -977,83 +1331,11 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Texas Democrats return to the state, ending two-week standoff over redistricting",
+    "title": "Texas Republicans plan redistricting vote after Democrats end two-week standoff",
     "url": "https://www.nbcnews.com/politics/elections/texas-democrats-return-state-ending-two-week-standoff-redistricting-rcna225243",
     "created_at": "2025-08-18T14:18:57.000Z",
     "section": "",
-    "description": "Texas Democratic lawmakers said they had returned to the state Monday after a two-week absence that temporarily blocked Republican leaders from enacting a plan aimed at padding their party's majority in the U.S."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "What is Ukraine's Donbas region, and why is it so important in Trump talks?",
-    "url": "https://www.nbcnews.com/world/ukraine/ukraine-donbas-region-putin-trump-talks-war-russia-rcna225442",
-    "created_at": "2025-08-18T13:56:47.000Z",
-    "section": "",
-    "description": "The Donbas region of eastern Ukraine will be crucial to President Trump's talks with Zelenskyy and European leaders after his summit with Russia's Vladimir Putin. What is the Donbas and where is it?"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "MSNBC to change name to MS NOW amid spinoff from NBCUniversal",
-    "url": "https://www.nbcnews.com/business/media/msnbc-change-name-ms-now-spinoff-nbcuniversal-rcna225563",
-    "created_at": "2025-08-18T13:37:58.000Z",
-    "section": "",
-    "description": "MSNBC will change its name to MS Now, for My Source News Opinion World, and unveil a new logo this year as part of the cable news channel’s spinoff from the Comcast-owned media company NBCUniversal"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Air Canada suspends third-quarter and full-year guidance following 'unlawful' strike",
-    "url": "https://www.nbcnews.com/news/us-news/air-canada-suspends-third-quarter-full-year-guidance-unlawful-strike-rcna225556",
-    "created_at": "2025-08-18T13:37:48.000Z",
-    "section": "",
-    "description": "Air Canada is suspending its guidance for third-quarter and full-year operating results after the union defied back-to-work orders, which further halted the airline's plan to resume flights."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Hurricane Erin forecasted to bring life-threatening surf and rip currents as Category 4",
-    "url": "https://www.nbcnews.com/weather/hurricanes/hurricane-erin-forecasted-bring-life-threatening-surf-rip-currents-cat-rcna225540",
-    "created_at": "2025-08-18T12:28:56.000Z",
-    "section": "",
-    "description": "Hurricane Erin remains a Category 4 storm, forecast to bring life-threatening surf and rip currents across the U.S."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Ukraine brings reinforcements to Trump meeting, hoping to avoid another White House fiasco",
-    "url": "https://www.nbcnews.com/world/ukraine/trump-zelenskyy-talks-ukraine-european-leaders-putin-russia-peace-rcna225534",
-    "created_at": "2025-08-18T12:10:38.000Z",
-    "section": "",
-    "description": "European leaders will support Volodymyr Zelenskyy on Monday as President Trump fueled new alarm among Ukraine's allies after his summit with Vladimir Putin."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Former Sen. Sherrod Brown kicks off his bid for Vance's old Senate seat in Ohio",
-    "url": "https://www.nbcnews.com/politics/2026-election/sherrod-brown-vance-campaign-launch-senate-seat-ohio-rcna225277",
-    "created_at": "2025-08-18T11:02:41.000Z",
-    "section": "",
-    "description": "Former Sen. Sherrod Brown, D-Ohio, launched a comeback campaign Monday, setting the stage for a 2026 special election that could decide control of the Senate."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "The Trump ally fighting for criminal investigations of Obama, Biden and Clinton",
-    "url": "https://www.nbcnews.com/politics/trump-administration/trump-federal-investigations-obama-biden-clinton-rcna223075",
-    "created_at": "2025-08-18T09:30:41.000Z",
-    "section": "",
-    "description": "For three years, Mike Davis, a Republican lawyer, has pushed for federal criminal investigations of Hillary Clinton, Barack Obama, Joe Biden and senior FBI, CIA and Justice Department officials."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Trump tells Ukraine to give up Crimea and NATO hopes",
-    "url": "https://www.nbcnews.com/politics/white-house/trump-pressures-ukraine-end-war-ahead-zelenskyy-meeting-rcna225476",
-    "created_at": "2025-08-18T07:30:40.000Z",
-    "section": "",
-    "description": "Ukraine’s President Volodymyr Zelenskyy will meet with President Donald Trump on Monday afternoon at the White House, just days after Trump and Russia’s President Vladimir Putin left an Alaska summit without a ceasefire deal."
+    "description": "The Texas House gaveled in on Monday with a quorum for the first time in two weeks after Democratic lawmakers who fled the state returned following a standoff over Republicans' redistricting effort"
   },
   {
     "publisher_id": "nbc",
@@ -1076,6 +1358,15 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
+    "title": "FDA warns against using sunscreen mousse — here’s why",
+    "url": "https://www.nbcnews.com/select/shopping/mousse-sunscreen-dangers-rcna225010",
+    "created_at": "2025-08-14T19:57:01.000Z",
+    "section": "",
+    "description": "Mousse sunscreen may feel nice going on, but the FDA says the formula doesn’t comply with federal laws"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
     "title": "Sur La Table is having a major cookware sale: Get up to 70% off Le Creuset and more",
     "url": "https://www.nbcnews.com/select/shopping/sur-la-table-cookware-sale-deal-of-the-day-2025-rcna225247",
     "created_at": "2025-08-15T16:47:02.000Z",
@@ -1083,300 +1374,264 @@
     "description": "Sur La Table is having a Cookware Essentials sale, with items from Le Creuset, Staub, All-Clad and more up to 70% off. You can save on cookware and bakeware sets and individual accessories during the sale."
   },
   {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Best shoe racks, shelves and organizers of the year",
-    "url": "https://www.nbcnews.com/select/shopping/best-shoe-racks-rcna225196",
-    "created_at": "2025-08-15T15:56:42.000Z",
-    "section": "",
-    "description": "We found the best shoe rack options from Walmart, The Container Store and more, including metal and bamboo ones with multiple shelves that hold sneakers, sandals, boots, heels and much more."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Multiple gunmen sought after 3 people killed, 10 injured in shooting at Brooklyn club",
-    "url": "https://www.nbcnews.com/news/us-news/brooklyn-club-shooting-taste-of-the-city-lounge-rcna225446",
-    "created_at": "2025-08-17T11:03:31.000Z",
-    "section": "",
-    "description": "Three people were killed and another 10 were injured in an overnight shooting involving multiple gunmen at a Brooklyn nightclub, police said Sunday."
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Good News: Strangers share food, stories with potluck suppers in rural Maine",
-    "url": "https://www.nbcnews.com/video/good-news-strangers-share-food-stories-with-potluck-suppers-in-rural-maine-245172293741",
-    "created_at": "2025-08-17T23:27:06.000Z",
-    "section": "",
-    "description": "In rural Maine, a program called “Community Plate” is fighting loneliness and building community by encouraging strangers to share food and stories at potluck suppers. NBC News’ Hallie Jackson has the story."
-  },
-  {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Russian strikes on Ukraine continue ahead of Trump-Zelenskyy meeting",
-    "url": "https://www.cbsnews.com/news/russia-strikes-ukraine-continue-overnight-ahead-trump-zelenskyy-meeting/",
-    "created_at": "2025-08-18T15:38:51.000Z",
+    "title": "Labor Day 2025 is around the corner. Here's what to know.",
+    "url": "https://www.cbsnews.com/news/labor-day-2025-whats-open-and-closed/",
+    "created_at": "2025-08-18T19:51:32.000Z",
     "section": "",
-    "description": "Russian attacks on Ukraine continued overnight ahead of Ukrainian President Volodymyr Zelenskyy's meeting with President Trump in Washington on Monday."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "MSNBC to change its name to MS NOW and drop the peacock logo",
-    "url": "https://www.cbsnews.com/news/msnbc-name-change-ms-now-nbc-universal-versant-spinoff-peacock/",
-    "created_at": "2025-08-18T15:33:32.000Z",
-    "section": "",
-    "description": "The cable news channel is getting a new name and dropping NBC's peacock logo as part of a spinoff from NBC Universal."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Air Canada union ordered to end strike by noon on Monday",
-    "url": "https://www.cbsnews.com/news/air-canada-flight-attendants-strike-declared-illegal/",
-    "created_at": "2025-08-18T15:30:36.000Z",
-    "section": "",
-    "description": "Canadian regulators order union leaders to end Air Canada's work stoppage on Monday, while employees remain defiant."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Zelenskyy, European leaders to meet with Trump on Ukraine at White House",
-    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
-    "created_at": "2025-08-18T15:26:37.000Z",
-    "section": "",
-    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and several European leaders at the White House on Monday. Follow live updates."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Son of Norway's crown princess charged with rape, domestic violence",
-    "url": "https://www.cbsnews.com/news/norway-crown-princess-son-charged-4-rapes-marius-borg-hoiby/",
-    "created_at": "2025-08-18T15:23:46.000Z",
-    "section": "",
-    "description": "Marius Borg Hoiby has been under investigation since his arrest in August 2024 on suspicion of assaulting a girlfriend."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Face the Nation: Beshear, Goolsbee, Milgram",
-    "url": "https://www.cbsnews.com/video/face-the-nation-beshear-goolsbee-milgram/",
-    "created_at": "2025-08-18T15:18:09.000Z",
-    "section": "",
-    "description": "Missed the second half of the show? The latest on... the 2024 Presidential Election, U.S. economy and the medicinal use of ketamine"
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "2 police officers killed, 1 wounded in Utah shooting; suspect in custody",
-    "url": "https://www.cbsnews.com/news/police-officers-shot-utah-man-taken-into-custody/",
-    "created_at": "2025-08-18T15:17:14.000Z",
-    "section": "",
-    "description": "\"Upon arrival, they immediately began taking fire,\" police said. \"They requested additional units. And then stopped answering their radio.\""
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "What to expect from ongoing talks about the war in Ukraine",
-    "url": "https://www.cbsnews.com/video/what-to-expect-from-ongoing-talks-about-the-war-in-ukraine/",
-    "created_at": "2025-08-18T15:15:00.000Z",
-    "section": "",
-    "description": "CBS News national security contributor Sam Vinograd outlines where negotiations stand as Russia holds about 20% of Ukrainian territory and questions remain over security guarantees."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Millennials embrace \"find out\" parenting style with firm consequences",
-    "url": "https://www.cbsnews.com/video/millennials-embrace-find-out-parenting-style-with-firm-consequences/",
-    "created_at": "2025-08-18T15:14:00.000Z",
-    "section": "",
-    "description": "From sticking with soccer to finishing commitments, parents are using a no-nonsense approach. Author Michaeleen Doucleff explains the trend."
+    "description": "Wondering what will be open on Labor Day? Here's what to know."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
     "title": "Hurricane Erin likely to bring East Coast life-threatening surf, rip currents",
     "url": "https://www.cbsnews.com/news/hurricane-erin-track-path/",
-    "created_at": "2025-08-18T15:03:38.000Z",
+    "created_at": "2025-08-18T19:44:41.000Z",
     "section": "",
     "description": "Erin is the first hurricane to develop over the Atlantic this year, and meteorologists are closely tracking its path and forecast."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "8/18: CBS Morning News",
-    "url": "https://www.cbsnews.com/video/081825-cbs-morning-news/",
-    "created_at": "2025-08-18T15:00:09.000Z",
+    "title": "Watch: Trump meets with European leaders over Russia's war in Ukraine",
+    "url": "https://www.cbsnews.com/video/watch-trump-meets-with-european-leaders-over-russias-war-in-ukraine/",
+    "created_at": "2025-08-18T19:38:00.000Z",
     "section": "",
-    "description": "President Trump to meet with Ukrainian President Volodymyr Zelenskyy and European leaders at White House; Closing arguments underway in Jimmy Lai's national security trial in Hong Kong."
+    "description": "Leaders from European nations, including Ukrainian President Volodymyr Zelenskyy, spoke with President Trump at the White House Monday amid efforts to end Russia's war in Ukraine. Following remarks from the leaders, CBS News' Nancy Cordes, Samantha Vinograd and Robert Costa provided context."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Amazon Books reveals best cookbooks of the year so far",
-    "url": "https://www.cbsnews.com/video/amazon-books-reveals-best-cookbooks-of-the-year-so-far/",
-    "created_at": "2025-08-18T14:55:00.000Z",
+    "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
+    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
+    "created_at": "2025-08-18T19:33:06.000Z",
     "section": "",
-    "description": "Amazon Books editorial director Sarah Gelman shares her top cookbook picks of 2025."
+    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Leukemia survivors reunite at medical school and 102-year-old shines on baseball diamond",
-    "url": "https://www.cbsnews.com/video/leukemia-survivors-reunite-at-medical-school-and-102-year-old-shines-on-baseball-diamond/",
-    "created_at": "2025-08-18T14:55:00.000Z",
+    "title": "Is there an age limit when buying annuities?",
+    "url": "https://www.cbsnews.com/news/is-there-an-age-limit-when-buying-annuities/",
+    "created_at": "2025-08-18T19:24:37.000Z",
     "section": "",
-    "description": "In this \"Dear David\" episode, David Begnaud shares the reunion of Ellie Koerner and Dawson Nailor, childhood leukemia survivors now in medical school and 102-year-old Beatrice Stieber's first pitch."
+    "description": "Wondering if your age will keep you from buying an annuity? Here's what retirees and savers need to know today."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Magicians Penn Jillette and Teller celebrate 50 years with Radio City Music Hall performance",
-    "url": "https://www.cbsnews.com/video/magicians-penn-jillette-and-teller-celebrate-50-years-with-radio-city-music-hall-performance/",
-    "created_at": "2025-08-18T14:54:00.000Z",
+    "title": "Texas Legislature begins new special session, GOP resumes redistricting push as Democrats return",
+    "url": "https://www.cbsnews.com/video/texas-legislature-begins-second-special-session-new-redistricting-push-as-democrats-return/",
+    "created_at": "2025-08-18T19:09:00.000Z",
     "section": "",
-    "description": "Legendary magicians Penn Jillette and Teller mark five decades together with a milestone show at Radio City Music Hall, part of their anniversary tour that follows their record-breaking Las Vegas run. They join \"CBS Mornings.\""
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Pennsylvania superintendent makes violins for students to cut school costs",
-    "url": "https://www.cbsnews.com/video/pennsylvania-superintendent-makes-violins-for-students-to-cut-school-costs/",
-    "created_at": "2025-08-18T14:44:00.000Z",
-    "section": "",
-    "description": "As part of back-to-school season, a Pennsylvania superintendent is building violins in her office to save families hundreds in rental fees."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Cambridge Dictionary adds \"skibidi,\" \"delulu\" and more words",
-    "url": "https://www.cbsnews.com/news/cambridge-dictionary-new-words-skibidi-delulu-tradwife/",
-    "created_at": "2025-08-18T14:43:04.000Z",
-    "section": "",
-    "description": "Driven by social media and celebrities, Cambridge Dictionary has added thousands of new words over the last 12 months."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "How to save money on back-to-school supplies",
-    "url": "https://www.cbsnews.com/video/how-to-save-money-on-back-to-school-supplies/",
-    "created_at": "2025-08-18T14:43:00.000Z",
-    "section": "",
-    "description": "From dorm decor to pencils and backpacks, families are feeling the back-to-school pinch. CBS News MoneyWatch correspondent Kelly O'Grady shows how to cut costs on supplies."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "NBA and players' union launch review focusing on prop bets",
-    "url": "https://www.cbsnews.com/video/nba-and-players-union-launch-review-focusing-on-prop-bets/",
-    "created_at": "2025-08-18T14:35:00.000Z",
-    "section": "",
-    "description": "The NBA could tighten the rules on legal sports betting. The league and the players' union have launched a review, focusing on prop bets, where bettors wager on individual players. At least three players have been investigated, and one of them was banned from the league for allegedly manipulating his own performance to make money."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Protestors in Israel conduct nationwide strike, demand ceasefire and release of hostages",
-    "url": "https://www.cbsnews.com/video/protestors-in-israel-conduct-nationwide-strike-demand-ceasefire-and-release-of-hostages/",
-    "created_at": "2025-08-18T14:35:00.000Z",
-    "section": "",
-    "description": "Hundreds of thousands of people in Israel participated in protests across the country to demand the release of the remaining hostages in Gaza and an end to the war. CBS News' Leigh Kiniry reports."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "3 GOP governors sending National Guard troops to D.C.",
-    "url": "https://www.cbsnews.com/video/3-gop-governors-sending-national-guard-troops-to-d-c/",
-    "created_at": "2025-08-18T14:34:00.000Z",
-    "section": "",
-    "description": "The Republican governors of West Virginia, South Carolina and Ohio have said they're sending hundreds of their National Guard troops to join the military force already deployed in Washington, D.C. CBS News' Scott MacFarlane reports."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Key details Trump, Zelenskyy will discuss following Putin summit",
-    "url": "https://www.cbsnews.com/video/key-details-trump-zelenskyy-meeting-after-putin-summit/",
-    "created_at": "2025-08-18T14:33:00.000Z",
-    "section": "",
-    "description": "Ahead of President Trump's meeting with Ukrainian President Volodymyr Zelenskyy and other European leaders at the White House on Monday, CBS News political analyst Leslie Sanchez and former press secretary to Jill Biden, Michael LaRosa, discuss the key details following Mr. Trump's summit with Russian President Vladimir Putin."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Air Canada delays plans to restart operations amid flight attendant strike",
-    "url": "https://www.cbsnews.com/video/air-canada-delays-plans-to-restart-operations-amid-flight-attendant-strike/",
-    "created_at": "2025-08-18T14:33:00.000Z",
-    "section": "",
-    "description": "Many travelers remain stranded after 10,000 flight attendants for Air Canada went on strike early Saturday over failed negotiations regarding wages. On Sunday, Air Canada said it could not restart operations as planned after flight attendants ignored a government order to return to work. The carrier says it plans on resuming some flights on Monday."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Ukraine's Zelenskyy, E.U. leaders to meet with President Trump following Putin summit",
-    "url": "https://www.cbsnews.com/video/ukraines-zelenskyy-e-u-leaders-to-meet-with-president-trump-following-putin-summit/",
-    "created_at": "2025-08-18T14:29:00.000Z",
-    "section": "",
-    "description": "Ukrainian President Volodymyr Zelenskyy will be joined by European leaders as he meets with President Trump at the White House after the U.S. leader's summit with Russian President Vladimir Putin on Friday. Mr. Trump's special envoy Steve Witkoff, who was in the meeting with Putin, said the group will be discussing what to do about the 20% of Ukrainian territory that Russian troops currently control. CBS News' Nancy Cordes reports."
+    "description": "The Texas State House of Representatives could vote as early as this week on the state's controversial congressional redistricting plan after Gov. Greg Abbott called a second special legislative session with Democrats ending their boycott and returning to the state. CBS News correspondent Nidia Cavazos has more."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
     "title": "Texas House Democrats return to Austin as GOP redistricting push resumes",
     "url": "https://www.cbsnews.com/news/texas-house-democrats-return-redistricting-trump-abbott-newsom/",
-    "created_at": "2025-08-18T14:14:44.000Z",
+    "created_at": "2025-08-18T18:58:42.000Z",
     "section": "",
-    "description": "The Texas House is scheduled to try convening a quorum again at noon."
+    "description": "The Texas House gaveled in at noon with Democratic members present, marking an official end to the quorum break."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Trump to host Zelenskyy, Europeans at White House for Ukraine talks today",
-    "url": "https://www.cbsnews.com/news/trump-to-host-with-zelenskyy-europeans-at-white-house-today-for-talks-on-ukraine-war/",
-    "created_at": "2025-08-18T13:52:00.000Z",
+    "title": "Trump says he'll call Putin after meeting with Zelenskyy",
+    "url": "https://www.cbsnews.com/video/trump-says-hell-call-putin-after-meeting-with-zelenskyy/",
+    "created_at": "2025-08-18T18:55:00.000Z",
     "section": "",
-    "description": "President Trump is set to meet with Ukrainian President Volodymyr Zelenskyy and European leaders on Monday as the U.S. pursues a peace agreement between Russia and Ukraine."
+    "description": "President Trump said Monday that he would call Russian President Vladimir Putin following his White House meeting with Ukrainian President Volodymyr Zelenskyy. CBS News senior national security correspondent Charlie D'Agata has more."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Missing California mother and 8-month-old daughter found dead in canal, family says",
-    "url": "https://www.cbsnews.com/news/whisper-owen-sandra-mccarty-california-missing-mother-daughter-dead/",
-    "created_at": "2025-08-18T13:43:00.000Z",
+    "title": "Cambridge Dictionary adds \"skibidi,\" \"delulu\" and more words",
+    "url": "https://www.cbsnews.com/news/cambridge-dictionary-new-words-skibidi-delulu-tradwife/",
+    "created_at": "2025-08-18T18:48:16.000Z",
     "section": "",
-    "description": "Family says the bodies of a Sacramento County woman and her infant daughter have been found in their vehicle in a canal near Oakdale."
+    "description": "Driven by social media and celebrities, Cambridge Dictionary has added thousands of new words over the last 12 months."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Air Canada begins canceling flights ahead of possible strike",
-    "url": "https://www.cbsnews.com/news/air-canada-strike-flights-cancelled-flight-attendants/",
-    "created_at": "2025-08-18T12:51:20.000Z",
+    "title": "Trump administration to scrutinize \"good moral character\" for U.S. citizenship more thoroughly",
+    "url": "https://www.cbsnews.com/video/trump-administration-to-more-thoroughly-scrutinize-good-moral-character-for-us-citizenship/",
+    "created_at": "2025-08-18T18:47:00.000Z",
     "section": "",
-    "description": "A complete shutdown of the country's largest airline threatens to impact about 130,000 people a day."
+    "description": "Federal immigration officials are now being instructed to expand their criteria of a key requirement for U.S. citizenship. Demonstrating a \"good moral character\" has been a longstanding requirement for citizenship under both Republican and Democratic administrations, but that requirement was previously seen as fulfilled if an applicant has a clean criminal record. CBS News immigration and politics reporter Camilo Montoya-Galvez has more."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Here's what the hurricane categories mean",
-    "url": "https://www.cbsnews.com/news/hurricane-categories-what-the-ratings-scale-means/",
-    "created_at": "2025-08-18T12:30:00.000Z",
+    "title": "Many U.S. jobs are falling further behind inflation, study finds",
+    "url": "https://www.cbsnews.com/news/wages-income-falling-behind-inflation-jobs-profession-education-manufacturing/",
+    "created_at": "2025-08-18T18:43:11.000Z",
     "section": "",
-    "description": "The Saffir-Simpson Hurricane Wind Scale​ rates hurricanes on a scale from 1 to 5."
+    "description": "Incomes are still trailing inflation four years after the pandemic-era surge in prices, causing a financial pinch for many households."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "7 killed in pool hall shooting weeks after massacre at different pool hall",
-    "url": "https://www.cbsnews.com/news/pool-hall-mass-shooting-ecuador-deaths-latest-massacre/",
-    "created_at": "2025-08-18T10:26:00.000Z",
+    "title": "Newsmax to pay $67M to settle Dominion Voting Systems defamation case",
+    "url": "https://www.cbsnews.com/news/conservative-channel-newsmax-settlement-dominion-voting-systems-defamation-case/",
+    "created_at": "2025-08-18T18:40:58.000Z",
     "section": "",
-    "description": "A similar pool hall massacre took place last month in the southwestern tourist city of General Villamil Playas, leaving at least nine dead."
+    "description": "Newsmax will pay $67 million to settle a lawsuit accusing it of defaming the voting equipment company Dominion Voting Systems over its role in the 2020 election."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Putin agreed to allow NATO-style protection for Ukraine, Trump envoy says",
-    "url": "https://www.cbsnews.com/news/ukraine-russia-steve-witkoff-nato-security-guarantees/",
-    "created_at": "2025-08-18T03:02:00.000Z",
+    "title": "Internet slang like \"skibidi\" and \"delulu\" added to Cambridge Dictionary",
+    "url": "https://www.cbsnews.com/video/internet-slang-added-to-cambridge-dictionary/",
+    "created_at": "2025-08-18T18:40:00.000Z",
     "section": "",
-    "description": "Special U.S. envoy Steve Witkoff says Russian leader Vladimir Putin agreed to allow the U.S. and Europe to offer Ukraine a security guarantee resembling NATO's collective defense mandate."
+    "description": "The Cambridge Dictionary has added more than 6,000 words in the past year and many of them are based on internet culture. If you're not chronically online, here's what a few of the words mean."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Fake Labubu dolls pose threat to kids, safety watchdog says",
+    "url": "https://www.cbsnews.com/news/labubu-doll-real-popmart-choking-cpsc/",
+    "created_at": "2025-08-18T18:26:27.000Z",
+    "section": "",
+    "description": "\"Urgent safety warning\" from Consumer Product Safety Commission says Labubu knockoffs are dangerous. Here's how to spot a fake."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Cancer survivors reunite, hairstylist helps detect skin cancer",
+    "url": "https://www.cbsnews.com/news/dear-david-childhood-cancer-survivors-reunite-hairstylist-spots-skin-cancer/",
+    "created_at": "2025-08-18T18:25:08.000Z",
+    "section": "",
+    "description": "David Begnaud shares the reunion of childhood cancer survivors in medical school and the story of a hairstylist who spotted skin cancer on her client."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Rapper Snoop Dogg named Los Angeles Community Chairman for 2026 FIFA World Cup",
+    "url": "https://www.cbsnews.com/losangeles/news/snoop-dogg-2026-fifa-world-cup-community-chairman/",
+    "created_at": "2025-08-18T18:19:29.000Z",
+    "section": "",
+    "description": "Iconic rapper Snoop Dogg will help represent Los Angeles as the Community Chairman for the 2026 FIFA World Cup."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Trump and Zelenskyy have friendly Oval Office interaction in front of cameras",
+    "url": "https://www.cbsnews.com/video/trump-and-zelenskyy-have-friendlier-oval-office-interaction-in-front-of-cameras/",
+    "created_at": "2025-08-18T18:18:00.000Z",
+    "section": "",
+    "description": "President Trump and Ukrainian President Volodymyr Zelenskyy appeared before cameras in the Oval Office Monday amid efforts to end Russia's war in Ukraine. CBS News' Nancy Cordes and Holly Williams report."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Nipsey Hussle honored with LA Metro station renaming",
+    "url": "https://www.cbsnews.com/losangeles/news/nipsey-hussle-metro-station-renamed-los-angeles/",
+    "created_at": "2025-08-18T18:16:12.000Z",
+    "section": "",
+    "description": "The Los Angeles Metro has temporarily renamed the Hyde Park Station near Crenshaw Boulevard and Slauson Avenue the \"Nipsey Hussle Station.\""
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "How much interest will you pay on a $25,000 credit card balance each year?",
+    "url": "https://www.cbsnews.com/news/interest-charges-on-25000-credit-card-balance/",
+    "created_at": "2025-08-18T18:12:05.000Z",
+    "section": "",
+    "description": "A $25,000 credit card balance can rack up serious interest. Here's how much you could end up paying annually."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Democrats unveil maps of California's redistricting proposal",
+    "url": "https://www.cbsnews.com/news/democrats-unveil-california-congressional-redistricting-maps-plan/",
+    "created_at": "2025-08-18T18:09:53.000Z",
+    "section": "",
+    "description": "Democrats unveiled a proposal Friday that could give California's dominant political party an additional five U.S. House seats in a bid to win the fight to control Congress next year."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Gateway Church installs new lead pastor amid abuse scandal fallout",
+    "url": "https://www.cbsnews.com/texas/news/gateway-church-new-lead-pastor-daniel-floyd-robert-morris-abuse-scandal/",
+    "created_at": "2025-08-18T18:09:21.000Z",
+    "section": "",
+    "description": "Daniel Floyd and wife Tammie take the helm at Southlake megachurch as it seeks stability following abuse allegations against founding pastor Robert Morris."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Trump and Zelenskyy meet in Oval Office, speak to reporters | Special Report",
+    "url": "https://www.cbsnews.com/video/trump-meets-with-zelenskyy-special-report/",
+    "created_at": "2025-08-18T18:09:00.000Z",
+    "section": "",
+    "description": "President Trump and Ukrainian President Volodymyr Zelenskyy met at the White House and spoke to reporters Monday amid talks to end Russia's war in Ukraine. John Dickerson anchored CBS News' special report."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Many people using OTC birth control pills previously used nothing, study finds",
+    "url": "https://www.cbsnews.com/news/over-the-counter-birth-control-use-study/",
+    "created_at": "2025-08-18T17:40:19.000Z",
+    "section": "",
+    "description": "Two years ago, the first over-the-counter birth control pill was approved. Now, new research looks at who's switching to it and why."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Sinaloa cartel leader \"El Mayo\" set to plead guilty in U.S.",
+    "url": "https://www.cbsnews.com/news/sinaloa-cartel-leader-ismael-el-mayo-zambada-to-plead-guilty-us/",
+    "created_at": "2025-08-18T17:04:00.000Z",
+    "section": "",
+    "description": "Ismael \"El Mayo\" Zambada is accused of ordering torture, plotting murders and flooding the U.S. with cocaine, heroin and other illicit drugs."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Texas health officials declare measles outbreak in state is over",
+    "url": "https://www.cbsnews.com/news/measles-outbreak-texas-over-health-officials/",
+    "created_at": "2025-08-18T16:47:00.000Z",
+    "section": "",
+    "description": "The Texas Department of State Health Services declared the end of this year's measles outbreak, which has seen 762 confirmed cases​ and two deaths in the state."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Amazon Books shares top cookbooks of the summer",
+    "url": "https://www.cbsnews.com/video/amazon-books-reveals-best-cookbooks-of-the-year-so-far/",
+    "created_at": "2025-08-18T14:55:00.000Z",
+    "section": "",
+    "description": "Amazon Books editorial director Sarah Gelman shares some of her favorite summer cookbooks."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Swatch pulls \"slanted eye\" ad after Chinese social media uproar",
+    "url": "https://www.cbsnews.com/news/swatch-slanted-eye-ad-chinese-social-media-uproar/",
+    "created_at": "2025-08-18T11:42:00.000Z",
+    "section": "",
+    "description": "Swiss watchmaker Swatch has apologized and removed an ad featuring a model pulling the corners of his eyes after the image prompted accusations of racism and calls for a boycott on Chinese social media."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Sherrod Brown launches Senate comeback bid in Ohio for 2026",
+    "url": "https://www.cbsnews.com/news/sherrod-brown-launches-senate-comeback-bid-in-ohio-in-2026/",
+    "created_at": "2025-08-18T11:26:47.000Z",
+    "section": "",
+    "description": "Former Democratic Sen. Sherrod Brown announced a bid to once again represent Ohio in the Senate on Monday, nearly a year after his reelection effort in 2024 fell short."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Phoenix startup has creative housing solution",
+    "url": "https://www.cbsnews.com/news/phoenix-startup-turning-shipping-containers-into-shelters/",
+    "created_at": "2025-08-16T16:22:00.000Z",
+    "section": "",
+    "description": "Architect Brian Stark wants to tackle the country's affordable housing crisis — one shipping container at a time."
   }
 ]
