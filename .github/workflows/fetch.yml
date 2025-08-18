@@ -3,9 +3,10 @@ name: Fetch • Aggregate • X • Commit
 on:
   schedule:
     - cron: '0 7 * * *'      # daily 07:00 UTC
-  workflow_dispatch:
+  workflow_dispatch: {}
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -21,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       # ---- Node (RSS & insights) ----
-    - name: Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -41,6 +42,15 @@ jobs:
       - name: Aggregate RSS
         run: node scripts/aggregate.mjs
 
+      - name: LLM Insights (OpenAI)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -f scripts/llm_insights.mjs ]; then
+            node scripts/llm_insights.mjs
+          else
+            echo "llm_insights.mjs not present; skipping."
+          fi
 
       # ---- Python (X scraping) ----
       - name: Setup Python 3.11
