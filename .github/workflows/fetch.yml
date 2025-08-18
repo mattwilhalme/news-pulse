@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: write            # allow the job to push data/*.json
+  contents: write
 
 jobs:
   build:
@@ -26,9 +26,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Node deps
-        run: npm ci || npm i
-
       - name: Ingest RSS
         run: node scripts/ingest.mjs
 
@@ -38,7 +35,12 @@ jobs:
       - name: LLM Insights (OpenAI)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node scripts/llm_insights.mjs
+        run: |
+          if [ -f scripts/llm_insights.mjs ]; then
+            node scripts/llm_insights.mjs
+          else
+            echo "llm_insights.mjs not present; skipping."
+          fi
 
       # ---- Python (X scraping) ----
       - name: Setup Python 3.11
@@ -51,17 +53,29 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install snscrape
 
+      - name: Debug list
+        run: |
+          echo "== PWD ==" && pwd
+          echo "== ROOT ==" && ls -la
+          echo "== scripts ==" && ls -la scripts || true
+          echo "== data ==" && ls -la data || true
+
       - name: Ingest X posts (last 14 days)
         run: python scripts/x_ingest.py
 
-      - name: Aggregate X heatmaps
-        run: node scripts/x_aggregate.mjs
+      - name: Aggregate X heatmaps (if present)
+        run: |
+          if [ -f scripts/x_aggregate.mjs ]; then
+            node scripts/x_aggregate.mjs
+          else
+            echo "x_aggregate.mjs not present; skipping."
+          fi
 
       # ---- Commit results ----
       - name: Commit data
         run: |
           git config user.name "gh-bot"
           git config user.email "bot@example.com"
-          git add data/*.json
+          git add data/*.json || true
           git commit -m "data: refresh" || echo "no changes"
           git push
