@@ -170,86 +170,195 @@
   </div>
 
   <script>
-    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const hours = [...Array(24).keys()].map(h => h);
+    <script>
+  // ----- helpers -----
+  const PT = 'America/Los_Angeles';
+  const dayLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const hourLabels = Array.from({length:24},(_,i)=>i); // 0..23
+  const rotateFrom6 = (h)=> (h+18)%24; // not used in this version (we pass data already rotated by backend)
+  const fmtPT = (iso) => {
+    if (!iso) return '';
+    const d = new Date(iso);
+    const date = new Intl.DateTimeFormat('en-US',{timeZone:PT, month:'2-digit', day:'2-digit', year:'numeric'}).format(d);
+    const time = new Intl.DateTimeFormat('en-US',{timeZone:PT, hour:'numeric', minute:'2-digit'}).format(d);
+    return `${date}, ${time} PT`;
+  };
 
-    // Draw hour labels
-    function drawHours(containerId){
-      const el=document.getElementById(containerId);
-      el.innerHTML="";
-      hours.forEach(h=>{
-        const d=document.createElement("div");
-        d.textContent=h;
-        el.appendChild(d);
-      });
+  function buildHoursRow(elId){
+    const wrap = document.getElementById(elId);
+    wrap.innerHTML = '';
+    // 6AM..5AM labels
+    const labels = ['6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM','6PM','7PM','8PM','9PM','10PM','11PM','12AM','1AM','2AM','3AM','4AM','5AM'];
+    labels.forEach(l => {
+      const d = document.createElement('div');
+      d.textContent = l;
+      d.style.textAlign = 'center';
+      wrap.appendChild(d);
+    });
+  }
+
+  // Accepts either:
+  // A) 7x24 matrix -> return as-is
+  // B) flat objects [{dow,hour,value}] -> build 7x24
+  function normalizeToMatrix(data){
+    if (Array.isArray(data) && data.length && Array.isArray(data[0])) {
+      // looks like 7x24 already
+      return data;
     }
-    drawHours("x-links-hours");
-    drawHours("x-eng-hours");
-    drawHours("rss-hours");
+    // build matrix
+    const grid = Array.from({length:7},()=>Array.from({length:24},()=>0));
+    if (Array.isArray(data)) {
+      for (const r of data) {
+        const d = Number(r.dow), h = Number(r.hour), v = Number(r.value||0);
+        if (d>=0 && d<7 && h>=0 && h<24) grid[d][h] = v;
+      }
+    }
+    return grid;
+  }
 
-    // Heatmap drawing
-    function drawHeatmap(containerId,data){
-      const el=document.getElementById(containerId);
-      el.innerHTML="";
-      days.forEach((day,i)=>{
-        hours.forEach((h,j)=>{
-          const cell=document.createElement("div");
-          cell.className="cell";
-          const val=data?.[i]?.[j]||0;
-          const alpha=Math.min(1, val/10);
-          cell.style.background=`rgba(37,99,235,${alpha})`;
-          el.appendChild(cell);
-        });
-      });
+  function drawHeatmap(containerId, matrix){
+    const el = document.getElementById(containerId);
+    el.innerHTML = '';
+    // compute global max for scaling
+    let max = 0;
+    for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, Number(matrix[d][h]||0));
+    const scale = v => v ? (0.15 + 0.85*(v/max)) : 0;
+
+    // render 7 rows
+    for (let d=0; d<7; d++){
+      const row = document.createElement('div');
+      row.className = 'rowlab';
+
+      const lab = document.createElement('div');
+      lab.className = 'label';
+      lab.textContent = dayLabels[d];
+      row.appendChild(lab);
+
+      const grid = document.createElement('div');
+      grid.className = 'heatmap';
+
+      // order columns starting 6AM (6..23,0..5)
+      for (let i=0; i<24; i++){
+        const hour = (6 + i) % 24;
+        const v = Number(matrix[d][hour]||0);
+        const alpha = max ? scale(v) : 0;
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.style.background = `rgba(37,99,235,${alpha})`;
+        grid.appendChild(cell);
+      }
+      row.appendChild(grid);
+      el.appendChild(row);
+    }
+  }
+
+  async function fetchJSON(url){
+    const r = await fetch(url, {cache:'no-store'});
+    if (!r.ok) throw new Error(url+' not found');
+    return r.json();
+  }
+
+  // ----- build hours rows -----
+  buildHoursRow('x-links-hours');
+  buildHoursRow('x-eng-hours');
+  buildHoursRow('rss-hours');
+
+  (async () => {
+    // X Link heatmap: try preferred filename, then fallback
+    try {
+      let data;
+      try {
+        data = await fetchJSON('data/x_links_heatmap.json');
+      } catch {
+        data = await fetchJSON('data/x_heatmap_links.json');
+      }
+      drawHeatmap('x-links', normalizeToMatrix(data));
+    } catch {
+      document.getElementById('x-links').innerHTML = '<div class="hint">No X link heatmap data yet.</div>';
     }
 
-    // Load heatmap JSONs
-    fetch("data/x_links_heatmap.json").then(r=>r.json()).then(data=>{
-      drawHeatmap("x-links", data);
-    });
-    fetch("data/x_heatmap_engagement.json").then(r=>r.json()).then(data=>{
-      drawHeatmap("x-eng", data);
-    });
-    fetch("data/rss_heatmap.json").then(r=>r.json()).then(data=>{
-      drawHeatmap("rss", data);
-    });
+    // X Engagement heatmap (your file is x_heatmap_engagement.json)
+    try {
+      const data = await fetchJSON('data/x_heatmap_engagement.json');
+      drawHeatmap('x-eng', normalizeToMatrix(data));
+    } catch {
+      document.getElementById('x-eng').innerHTML = '<div class="hint">No X engagement heatmap data yet.</div>';
+    }
 
-    // Load tweets
-    fetch("data/x_posts.json").then(r=>r.json()).then(data=>{
-      const tweetsDiv=document.getElementById("tweets");
-      tweetsDiv.innerHTML="";
-      data.slice(0,5).forEach(t=>{
-        const div=document.createElement("div");
-        div.className="tweet";
-        div.innerHTML=`
-          <div class="meta">@${t.user} – ${t.date}</div>
-          <div>${t.text}</div>
-          <div class="eng">
-            <span>❤️ <b>${t.likes}</b></span>
-            <span>💬 <b>${t.replies}</b></span>
-            <span>🔁 <b>${t.retweets}</b></span>
-            <span>🔗 <b>${t.quotes}</b></span>
+    // RSS heatmap (if your filename is different, change here)
+    try {
+      // try a couple common names
+      let data;
+      try { data = await fetchJSON('data/rss_heatmap.json'); }
+      catch { data = await fetchJSON('data/heatmap.json'); }
+      drawHeatmap('rss', normalizeToMatrix(data));
+    } catch {
+      document.getElementById('rss').innerHTML = '<div class="hint">No RSS heatmap data yet.</div>';
+    }
+
+    // Latest 5 tweets (robust to key variants)
+    try {
+      const posts = await fetchJSON('data/x_posts.json');
+      const rows = (Array.isArray(posts) ? posts : []).filter(p => p.date).sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,5);
+
+      const box = document.getElementById('tweets');
+      box.classList.remove('hint');
+      box.innerHTML = rows.length ? '' : 'No X data yet.';
+
+      for (const p of rows){
+        const user = p.user || (p.user?.username) || '';
+        const url = p.url || '#';
+        const text = (p.content || p.text || '').replace(/\s+/g,' ').slice(0,240);
+        const likes = Number(p.likeCount ?? p.likes ?? 0);
+        const replies = Number(p.replyCount ?? p.replies ?? 0);
+        const rts = Number(p.retweetCount ?? p.retweets ?? 0);
+        const quotes = Number(p.quoteCount ?? p.quotes ?? 0);
+        const total = likes + replies + rts + quotes;
+
+        const div = document.createElement('div');
+        div.className = 'tweet';
+        div.innerHTML = `
+          <div class="meta">@${user} • ${fmtPT(p.date)} • <a href="${url}" target="_blank" rel="noopener">Open</a></div>
+          <div>${text}${(p.content||p.text||'').length>240?'…':''}</div>
+          <div class="eng" style="margin-top:6px">
+            <span>Likes<b>${likes}</b></span>
+            <span>Replies<b>${replies}</b></span>
+            <span>Retweets<b>${rts}</b></span>
+            <span>Quotes<b>${quotes}</b></span>
+            <span>Total<b>${total}</b></span>
           </div>`;
-        tweetsDiv.appendChild(div);
-      });
-    });
+        box.appendChild(div);
+      }
+    } catch {
+      document.getElementById('tweets').textContent = 'No X data yet.';
+    }
 
-    // Load posts
-    fetch("data/posts.json").then(r=>r.json()).then(data=>{
-      const tbody=document.querySelector("#posts-table tbody");
-      document.getElementById("posts-count").textContent = data.length+" items (last 14 days)";
-      tbody.innerHTML="";
-      data.slice(0,20).forEach(p=>{
-        const tr=document.createElement("tr");
-        tr.innerHTML=`<td>${p.publisher||""}</td><td><a href="${p.link}" target="_blank">${p.title}</a></td><td>${p.published}</td>`;
+    // Articles table (robust time fields)
+    try {
+      const data = await (async () => {
+        try { return await fetchJSON('data/posts.json'); }
+        catch { return await fetchJSON('data/rss_posts.json'); }
+      })();
+      document.getElementById('posts-count').textContent = `Showing ${data.length} items (last 14 days)`;
+      const tbody = document.querySelector('#posts-table tbody'); tbody.innerHTML = '';
+      data.slice(0,170).forEach(row => {
+        const pub = row.publisher || row.source || '';
+        const title = row.title || '';
+        const link = row.link || row.url || '#';
+        const t = row.published || row.pubDate || row.isoDate || row.date || '';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${pub}</td>
+          <td><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+          <td>${fmtPT(t)}</td>`;
         tbody.appendChild(tr);
       });
-    });
+    } catch {
+      document.getElementById('posts-count').textContent = 'No posts found.';
+    }
+  })();
+</script>
 
-    // Load summary
-    fetch("data/x_summary.json").then(r=>r.json()).then(meta=>{
-      document.getElementById("last-updated").textContent=meta.last_updated;
-    });
   </script>
 </body>
 </html>
