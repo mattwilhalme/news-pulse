@@ -128,6 +128,34 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
+    "title": "He Sold His Likeness. Now His Avatar Is Shilling Supplements on TikTok.",
+    "url": "https://www.nytimes.com/2025/08/17/business/tiktok-ai-avatars.html",
+    "created_at": "2025-08-17T09:00:32.000Z",
+    "section": {
+      "_": "TikTok (ByteDance)",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_org"
+      }
+    },
+    "description": "Welcome to a new era of commercial work fueled by generative artificial intelligence."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
+    "title": "Madison Avenue Is Starting to Love A.I.",
+    "url": "https://www.nytimes.com/2025/08/18/business/madison-avenue-is-starting-to-love-ai.html",
+    "created_at": "2025-08-18T15:16:04.000Z",
+    "section": {
+      "_": "Artificial Intelligence",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Advertisers are increasingly using generative artificial intelligence to make their commercials."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
     "title": "Spain Calls in More Soldiers to Fight Wildfires",
     "url": "https://www.nytimes.com/2025/08/18/world/europe/spain-wildfires-europe-heat.html",
     "created_at": "2025-08-18T16:23:31.000Z",
@@ -138,20 +166,6 @@
       }
     },
     "description": "Across the Iberian Peninsula, thousands are trying to quell deadly flames amid dangerously hot weather."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "As Heat Waves Intensify, Paris Plans for Record Temperatures",
-    "url": "https://www.nytimes.com/2025/08/18/world/europe/france-heat-wave-paris-climate-change-planning.html",
-    "created_at": "2025-08-18T09:00:48.000Z",
-    "section": {
-      "_": "Global Warming",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "City planners say the day when temperatures as high as 122 degrees Fahrenheit, or 50 Celsius, could stall the French capital is not far off. They are already starting to prepare."
   },
   {
     "publisher_id": "nyt",
@@ -268,6 +282,20 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
+    "title": "Manhattan Judges Approve Trump’s Choice for U.S. Attorney",
+    "url": "https://www.nytimes.com/2025/08/18/nyregion/jay-clayton-us-attorney-manhattan-trump.html",
+    "created_at": "2025-08-18T21:24:34.000Z",
+    "section": {
+      "_": "United States Politics and Government",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
+      }
+    },
+    "description": "Jay Clayton, whose Senate confirmation was stalled, could serve for the rest of the Trump presidency. He faced criticism after a prosecutor in his office was fired by the administration."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
     "title": "Two Gunmen in Attack at a Brooklyn Bar Were Among Those Killed",
     "url": "https://www.nytimes.com/2025/08/18/nyregion/brooklyn-lounge-shooting.html",
     "created_at": "2025-08-18T18:05:07.000Z",
@@ -278,20 +306,6 @@
       }
     },
     "description": "The Sunday morning shootout at Taste of the City Lounge in Crown Heights happened after a gang-related dispute, the police said."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Jules Witcover, Political Reporter and Columnist, Dies at 98",
-    "url": "https://www.nytimes.com/2025/08/18/business/media/jules-witcover-dead.html",
-    "created_at": "2025-08-18T18:32:00.000Z",
-    "section": {
-      "_": "Witcover, Jules (1927-2025)",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_per"
-      }
-    },
-    "description": "A journalist of the old school, he covered presidential races and political affairs for several newspapers and in many books, as well as in a long-running column, “Politics Today.”"
   },
   {
     "publisher_id": "wapo",
@@ -982,18 +996,18 @@
     "publisher_name": "ABC News",
     "title": "'Ketamine Queen,' woman who sold drugs to Matthew Perry, to plead guilty: DOJ",
     "url": "https://abcnews.go.com/US/ketamine-queen-woman-sold-drugs-friends-star-matthew/story?id=124758056",
-    "created_at": "2025-08-18T21:09:03.000Z",
+    "created_at": "2025-08-18T20:26:50.000Z",
     "section": "US",
     "description": "Jasveen Sangha has agreed to plead guilty to five federal charges, including selling actor Matthew Perry the dose of ketamine that caused his death in October 2023."
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Measles outbreak that sickened more than 700 declared over in Texas",
-    "url": "https://abcnews.go.com/Health/measles-outbreak-sickened-700-declared-texas/story?id=124749372",
-    "created_at": "2025-08-18T19:35:01.000Z",
-    "section": "Health",
-    "description": "A measles outbreak in Texas that infected more than 700 people has officially been declared over, state health officials announced on Monday."
+    "title": "'Skibidi,' 'delulu' and 'tradwife' among new words added to Cambridge Dictionary",
+    "url": "https://abcnews.go.com/GMA/Living/skibidi-delulu-tradwife-new-words-added-cambridge-dictionary/story?id=124753564",
+    "created_at": "2025-08-18T21:34:00.000Z",
+    "section": "GMA",
+    "description": "The terms have surged in use across social media, mainstream media and beyond."
   },
   {
     "publisher_id": "abc",
@@ -1268,6 +1282,15 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
+    "title": "Park ranger fired after helping drape a transgender pride flag on Yosemite's El Capitan",
+    "url": "https://www.nbcnews.com/nbc-out/out-politics-and-policy/park-ranger-fired-helping-drape-transgender-pride-flag-yosemites-el-ca-rcna225662",
+    "created_at": "2025-08-18T21:35:56.000Z",
+    "section": "",
+    "description": "Yosemite National Park fired a park ranger last week for hanging a transgender pride flag on the park’s iconic El Capitan rock formation in May."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
     "title": "Trump meets Zelenskyy, take two: From the Politics Desk",
     "url": "https://www.nbcnews.com/politics/politics-news/trump-meets-zelenskyy-take-two-politics-desk-rcna225716",
     "created_at": "2025-08-18T21:00:00.000Z",
@@ -1390,15 +1413,6 @@
     "created_at": "2025-08-14T19:57:01.000Z",
     "section": "",
     "description": "Mousse sunscreen may feel nice going on, but the FDA says the formula doesn’t comply with federal laws"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Sur La Table is having a major cookware sale: Get up to 70% off Le Creuset and more",
-    "url": "https://www.nbcnews.com/select/shopping/sur-la-table-cookware-sale-deal-of-the-day-2025-rcna225247",
-    "created_at": "2025-08-15T16:47:02.000Z",
-    "section": "",
-    "description": "Sur La Table is having a Cookware Essentials sale, with items from Le Creuset, Staub, All-Clad and more up to 70% off. You can save on cookware and bakeware sets and individual accessories during the sale."
   },
   {
     "publisher_id": "cbs",
