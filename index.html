@@ -6,46 +6,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
-      --bg: #0b1320;
-      --panel: #121a2b;
-      --panel-2: #0f1726;
-      --text: #e6ecff;
-      --muted: #9fb0d9;
-      --accent: #5aa9ff;
-      --accent-2: #2f6adf;
-      --border: #1f2940;
-      --good: #22d3ee;
+      --bg: #f7f8fb;          /* page background */
+      --card: #ffffff;        /* card background */
+      --border: #e6e8ee;      /* card/table borders */
+      --text: #1f2937;        /* primary text */
+      --muted: #6b7280;       /* muted text */
+      --accent: #2563eb;      /* links & buttons */
+      --accent-2: #1d4ed8;    /* button hover */
+      --shadow: 0 6px 18px rgba(0,0,0,.06);
+
+      /* heat colors (light -> dark blue) */
+      --heat-lo: #eaf2ff;
+      --heat-mid: #9dc2ff;
+      --heat-hi: #2b67f6;
     }
-    *{box-sizing:border-box}
-    body{ margin:0; font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text);}
-    a{ color: var(--accent); text-decoration: none;}
-    header{ padding: 22px 22px 0; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    header{ padding: 26px 22px 0; }
     .wrap{ max-width: 1200px; margin: 0 auto; padding: 0 22px 40px; }
-    h1{ font-size: 28px; margin: 0 0 6px;}
+    h1{ margin: 0 0 8px; font-size: 28px; }
     .muted{ color: var(--muted); }
-    .grid{ display:grid; gap:16px; grid-template-columns: 1fr 1fr; }
-    .card{ background: linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid var(--border); border-radius: 14px; padding: 16px 16px 18px; box-shadow: 0 4px 14px rgba(0,0,0,.25);}
-    .card h2{ margin:0 0 10px; font-size: 18px;}
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h2{ margin:0 0 10px; font-size: 18px; }
     .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    button{ background: var(--accent-2); color: #fff; border: 0; border-radius: 10px; padding: 8px 12px; cursor: pointer; font-weight:600; }
-    button:hover{ filter: brightness(1.1); }
-    table{ width: 100%; border-collapse: collapse; }
+    button{
+      background: var(--accent);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover{ background: var(--accent-2); }
+    table{ width: 100%; border-collapse: collapse; background: var(--card); }
     th, td{ padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; }
-    th{ color: var(--muted); font-weight:600; }
-    .kpi{ display:flex; gap:18px; }
-    .kpi .pill{ background: rgba(95,146,255,.1); border:1px solid var(--border); padding:8px 10px; border-radius: 12px; }
+    th{ color: var(--muted); font-weight: 600; }
+    .kpi{ display:flex; gap:18px; flex-wrap:wrap; }
+    .kpi .pill{
+      background: #f2f6ff;
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 12px;
+      min-width: 160px;
+    }
     .pill .label{ color: var(--muted); font-size: 12px; }
-    .pill .value{ font-weight: 700; font-size: 16px; }
+    .pill .value{ font-weight: 700; font-size: 16px; color: var(--text); }
+
     /* Heatmap */
     .heat-wrap{ overflow-x: auto; }
-    .heat-head{ display:grid; grid-template-columns: 80px repeat(24, 36px); gap:6px; align-items:end; margin-bottom: 6px; }
+    .heat-head{ display:grid; grid-template-columns: 80px repeat(24, 44px); gap:6px; align-items:end; margin-bottom: 6px; }
     .heat-head div{ text-align:center; color: var(--muted); font-size: 12px; }
-    .heat-grid{ display:grid; grid-template-columns: 80px repeat(24, 36px); gap:6px; }
+    .heat-grid{ display:grid; grid-template-columns: 80px repeat(24, 44px); gap:6px; }
     .dow{ color: var(--muted); font-size: 12px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; }
-    .cell{ width:36px; height:28px; border-radius:6px; border:1px solid var(--border); background:#0c1633; position:relative; }
-    .cell::after{ content: attr(data-count); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:10px; color:#dbeafe; opacity:0.0; }
+    .cell{
+      width:44px; height:28px; border-radius:6px;
+      border:1px solid var(--border);
+      background: var(--heat-lo);
+      position:relative;
+      transition: filter .12s ease;
+    }
+    .cell::after{
+      content: attr(data-count);
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; color:#0f172a; opacity:0.0;
+    }
+    .cell:hover{ filter: saturate(1.2) brightness(0.98); }
     .cell:hover::after{ opacity:0.9; }
     .legend{ color: var(--muted); font-size: 12px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -71,8 +114,10 @@
       </section>
 
       <section class="card">
-        <h2>Publish Heatmap (PT, 24-hour)</h2>
-        <div class="legend" style="margin-bottom:8px;">Rows = Sun→Sat, Columns = 0–23 (PT). Darker blue = more published items in that hour.</div>
+        <h2>Publish Heatmap (PT, starts 6:00 AM)</h2>
+        <div class="legend" style="margin-bottom:8px;">
+          Rows = Sun→Sat, Columns = <strong>6AM–11PM, 12AM–5AM PT</strong>. Darker blue = more published items in that hour.
+        </div>
         <div class="heat-wrap">
           <div class="heat-head" id="heatHead"></div>
           <div class="heat-grid" id="heatGrid"></div>
@@ -92,21 +137,22 @@
   </main>
 
 <script>
-// ----- Utilities -----
+/* ------- Config ------- */
 const PT_ZONE = 'America/Los_Angeles';
+const START_HOUR = 6; // display columns starting at 06:00 PT
 
+/* ------- Utilities ------- */
 function toPTDate(dIso){
   try{
     const d = new Date(dIso);
     const fmt = new Intl.DateTimeFormat('en-US', {
       timeZone: PT_ZONE,
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute:'2-digit', hour12: false
+      year:'numeric', month:'2-digit', day:'2-digit',
+      hour:'2-digit', minute:'2-digit', hour12:true
     });
     return fmt.format(d) + ' PT';
   }catch(e){ return dIso || ''; }
 }
-
 function getPTParts(dIso){
   const d = new Date(dIso);
   const dowName = new Intl.DateTimeFormat('en-US', { timeZone: PT_ZONE, weekday:'short' }).format(d);
@@ -115,16 +161,20 @@ function getPTParts(dIso){
   const hour = Number(new Intl.DateTimeFormat('en-US',{timeZone:PT_ZONE,hour:'2-digit',hour12:false}).format(d));
   return { dow, hour };
 }
-
+// 12h label formatter
+function formatHourLabel(h){
+  const suffix = h < 12 ? "AM" : "PM";
+  const hour12 = h % 12 === 0 ? 12 : h % 12;
+  return hour12 + suffix;
+}
 function csvEscape(s){
   if (s == null) return '';
   s = String(s);
-  if (s.includes('"') || s.includes(',') || s.includes('\\n')){
+  if (s.includes('"') || s.includes(',') || s.includes('\n')){
     return '"' + s.replace(/"/g,'""') + '"';
   }
   return s;
 }
-
 function downloadCSV(rows, filename='posts_pt.csv'){
   const header = ['publisher','title','url','published_pt','section'];
   const lines = [header.join(',')];
@@ -137,72 +187,94 @@ function downloadCSV(rows, filename='posts_pt.csv'){
       csvEscape(r.section || '')
     ].join(','));
   }
-  const blob = new Blob([lines.join('\\n')], {type:'text/csv;charset=utf-8;'});
+  const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = filename;
   document.body.appendChild(a);
-  a.click();
-  a.remove();
+  a.click(); a.remove();
 }
 
-// ----- Main -----
+/* ------- Main ------- */
 (async function(){
   const [posts, insights] = await Promise.all([
     fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
     fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
   ]);
 
+  // KPIs & insights
   document.getElementById('updated').textContent = insights.generated_at ? toPTDate(insights.generated_at) : '—';
   document.getElementById('total').textContent = insights?.metrics?.total_posts ?? posts.length;
-
   document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
   const ul = document.getElementById('bullets');
   (insights.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
 
+  // Build 7x24 grid from posts in PT
   const grid = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
   for (const p of posts){
     const {dow, hour} = getPTParts(p.created_at);
     grid[dow][hour] += 1;
   }
 
-  const hh = document.getElementById('heatHead');
-  hh.innerHTML = '<div></div>' + Array.from({length:24}, (_,h)=>`<div>${h}</div>`).join('');
+  // Column order starting at START_HOUR (06..23, then 00..05)
+  const cols = Array.from({length:24}, (_,i)=> (START_HOUR + i) % 24);
 
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  // Header labels in 12h AM/PM
+  const hh = document.getElementById('heatHead');
+  hh.innerHTML = '<div></div>' + cols.map(h => `<div>${formatHourLabel(h)}</div>`).join('');
+
+  // Heat color scale (darker = more). Interpolate light -> mid -> dark.
+  function lerp(a,b,t){ return a + (b-a)*t; }
+  function heatColor(v, max){
+    const t = max ? (v/max) : 0;
+    // rgb for lo(234,242,255), mid(157,194,255), hi(43,103,246)
+    let r, g, b;
+    if (t < 0.5){
+      const u = t/0.5;
+      r = Math.round(lerp(234,157,u));
+      g = Math.round(lerp(242,194,u));
+      b = Math.round(lerp(255,255,u));
+    } else {
+      const u = (t-0.5)/0.5;
+      r = Math.round(lerp(157,43,u));
+      g = Math.round(lerp(194,103,u));
+      b = Math.round(lerp(255,246,u));
+    }
+    return `rgb(${r},${g},${b})`;
+  }
+
+  // Render grid
   const hg = document.getElementById('heatGrid');
   let max = 1;
   for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, grid[d][h]);
-  function cellColor(v){
-    const t = v/max;
-    const r = Math.round(13 + (20 - 13)* (1-t));
-    const g = Math.round(27 + (60 - 27)* (1-t));
-    const b = Math.round(51 + (140 - 51)* (1-t));
-    return `rgb(${r},${g},${b})`;
-  }
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   let html = '';
   for (let d=0; d<7; d++){
     html += `<div class="dow">${days[d]}</div>`;
-    for (let h=0; h<24; h++){
+    for (const h of cols){
       const v = grid[d][h];
-      html += `<div class="cell" style="background:${cellColor(v)}" title="${days[d]} ${h}:00 PT — ${v} posts" data-count="${v}"></div>`;
+      html += `<div class="cell" style="background:${heatColor(v,max)}"
+                 title="${days[d]} ${formatHourLabel(h)} PT — ${v} posts"
+                 data-count="${v}"></div>`;
     }
   }
   hg.innerHTML = html;
 
+  // Table
   const tbody = document.querySelector('#table tbody');
   document.getElementById('count').textContent = `Showing ${posts.length} items (last 14 days)`;
-  posts.sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
-       .slice(0, 50)
-       .forEach(p => {
-         const tr = document.createElement('tr');
-         tr.innerHTML = `
-           <td>${p.publisher_name || ''}</td>
-           <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
-           <td>${toPTDate(p.created_at)}</td>
-         `;
-         tbody.appendChild(tr);
-       });
+  posts
+    .sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 50)
+    .forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${p.publisher_name || ''}</td>
+        <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
+        <td>${toPTDate(p.created_at)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
 
   document.getElementById('downloadCsv').addEventListener('click', ()=> downloadCSV(posts));
 })();
