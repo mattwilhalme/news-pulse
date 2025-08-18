@@ -1,0 +1,62 @@
+name: Build & Deploy Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Make sure only one Pages deploy runs at a time
+concurrency:
+  group: "pages-deploy"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Optional: Node only matters if you have a build step
+      - name: Setup Node (optional)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Detect site dir
+        id: sitedir
+        shell: bash
+        run: |
+          # If there's a build step in package.json, use dist/ as output; otherwise serve repo root.
+          if [ -f package.json ] && jq -re '.scripts.build' package.json >/dev/null 2>&1; then
+            npm ci || true
+            npm run build
+            echo "dir=dist" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload artifact to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.sitedir.outputs.dir }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
