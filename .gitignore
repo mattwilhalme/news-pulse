@@ -24,3 +24,7 @@ data/x_raw.json
 node_modules/
 data/x_raw.json
 
+
+# local envs
+.venv/
+node_modules/
