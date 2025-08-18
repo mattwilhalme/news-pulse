@@ -23,6 +23,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+            - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+
+      # 🔒 ensure no local envs get packed into the artifact
+      - name: Clean workspace (no local envs)
+        run: rm -rf .venv node_modules
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

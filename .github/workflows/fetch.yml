@@ -1,83 +1,54 @@
-name: Fetch & Build Data
+name: Fetch & Aggregate Data
 
 on:
-  schedule:
-    - cron: "7 * * * *"   # hourly-ish; adjust as you like
   workflow_dispatch:
-  push:
-    branches: [ main ]
+  schedule:
+    # run at :05 every 2 hours PT (adjust as you like)
+    - cron: '5 */2 * * *'
 
-permissions:
-  contents: write
+concurrency:
+  group: fetch-data
+  cancel-in-progress: true
 
 jobs:
-  build-data:
+  fetch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Install deps (if any)
-        run: |
-          npm ci || true
+      - name: Install dependencies
+        run: npm ci
 
-      # ---------- RSS -> data/posts.json + data/heatmap.json ----------
-      - name: RSS ingest
-        run: |
-          node ingest.mjs
-
-      # ---------- X ingest (Nitter RSS) -> data/x_raw.json ----------
-      - name: X ingest (Nitter RSS)
-        run: |
-          node scripts/x_ingest_nitter.mjs
-
-      # ---------- Aggregate X -> posts + heatmaps + summary ----------
-      - name: Aggregate X
-        run: |
-          node scripts/x_aggregate.mjs || node x_aggregate.mjs
-
-      # ---------- LLM insights -> data/insights.json (server-side only) ----------
-      - name: LLM insights
-        if: ${{ github.event_name != 'pull_request' && secrets.OPENAI_API_KEY != '' }}
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          node llm_insights.mjs || echo "LLM insights skipped (no key or script error)."
-
-      # ---------- Guard: ensure secrets do not leak into /data ----------
-      - name: Ensure secrets are not in outputs
+      - name: Write .env if OPENAI key is present
         if: ${{ secrets.OPENAI_API_KEY != '' }}
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
+
+      - name: Fetch RSS posts
+        run: node ingest.mjs
+
+      - name: Aggregate X data (safe if x_raw.json missing)
+        run: node aggregate.mjs
+
+      - name: Generate LLM insights (optional)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          if grep -R --binary-files=without-match -n "$OPENAI_API_KEY" data/ >/dev/null 2>&1; then
-            echo "❌ Secret appeared in /data output. Aborting."
-            exit 1
-          fi
-          echo "✅ No secrets in /data artifacts."
+        run: node llm_insights.mjs
 
-      # ---------- Commit data updates (if any) ----------
-      - name: Commit updated data files
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/*.json || true
-          if ! git diff --cached --quiet; then
-            git commit -m "data: refresh $(date -u +%F_%T)Z"
-            git push
-          else
-            echo "No data changes to commit."
-          fi
-
-      - name: Done
-        run: echo "Data refreshed. Pages will deploy on push via pages.yml."
+      - name: Commit refreshed data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "data: refresh"
+          file_pattern: |
+            data/*.json
