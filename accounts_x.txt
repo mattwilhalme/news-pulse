@@ -1,0 +1,8 @@
+nytimes
+washingtonpost
+WSJ
+AP
+CNN
+ABC
+NBCNews
+CBSNews
