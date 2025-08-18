@@ -3,7 +3,7 @@ name: Fetch & Aggregate Data
 on:
   workflow_dispatch:
   schedule:
-    # run at :05 every 2 hours PT (adjust as you like)
+    # run at :05 every 2 hours
     - cron: '5 */2 * * *'
 
 concurrency:
@@ -27,25 +27,53 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (tolerate none)
+        run: npm ci || true
 
+      # ------- Optional: write .env only if OPENAI key exists -------
       - name: Write .env if OPENAI key is present
-        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        shell: bash
         run: |
-          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
+          if [ -n "${OPENAI_API_KEY:-}" ]; then
+            echo "OPENAI_API_KEY=${OPENAI_API_KEY}" > .env
+            echo "Wrote .env with OPENAI_API_KEY"
+          else
+            echo "No OPENAI_API_KEY secret set; skipping .env"
+          fi
 
+      # ------- RSS ingest -> data/posts.json + data/heatmap.json -------
       - name: Fetch RSS posts
         run: node ingest.mjs
 
-      - name: Aggregate X data (safe if x_raw.json missing)
-        run: node aggregate.mjs
+      # ------- X ingest (Nitter) -> data/x_raw.json (already in repo script) -------
+      - name: X ingest (Nitter RSS)
+        run: node scripts/x_ingest_nitter.mjs || true
 
+      # ------- Aggregate -> x_* jsons; safe if x_raw.json absent -------
+      - name: Aggregate data
+        run: node scripts/x_aggregate.mjs || node x_aggregate.mjs || true
+
+      # ------- LLM insights (script should no-op if key missing) -------
       - name: Generate LLM insights (optional)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node llm_insights.mjs
+        run: node llm_insights.mjs || echo "LLM insights skipped."
 
+      # ------- Guard: ensure secret didn’t leak into /data -------
+      - name: Ensure secrets are not in outputs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        shell: bash
+        run: |
+          if [ -n "${OPENAI_API_KEY:-}" ] && grep -R --binary-files=without-match -n "$OPENAI_API_KEY" data/ >/dev/null 2>&1; then
+            echo "❌ Secret appeared in /data output. Aborting."
+            exit 1
+          fi
+          echo "✅ No secrets in /data."
+
+      # ------- Commit only data/*.json if changed -------
       - name: Commit refreshed data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
