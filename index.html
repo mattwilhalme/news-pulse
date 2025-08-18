@@ -6,7 +6,7 @@
   <title>News Pulse</title>
 
   <style>
-    :root {
+    :root{
       --bg:#f6f7fb;
       --card:#ffffff;
       --muted:#6b7280;
@@ -15,74 +15,38 @@
       --accent:#2563eb;
       --chip:#eef2ff;
     }
-    body {
+    *{box-sizing:border-box}
+    body{
       margin:0;
       font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:var(--text);
       background:var(--bg);
-      display:flex;
-      justify-content:center;
+      display:flex;justify-content:center;
     }
-    .wrap {
-      width:100%;
-      max-width:900px;
-      margin:24px auto;
-      padding:0 16px;
-    }
-    header{margin-bottom:16px;text-align:center}
+    .wrap{width:100%;max-width:900px;margin:24px auto;padding:0 16px}
+    header{text-align:center;margin-bottom:16px}
     h1{margin:0 0 4px;font-size:28px}
     .sub{color:var(--muted);font-size:13px}
 
-    .card {
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:16px;
-      margin-bottom:16px;
-    }
-    .card h2{margin:0 0 8px;font-size:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px}
+    .card h2{margin:0 0 8px;font-size:18px}
     .hint{color:var(--muted);font-size:12px}
 
-    /* Heatmap (smaller cells) */
-    /* Heatmap (smaller cells everywhere) */
-.heatmap {
-  display:grid;
-  grid-template-columns:repeat(24,14px);
-  gap:4px;
-  padding:10px;
-  border-radius:12px;
-  background:#fafafa;
-  border:1px dashed var(--border);
-}
-.cell {
-  width:14px;
-  height:14px;
-  border-radius:3px;
-  background:#e5e7eb;
-}
-.rowlab .label {
-  width:26px;
-  text-align:right;
-  color:var(--muted);
-  font-size:11px;
-}
-.hours {
-  display:grid;
-  grid-template-columns:repeat(24,14px);
-  gap:4px;
-  margin:0 0 8px 34px;
-  color:var(--muted);
-  font-size:9px;
-}
+    /* Heatmaps (14px cells) */
+    .heatmap{display:grid;grid-template-columns:repeat(24,14px);gap:4px;padding:10px;border-radius:12px;background:#fafafa;border:1px dashed var(--border)}
+    .cell{width:14px;height:14px;border-radius:3px;background:#e5e7eb}
+    .rowlab{display:flex;align-items:center;gap:8px;margin:4px 0}
+    .rowlab .label{width:26px;text-align:right;color:var(--muted);font-size:11px}
+    .hours{display:grid;grid-template-columns:repeat(24,14px);gap:4px;margin:0 0 8px 34px;color:var(--muted);font-size:9px}
 
     /* Tweets */
     .tweet{border-top:1px solid var(--border);padding:10px 0}
     .tweet:first-child{border-top:none}
-    .tweet .meta{color:var(--muted);font-size:12px;margin-bottom:4px}
+    .meta{color:var(--muted);font-size:12px;margin-bottom:4px}
     .eng{display:flex;gap:10px;color:var(--muted);font-size:12px;flex-wrap:wrap}
     .eng b{color:var(--text);margin-left:4px}
 
-    /* Articles */
+    /* Articles (dropdown) */
     details{border:1px solid var(--border);border-radius:14px;background:var(--card)}
     summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none}
     summary::-webkit-details-marker{display:none}
@@ -135,7 +99,7 @@
       <div id="rss" class="heatmap"></div>
     </section>
 
-    <!-- Insights + Articles -->
+    <!-- Insights -->
     <section class="card">
       <h2>Insights</h2>
       <div class="kv">
@@ -149,10 +113,11 @@
         </div>
       </div>
       <div style="margin-top:12px">
-        <a class="btn" href="data/posts.csv">Download CSV</a>
+        <a class="btn" href="data/posts.json" download>Download CSV</a>
       </div>
     </section>
 
+    <!-- Articles -->
     <section class="card">
       <details open>
         <summary>Recently Published Articles</summary>
@@ -169,179 +134,179 @@
     </section>
   </div>
 
-<script>
-  // ---------- helpers ----------
-  const PT = 'America/Los_Angeles';
-  const dayLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  <script>
+    // ----- helpers -----
+    const PT = 'America/Los_Angeles';
+    const dayLabels = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
-  function fmtPT(iso){
-    if(!iso) return '';
-    const d = new Date(iso);
-    const date = new Intl.DateTimeFormat('en-US',{timeZone:PT, month:'2-digit', day:'2-digit', year:'numeric'}).format(d);
-    const time = new Intl.DateTimeFormat('en-US',{timeZone:PT, hour:'numeric', minute:'2-digit'}).format(d);
-    return `${date}, ${time} PT`;
-  }
+    function fmtPT(iso){
+      if(!iso) return '';
+      const d = new Date(iso);
+      const date = new Intl.DateTimeFormat('en-US',{timeZone:PT, month:'2-digit', day:'2-digit', year:'numeric'}).format(d);
+      const time = new Intl.DateTimeFormat('en-US',{timeZone:PT, hour:'numeric', minute:'2-digit'}).format(d);
+      return `${date}, ${time} PT`;
+    }
 
-  function buildHoursRow(elId){
-    const el = document.getElementById(elId);
-    const labels = ['6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM',
-                    '6PM','7PM','8PM','9PM','10PM','11PM','12AM','1AM','2AM','3AM','4AM','5AM'];
-    el.innerHTML = '';
-    labels.forEach(t => { const d=document.createElement('div'); d.textContent=t; d.style.textAlign='center'; el.appendChild(d); });
-  }
+    function buildHoursRow(elId){
+      const el = document.getElementById(elId);
+      const labels = ['6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM',
+                      '6PM','7PM','8PM','9PM','10PM','11PM','12AM','1AM','2AM','3AM','4AM','5AM'];
+      el.innerHTML = '';
+      labels.forEach(t => { const d=document.createElement('div'); d.textContent=t; d.style.textAlign='center'; el.appendChild(d); });
+    }
 
-  // Accept 7x24 matrix OR flat [{dow,hour,value}]
-  function toMatrix(data){
-    if(Array.isArray(data) && data.length && Array.isArray(data[0])) return data;
-    const grid = Array.from({length:7}, ()=>Array.from({length:24}, ()=>0));
-    if(Array.isArray(data)){
-      for(const r of data){
-        const d = +r.dow, h = +r.hour, v = +r.value || 0;
-        if(d>=0 && d<7 && h>=0 && h<24) grid[d][h] = v;
+    // Accept 7x24 matrix OR flat [{dow,hour,value}]
+    function toMatrix(data){
+      if(Array.isArray(data) && data.length && Array.isArray(data[0])) return data;
+      const grid = Array.from({length:7}, ()=>Array.from({length:24}, ()=>0));
+      if(Array.isArray(data)){
+        for(const r of data){
+          const d = +r.dow, h = +r.hour, v = +r.value || 0;
+          if(d>=0 && d<7 && h>=0 && h<24) grid[d][h] = v;
+        }
+      }
+      return grid;
+    }
+
+    function drawHeatmap(containerId, matrix){
+      const el = document.getElementById(containerId);
+      el.innerHTML = '';
+      let max = 0;
+      for(let d=0; d<7; d++) for(let h=0; h<24; h++) max = Math.max(max, +matrix[d][h]||0);
+      const scale = v => v ? (0.15 + 0.85*(v/max)) : 0;
+
+      for(let d=0; d<7; d++){
+        const row = document.createElement('div');
+        row.className = 'rowlab';
+
+        const lab = document.createElement('div');
+        lab.className = 'label';
+        lab.textContent = dayLabels[d];
+        row.appendChild(lab);
+
+        const grid = document.createElement('div');
+        grid.className = 'heatmap';
+
+        // columns start at 6AM (6..23, 0..5)
+        for(let i=0;i<24;i++){
+          const hour = (6+i)%24;
+          const v = +matrix[d][hour] || 0;
+          const a = max ? scale(v) : 0;
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.style.background = `rgba(37,99,235,${a})`;
+          grid.appendChild(cell);
+        }
+
+        row.appendChild(grid);
+        el.appendChild(row);
       }
     }
-    return grid;
-  }
 
-  function drawHeatmap(containerId, matrix){
-    const el = document.getElementById(containerId);
-    el.innerHTML = '';
-    let max = 0;
-    for(let d=0; d<7; d++) for(let h=0; h<24; h++) max = Math.max(max, +matrix[d][h]||0);
-    const scale = v => v ? (0.15 + 0.85*(v/max)) : 0;
+    async function getJSON(path){
+      const r = await fetch(path, {cache:'no-store'});
+      if(!r.ok) throw new Error(`Fetch failed: ${path}`);
+      return r.json();
+    }
 
-    for(let d=0; d<7; d++){
-      const row = document.createElement('div');
-      row.className = 'rowlab';
+    // Build hours rows
+    buildHoursRow('x-links-hours');
+    buildHoursRow('x-eng-hours');
+    buildHoursRow('rss-hours');
 
-      const lab = document.createElement('div');
-      lab.className = 'label';
-      lab.textContent = dayLabels[d];
-      row.appendChild(lab);
-
-      const grid = document.createElement('div');
-      grid.className = 'heatmap';
-
-      // Start columns at 6AM: 6..23,0..5
-      for(let i=0;i<24;i++){
-        const hour = (6+i)%24;
-        const v = +matrix[d][hour] || 0;
-        const a = max ? scale(v) : 0;
-        const cell = document.createElement('div');
-        cell.className = 'cell';
-        cell.style.background = `rgba(37,99,235,${a})`;
-        grid.appendChild(cell);
+    (async () => {
+      // X heatmaps (exact filenames in /data)
+      try {
+        const links = await getJSON('data/x_heatmap_links.json');
+        drawHeatmap('x-links', toMatrix(links));
+      } catch {
+        document.getElementById('x-links').innerHTML = '<div class="hint">No X link heatmap data yet.</div>';
       }
 
-      row.appendChild(grid);
-      el.appendChild(row);
-    }
-  }
-
-  async function getJSON(path){
-    const r = await fetch(path, {cache:'no-store'});
-    if(!r.ok) throw new Error(`Fetch failed: ${path}`);
-    return r.json();
-  }
-
-  // Build hour rows
-  buildHoursRow('x-links-hours');
-  buildHoursRow('x-eng-hours');
-  buildHoursRow('rss-hours');
-
-  (async () => {
-    // ---- X heatmaps (exact filenames) ----
-    try {
-      const linksData = await getJSON('data/x_heatmap_links.json');
-      drawHeatmap('x-links', toMatrix(linksData));
-    } catch {
-      document.getElementById('x-links').innerHTML = '<div class="hint">No X link heatmap data yet.</div>';
-    }
-
-    try {
-      const engData = await getJSON('data/x_heatmap_engagement.json');
-      drawHeatmap('x-eng', toMatrix(engData));
-    } catch {
-      document.getElementById('x-eng').innerHTML = '<div class="hint">No X engagement heatmap data yet.</div>';
-    }
-
-    // ---- RSS heatmap ----
-    try {
-      const rssData = await getJSON('data/heatmap.json');
-      drawHeatmap('rss', toMatrix(rssData));
-    } catch {
-      document.getElementById('rss').innerHTML = '<div class="hint">No RSS heatmap data yet.</div>';
-    }
-
-    // ---- Latest tweets (top 5) from x_posts.json ----
-    try {
-      const posts = await getJSON('data/x_posts.json');
-      const rows = (Array.isArray(posts)?posts:[])
-        .filter(p => p.date)
-        .sort((a,b)=>new Date(b.date)-new Date(a.date))
-        .slice(0,5);
-
-      const box = document.getElementById('tweets');
-      box.classList.remove('hint');
-      box.innerHTML = rows.length ? '' : 'No X data yet.';
-
-      for(const p of rows){
-        const user = p.user || (p.user && p.user.username) || '';
-        const url = p.url || '#';
-        const text = (p.content || p.text || '').replace(/\s+/g,' ').slice(0,240);
-        const likes   = +(p.likeCount ?? p.likes ?? 0);
-        const replies = +(p.replyCount ?? p.replies ?? 0);
-        const rts     = +(p.retweetCount ?? p.retweets ?? 0);
-        const quotes  = +(p.quoteCount ?? p.quotes ?? 0);
-        const total   = likes + replies + rts + quotes;
-
-        const div = document.createElement('div');
-        div.className = 'tweet';
-        div.innerHTML = `
-          <div class="meta">@${user} • ${fmtPT(p.date)} • <a href="${url}" target="_blank" rel="noopener">Open</a></div>
-          <div>${text}${(p.content||p.text||'').length>240?'…':''}</div>
-          <div class="eng" style="margin-top:6px">
-            <span>Likes<b>${likes}</b></span>
-            <span>Replies<b>${replies}</b></span>
-            <span>Retweets<b>${rts}</b></span>
-            <span>Quotes<b>${quotes}</b></span>
-            <span>Total<b>${total}</b></span>
-          </div>`;
-        box.appendChild(div);
+      try {
+        const eng = await getJSON('data/x_heatmap_engagement.json');
+        drawHeatmap('x-eng', toMatrix(eng));
+      } catch {
+        document.getElementById('x-eng').innerHTML = '<div class="hint">No X engagement heatmap data yet.</div>';
       }
-    } catch {
-      document.getElementById('tweets').textContent = 'No X data yet.';
-    }
 
-    // ---- Insights + Recently Published Articles ----
-    try {
-      const s = await getJSON('data/x_summary.json');
-      document.getElementById('last-updated').textContent = fmtPT(s.generated_at || s.last_updated || new Date().toISOString());
-    } catch {
-      document.getElementById('last-updated').textContent = fmtPT(new Date().toISOString());
-    }
+      // RSS heatmap
+      try {
+        const rss = await getJSON('data/heatmap.json');
+        drawHeatmap('rss', toMatrix(rss));
+      } catch {
+        document.getElementById('rss').innerHTML = '<div class="hint">No RSS heatmap data yet.</div>';
+      }
 
-    try {
-      const items = await getJSON('data/posts.json');
-      document.getElementById('posts-count').textContent = `${items.length} items (last 14 days)`;
-      const tbody = document.querySelector('#posts-table tbody'); tbody.innerHTML='';
-      items.slice(0,200).forEach(row=>{
-        const pub = row.publisher || row.source || '';
-        const title = row.title || '';
-        const link = row.link || row.url || '#';
-        const t = row.published || row.pubDate || row.isoDate || row.date || '';
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${pub}</td>
-          <td><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
-          <td>${fmtPT(t)}</td>`;
-        tbody.appendChild(tr);
-      });
-    } catch {
-      document.getElementById('posts-count').textContent = 'No posts found.';
-    }
-  })();
-</script>
+      // Latest Tweets (5) from x_posts.json
+      try {
+        const posts = await getJSON('data/x_posts.json');
+        const rows = (Array.isArray(posts)?posts:[])
+          .filter(p => p.date)
+          .sort((a,b)=>new Date(b.date)-new Date(a.date))
+          .slice(0,5);
 
+        const box = document.getElementById('tweets');
+        box.classList.remove('hint');
+        box.innerHTML = rows.length ? '' : 'No X data yet.';
+
+        for(const p of rows){
+          const user = p.user || (p.user && p.user.username) || '';
+          const url = p.url || '#';
+          const text = (p.content || p.text || '').replace(/\s+/g,' ').slice(0,240);
+          const likes   = +(p.likeCount ?? p.likes ?? 0);
+          const replies = +(p.replyCount ?? p.replies ?? 0);
+          const rts     = +(p.retweetCount ?? p.retweets ?? 0);
+          const quotes  = +(p.quoteCount ?? p.quotes ?? 0);
+          const total   = likes + replies + rts + quotes;
+
+          const div = document.createElement('div');
+          div.className = 'tweet';
+          div.innerHTML = `
+            <div class="meta">@${user} • ${fmtPT(p.date)} • <a href="${url}" target="_blank" rel="noopener">Open</a></div>
+            <div>${text}${(p.content||p.text||'').length>240?'…':''}</div>
+            <div class="eng" style="margin-top:6px">
+              <span>Likes<b>${likes}</b></span>
+              <span>Replies<b>${replies}</b></span>
+              <span>Retweets<b>${rts}</b></span>
+              <span>Quotes<b>${quotes}</b></span>
+              <span>Total<b>${total}</b></span>
+            </div>`;
+          box.appendChild(div);
+        }
+      } catch {
+        document.getElementById('tweets').textContent = 'No X data yet.';
+      }
+
+      // Insights + Articles
+      try {
+        const meta = await getJSON('data/x_summary.json');
+        document.getElementById('last-updated').textContent =
+          fmtPT(meta.generated_at || meta.last_updated || new Date().toISOString());
+      } catch {
+        document.getElementById('last-updated').textContent = fmtPT(new Date().toISOString());
+      }
+
+      try {
+        const items = await getJSON('data/posts.json');
+        document.getElementById('posts-count').textContent = `${items.length} items (last 14 days)`;
+        const tbody = document.querySelector('#posts-table tbody'); tbody.innerHTML='';
+        items.slice(0,200).forEach(row=>{
+          const pub = row.publisher || row.source || '';
+          const title = row.title || '';
+          const link = row.link || row.url || '#';
+          const t = row.published || row.pubDate || row.isoDate || row.date || '';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${pub}</td>
+            <td><a href="${link}" target="_blank" rel="noopener">${title}</a></td>
+            <td>${fmtPT(t)}</td>`;
+          tbody.appendChild(tr);
+        });
+      } catch {
+        document.getElementById('posts-count').textContent = 'No posts found.';
+      }
+    })();
+  </script>
 </body>
 </html>
