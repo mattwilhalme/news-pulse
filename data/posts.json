@@ -46,7 +46,7 @@
     "publisher_name": "New York Times",
     "title": "Republican Bid to Help Trump Move Past Epstein Falls Flat",
     "url": "https://www.nytimes.com/2025/08/18/us/politics/republicans-epstein-files.html",
-    "created_at": "2025-08-18T20:14:26.000Z",
+    "created_at": "2025-08-18T20:14:27.000Z",
     "section": {
       "_": "United States Politics and Government",
       "$": {
@@ -60,7 +60,7 @@
     "publisher_name": "New York Times",
     "title": "Why Rip Currents From Hurricane Erin Are So Dangerous to the East Coast",
     "url": "https://www.nytimes.com/2025/08/18/weather/hurricane-erin-rip-current-east-coast-carolina.html",
-    "created_at": "2025-08-18T20:39:29.000Z",
+    "created_at": "2025-08-18T21:17:48.000Z",
     "section": {
       "_": "Hurricanes and Tropical Storms",
       "$": {
@@ -86,16 +86,16 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Protests Highlight Growing Discontent With Netanyahu and the Gaza War",
-    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-protests-gaza-netanyahu-hostages.html",
-    "created_at": "2025-08-18T13:40:58.000Z",
+    "title": "Israel Is in Talks to Send Gazans to South Sudan, Officials Say",
+    "url": "https://www.nytimes.com/2025/08/18/world/middleeast/israel-gazans-south-sudan.html",
+    "created_at": "2025-08-18T21:17:36.000Z",
     "section": {
       "_": "Israel-Gaza War (2023- )",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Many Israelis feel that freeing the hostages cannot happen if the government refuses to come to terms with Hamas and pursues its policy of trying to eliminate the group militarily."
+    "description": "Israel has broadened its push, so far unsuccessful, to persuade other countries to take in Gazans en masse. Critics say the relocation could violate international law."
   },
   {
     "publisher_id": "nyt",
@@ -184,6 +184,20 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
+    "title": "Air Canada Flight Attendants Remain on Strike After Walkout Deemed Illegal",
+    "url": "https://www.nytimes.com/2025/08/18/world/canada/air-canada-strike-flight-attendant-labor-board.html",
+    "created_at": "2025-08-18T17:35:42.000Z",
+    "section": {
+      "_": "Air Canada",
+      "$": {
+        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_org"
+      }
+    },
+    "description": "But the flight attendants’ union said its members would continue their walkout."
+  },
+  {
+    "publisher_id": "nyt",
+    "publisher_name": "New York Times",
     "title": "These Majestic Seabirds Never Stop Pooping",
     "url": "https://www.nytimes.com/2025/08/18/science/seabirds-never-stop-pooping.html",
     "created_at": "2025-08-18T15:00:06.000Z",
@@ -194,34 +208,6 @@
       }
     },
     "description": "Streaked shearwaters keep a very regular rhythm throughout their daily foraging flights, shedding about 5 percent of their body mass every hour."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Will Oil Demand Peak Soon? Trump Administration Doesn’t Want to Hear It.",
-    "url": "https://www.nytimes.com/2025/08/18/climate/iea-trump-energy-data-peak-oil.html",
-    "created_at": "2025-08-18T14:23:41.000Z",
-    "section": {
-      "_": "Global Warming",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "It is lashing out at the world’s leading energy organization for saying oil and gas use could start declining as the world pivots to cleaner alternatives."
-  },
-  {
-    "publisher_id": "nyt",
-    "publisher_name": "New York Times",
-    "title": "Oil and Gas Prices Are Falling, a Boon for Drivers, and Trump",
-    "url": "https://www.nytimes.com/2025/08/18/business/energy-environment/oil-gasoline-prices-trump.html",
-    "created_at": "2025-08-18T20:06:48.000Z",
-    "section": {
-      "_": "United States Politics and Government",
-      "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/des"
-      }
-    },
-    "description": "Plentiful supply and weak demand has helped bring down fuel prices, which President Trump has often cited as a measure of his success."
   },
   {
     "publisher_id": "nyt",
@@ -254,16 +240,16 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Air Canada Flight Attendants Remain on Strike After Walkout Deemed Illegal",
-    "url": "https://www.nytimes.com/2025/08/18/world/canada/air-canada-strike-flight-attendant-labor-board.html",
-    "created_at": "2025-08-18T17:35:42.000Z",
+    "title": "Oil and Gas Prices Are Falling, a Boon for Drivers, and Trump",
+    "url": "https://www.nytimes.com/2025/08/18/business/energy-environment/oil-gasoline-prices-trump.html",
+    "created_at": "2025-08-18T20:06:48.000Z",
     "section": {
-      "_": "Air Canada",
+      "_": "United States Politics and Government",
       "$": {
-        "domain": "http://www.nytimes.com/namespaces/keywords/nyt_org"
+        "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "But the flight attendants’ union said its members would continue their walkout."
+    "description": "Plentiful supply and weak demand has helped bring down fuel prices, which President Trump has often cited as a measure of his success."
   },
   {
     "publisher_id": "nyt",
@@ -978,7 +964,7 @@
     "publisher_name": "ABC News",
     "title": "Key takeaways from Trump and Zelenskyy's meeting, pivotal talks with European leaders",
     "url": "https://abcnews.go.com/Politics/key-takeaways-trump-zelenskyys-oval-office-meeting-discuss/story?id=124751645",
-    "created_at": "2025-08-18T21:03:12.000Z",
+    "created_at": "2025-08-18T21:19:11.000Z",
     "section": "Politics",
     "description": "President Donald Trump and Ukrainian President Volodymyr Zelenskyy's met at the White House for a high-stakes talks on Ukraine's future and Russia's invasion."
   },
@@ -1381,15 +1367,6 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Newsmax to pay $67M to settle defamation lawsuit from voting machine company",
-    "url": "https://www.nbcnews.com/news/us-news/newsmax-pay-67m-settle-defamation-lawsuit-voting-machine-company-rcna225604",
-    "created_at": "2025-08-18T16:14:58.000Z",
-    "section": "",
-    "description": "The conservative cable news channel Newsmax will pay $67 million to settle a defamation lawsuit brought by the voting machine company Dominion over baseless claims that the 2020 presidential election was rigged, according to a new regulatory filing"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
     "title": "Hand soap recall: What you need to know",
     "url": "https://www.nbcnews.com/select/shopping/hand-soap-recall-rcna224873",
     "created_at": "2025-08-14T13:50:38.000Z",
@@ -1413,6 +1390,24 @@
     "created_at": "2025-08-14T19:57:01.000Z",
     "section": "",
     "description": "Mousse sunscreen may feel nice going on, but the FDA says the formula doesn’t comply with federal laws"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Sur La Table is having a major cookware sale: Get up to 70% off Le Creuset and more",
+    "url": "https://www.nbcnews.com/select/shopping/sur-la-table-cookware-sale-deal-of-the-day-2025-rcna225247",
+    "created_at": "2025-08-15T16:47:02.000Z",
+    "section": "",
+    "description": "Sur La Table is having a Cookware Essentials sale, with items from Le Creuset, Staub, All-Clad and more up to 70% off. You can save on cookware and bakeware sets and individual accessories during the sale."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "2 police officers killed, 1 wounded in Utah shooting; suspect in custody",
+    "url": "https://www.cbsnews.com/news/police-officers-shot-utah-man-taken-into-custody/",
+    "created_at": "2025-08-18T21:18:12.000Z",
+    "section": "",
+    "description": "The officers were responding to a domestic disturbance call late Sunday in a neighborhood in Tremonton, Utah, police said."
   },
   {
     "publisher_id": "cbs",
@@ -1629,15 +1624,6 @@
     "created_at": "2025-08-18T18:26:27.000Z",
     "section": "",
     "description": "\"Urgent safety warning\" from Consumer Product Safety Commission says Labubu knockoffs are dangerous. Here's how to spot a fake."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Trump and Zelenskyy have friendly Oval Office interaction in front of cameras",
-    "url": "https://www.cbsnews.com/video/trump-and-zelenskyy-have-friendlier-oval-office-interaction-in-front-of-cameras/",
-    "created_at": "2025-08-18T18:18:00.000Z",
-    "section": "",
-    "description": "President Trump and Ukrainian President Volodymyr Zelenskyy appeared before cameras in the Oval Office Monday amid efforts to end Russia's war in Ukraine. CBS News' Nancy Cordes and Holly Williams report."
   },
   {
     "publisher_id": "cbs",
