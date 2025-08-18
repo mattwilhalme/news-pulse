@@ -102,7 +102,7 @@
     "publisher_name": "New York Times",
     "title": "Immigration Enforcement Takes Key Role in Trump’s D.C. Crime Crackdown",
     "url": "https://www.nytimes.com/2025/08/18/us/trump-immigration-dc-crime.html",
-    "created_at": "2025-08-18T20:19:41.000Z",
+    "created_at": "2025-08-18T21:10:23.000Z",
     "section": {
       "_": "Illegal Immigration",
       "$": {
@@ -128,16 +128,16 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Texas Democrats End Walkout Over Redistricting, Allowing Redrawn Map to Pass",
-    "url": "https://www.nytimes.com/2025/08/18/us/politics/redistricting-texas-maps.html",
-    "created_at": "2025-08-18T19:28:32.000Z",
+    "title": "Spain Calls in More Soldiers to Fight Wildfires",
+    "url": "https://www.nytimes.com/2025/08/18/world/europe/spain-wildfires-europe-heat.html",
+    "created_at": "2025-08-18T16:23:31.000Z",
     "section": {
-      "_": "United States Politics and Government",
+      "_": "Wildfires",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "A crowd of supporters cheered the Democratic lawmakers’ return, but Republicans are ready to approve the new congressional map called for by President Trump that Democrats tried to block."
+    "description": "Across the Iberian Peninsula, thousands are trying to quell deadly flames amid dangerously hot weather."
   },
   {
     "publisher_id": "nyt",
@@ -156,16 +156,16 @@
   {
     "publisher_id": "nyt",
     "publisher_name": "New York Times",
-    "title": "Spain Calls in More Soldiers to Fight Wildfires",
-    "url": "https://www.nytimes.com/2025/08/18/world/europe/spain-wildfires-europe-heat.html",
-    "created_at": "2025-08-18T16:23:31.000Z",
+    "title": "Dealer Known as ‘Ketamine Queen’ to Plead Guilty in Matthew Perry Case",
+    "url": "https://www.nytimes.com/2025/08/18/arts/television/matthew-perry-jasveen-singha-guilty-plea.html",
+    "created_at": "2025-08-18T20:33:17.000Z",
     "section": {
-      "_": "Wildfires",
+      "_": "Deaths (Fatalities)",
       "$": {
         "domain": "http://www.nytimes.com/namespaces/keywords/des"
       }
     },
-    "description": "Across the Iberian Peninsula, thousands are trying to quell deadly flames amid dangerously hot weather."
+    "description": "Jasveen Sangha will plead guilty to selling the ketamine that killed the “Friends” star, prosecutors said. She could face decades in prison."
   },
   {
     "publisher_id": "nyt",
@@ -935,7 +935,7 @@
     "url": "https://www.washingtonpost.com/politics/2025/08/18/trans-rights-bathroom-north-carolina/",
     "created_at": "2025-08-18T09:00:28.000Z",
     "section": "",
-    "description": "North Carolina shows how the politics of trans rights have shifted."
+    "description": "North Carolina’s Roy Cooper shows how the politics of trans rights have shifted."
   },
   {
     "publisher_id": "wapo",
@@ -994,20 +994,47 @@
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "Texas Democrats return to state, clearing way for new congressional maps",
-    "url": "https://abcnews.go.com/Politics/texas-democrats-return-state-clearing-new-congressional-maps/story?id=124745691",
-    "created_at": "2025-08-18T20:29:07.000Z",
-    "section": "Politics",
-    "description": "Texas House Democrats returning to Austin after standoff over proposed congressional maps, potentially clearing the way for GOP to net as many as five U.S. House seats."
+    "title": "'Ketamine Queen,' woman who sold drugs to Matthew Perry, to plead guilty: DOJ",
+    "url": "https://abcnews.go.com/US/ketamine-queen-woman-sold-drugs-friends-star-matthew/story?id=124758056",
+    "created_at": "2025-08-18T21:09:03.000Z",
+    "section": "US",
+    "description": "Jasveen Sangha has agreed to plead guilty to five federal charges, including selling actor Matthew Perry the dose of ketamine that caused his death in October 2023."
   },
   {
     "publisher_id": "abc",
     "publisher_name": "ABC News",
-    "title": "'Ketamine Queen,' woman who sold drugs to Matthew Perry, to plead guilty: DOJ",
-    "url": "https://abcnews.go.com/US/ketamine-queen-woman-sold-drugs-friends-star-matthew/story?id=124758056",
-    "created_at": "2025-08-18T21:04:01.000Z",
-    "section": "US",
-    "description": "Jasveen Sangha has agreed to plead guilty to five federal charges, including selling actor Matthew Perry the dose of ketamine that caused his death in October 2023."
+    "title": "Measles outbreak that sickened more than 700 declared over in Texas",
+    "url": "https://abcnews.go.com/Health/measles-outbreak-sickened-700-declared-texas/story?id=124749372",
+    "created_at": "2025-08-18T19:35:01.000Z",
+    "section": "Health",
+    "description": "A measles outbreak in Texas that infected more than 700 people has officially been declared over, state health officials announced on Monday."
+  },
+  {
+    "publisher_id": "abc",
+    "publisher_name": "ABC News",
+    "title": "WATCH:  President Trump and Ukrainian President Zelenskyy meet in Oval Office",
+    "url": "https://abcnews.go.com/Politics/video/president-trump-ukrainian-president-zelenskyy-meet-oval-office-124758482",
+    "created_at": "2025-08-18T21:00:07.000Z",
+    "section": "Politics",
+    "description": "President Trump welcomed Ukrainian President Volodymyr Zelenskyy to the White House as Trump continues to push for a deal to end the war in Ukraine."
+  },
+  {
+    "publisher_id": "abc",
+    "publisher_name": "ABC News",
+    "title": "WATCH:  President Trump meets with Ukrainian President Zelenskyy and European leaders",
+    "url": "https://abcnews.go.com/International/video/president-trump-meets-ukrainian-president-zelenskyy-european-leaders-124758693",
+    "created_at": "2025-08-18T21:02:49.000Z",
+    "section": "International",
+    "description": "President Trump has downplayed the need for a ceasefire agreement, but if there isn't a one \"before those peace agreement talks, then the killing will just keep going,\" ABC News' Martha Raddatz says."
+  },
+  {
+    "publisher_id": "abc",
+    "publisher_name": "ABC News",
+    "title": "WATCH:  President Trump pressed on security guarantees for Ukraine",
+    "url": "https://abcnews.go.com/International/video/president-trump-pressed-security-guarantees-ukraine-124759604",
+    "created_at": "2025-08-18T21:04:35.000Z",
+    "section": "International",
+    "description": "A repeated refrain from European leaders during remarks ahead of their meeting was the need for security guarantees for Ukraine."
   },
   {
     "publisher_id": "abc",
@@ -1172,33 +1199,6 @@
     "description": "The widows of hockey player brothers Matthew and Johnny Gaudreau are speaking out about their grief nearly one year after their husbands were killed by an alleged drunk driver."
   },
   {
-    "publisher_id": "abc",
-    "publisher_name": "ABC News",
-    "title": "WATCH:  Man scolds koala after rescuing it from busy road",
-    "url": "https://abcnews.go.com/International/video/man-scolds-koala-after-rescuing-busy-road-124590344",
-    "created_at": "2025-08-12T22:07:30.000Z",
-    "section": "International",
-    "description": "\"You tell him, grandpa!\" A man helped a koala cross a busy road in Australia, but gave it a stern talking to before setting it free."
-  },
-  {
-    "publisher_id": "abc",
-    "publisher_name": "ABC News",
-    "title": "WATCH:  Raccoon enjoys windy ride in the back of a pickup truck on California highway",
-    "url": "https://abcnews.go.com/US/video/raccoon-enjoys-windy-ride-back-pickup-truck-california-124629011",
-    "created_at": "2025-08-13T22:25:03.000Z",
-    "section": "US",
-    "description": "A raccoon enjoyed the California summer breeze as it hitched a ride in the back of a driver's pickup truck."
-  },
-  {
-    "publisher_id": "abc",
-    "publisher_name": "ABC News",
-    "title": "WATCH:  100-year-old World War II veteran flies same type of plane he flew in combat missions",
-    "url": "https://abcnews.go.com/WNT/video/100-year-world-war-ii-veteran-flies-same-124589047",
-    "created_at": "2025-08-13T00:20:36.000Z",
-    "section": "WNT",
-    "description": "David Muir shares the story of World War II veteran Joseph Peterburs and the moment he was cleared for takeoff at the controls of the same type of plane he flew 125 combat missions in."
-  },
-  {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
     "title": "How Trump and Zelenskyy's second Oval Office meeting differed from the first",
@@ -1282,6 +1282,24 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
+    "title": "Trump meets Zelenskyy, take two: From the Politics Desk",
+    "url": "https://www.nbcnews.com/politics/politics-news/trump-meets-zelenskyy-take-two-politics-desk-rcna225716",
+    "created_at": "2025-08-18T21:00:00.000Z",
+    "section": "",
+    "description": "In today’s edition, we have the latest on President Donald Trump’s meeting with Ukraine’s Volodymyr Zelenskyy and Republicans’ redistricting plans in Texas now that a group of Democratic lawmakers have returned home."
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Man's body found in RV as crews clear San Jose encampment",
+    "url": "https://www.nbcnews.com/news/us-news/mans-body-found-rv-crews-clear-san-jose-encampment-rcna225705",
+    "created_at": "2025-08-18T20:57:30.000Z",
+    "section": "",
+    "description": "As San Jose crews began clearing a homeless encampment Monday morning at Columbus Park, they found a man’s body inside an RV, police confirmed"
+  },
+  {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
     "title": "Woman says raw milk sickened her toddler and led to loss of unborn baby, sues Florida dairy farm",
     "url": "https://www.nbcnews.com/news/us-news/woman-says-raw-milk-sickened-toddler-led-loss-unborn-baby-sues-florida-rcna225658",
     "created_at": "2025-08-18T20:47:00.000Z",
@@ -1291,7 +1309,7 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "A Ryder Cup putt changed his life. Now he’s the captain of the United States team.",
+    "title": "A Ryder Cup putt changed his life. Now he's the captain of the United States team.",
     "url": "https://www.nbcnews.com/sports/golf/ryder-cup-keegan-bradley-captain-golf-rcna225674",
     "created_at": "2025-08-18T20:43:28.000Z",
     "section": "",
@@ -1372,15 +1390,6 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Storm tracker: Follow Hurricane Erin’s path, wind speeds and forecast",
-    "url": "https://www.nbcnews.com/weather/hurricanes/hurricane-erin-map-tracker-nyc-projection-category-tropical-storm-rcna225574",
-    "created_at": "2025-08-18T16:00:05.000Z",
-    "section": "",
-    "description": "The first hurricane of the 2025 Atlantic season is also one of the largest, fastest-growing hurricanes in recorded history"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
     "title": "Hand soap recall: What you need to know",
     "url": "https://www.nbcnews.com/select/shopping/hand-soap-recall-rcna224873",
     "created_at": "2025-08-14T13:50:38.000Z",
@@ -1406,13 +1415,40 @@
     "description": "Mousse sunscreen may feel nice going on, but the FDA says the formula doesn’t comply with federal laws"
   },
   {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
-    "title": "Sur La Table is having a major cookware sale: Get up to 70% off Le Creuset and more",
-    "url": "https://www.nbcnews.com/select/shopping/sur-la-table-cookware-sale-deal-of-the-day-2025-rcna225247",
-    "created_at": "2025-08-15T16:47:02.000Z",
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Hollywood's \"Ketamine Queen\" agrees to plead guilty to federal drug charges linked to Matthew Perry's death",
+    "url": "https://www.cbsnews.com/losangeles/news/ketamine-queen-plead-guilty-matthew-perry-drug-charges-death/",
+    "created_at": "2025-08-18T21:14:03.000Z",
     "section": "",
-    "description": "Sur La Table is having a Cookware Essentials sale, with items from Le Creuset, Staub, All-Clad and more up to 70% off. You can save on cookware and bakeware sets and individual accessories during the sale."
+    "description": "Jasveen Sangha, 42, agreed to plead guilty to one count of maintaining a drug-involved premises, three counts of distribution of ketamine, and one count of distribution of ketamine resulting in death or serious bodily injury."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
+    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
+    "created_at": "2025-08-18T21:07:04.000Z",
+    "section": "",
+    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "7/14: The Takeout with Major Garrett",
+    "url": "https://www.cbsnews.com/video/071425-the-takeout/",
+    "created_at": "2025-08-18T21:06:35.000Z",
+    "section": "",
+    "description": "Trump gives Russia a 50-day deadline to make peace; Trump crowns Chelsea at FIFA Club World Cup final as FIFA opens office in Trump Tower"
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "8/18: CBS Mornings Plus",
+    "url": "https://www.cbsnews.com/video/081825-cbs-mornings-plus/",
+    "created_at": "2025-08-18T21:06:35.000Z",
+    "section": "",
+    "description": "Hurricane Erin could bring life-threatening surf to the East Coast. Also, why millennials are turning tough love into a trend."
   },
   {
     "publisher_id": "cbs",
@@ -1467,15 +1503,6 @@
     "created_at": "2025-08-18T20:16:13.000Z",
     "section": "",
     "description": "In 2023, artificial intelligence pioneer Geoffrey Hinton shared his thoughts on AI's benefits and dangers with Scott Pelley, warning that there was no guaranteed path to safety as AI advanced."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
-    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
-    "created_at": "2025-08-18T20:14:31.000Z",
-    "section": "",
-    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
   },
   {
     "publisher_id": "cbs",
@@ -1579,20 +1606,20 @@
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Internet slang like \"skibidi\" and \"delulu\" added to Cambridge Dictionary",
-    "url": "https://www.cbsnews.com/video/internet-slang-added-to-cambridge-dictionary/",
-    "created_at": "2025-08-18T18:40:00.000Z",
-    "section": "",
-    "description": "The Cambridge Dictionary has added more than 6,000 words in the past year and many of them are based on internet culture. If you're not chronically online, here's what a few of the words mean."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
     "title": "Newsmax to pay $67M to settle Dominion Voting Systems defamation case",
     "url": "https://www.cbsnews.com/news/conservative-channel-newsmax-settlement-dominion-voting-systems-defamation-case/",
     "created_at": "2025-08-18T18:40:00.000Z",
     "section": "",
     "description": "Newsmax will pay $67 million to settle a lawsuit accusing it of defaming the voting equipment company Dominion Voting Systems over its role in the 2020 election."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Internet slang like \"skibidi\" and \"delulu\" added to Cambridge Dictionary",
+    "url": "https://www.cbsnews.com/video/internet-slang-added-to-cambridge-dictionary/",
+    "created_at": "2025-08-18T18:40:00.000Z",
+    "section": "",
+    "description": "The Cambridge Dictionary has added more than 6,000 words in the past year and many of them are based on internet culture. If you're not chronically online, here's what a few of the words mean."
   },
   {
     "publisher_id": "cbs",
@@ -1606,29 +1633,11 @@
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Cancer survivors reunite, hairstylist helps detect skin cancer",
-    "url": "https://www.cbsnews.com/news/dear-david-childhood-cancer-survivors-reunite-hairstylist-spots-skin-cancer/",
-    "created_at": "2025-08-18T18:25:08.000Z",
-    "section": "",
-    "description": "David Begnaud shares the reunion of childhood cancer survivors in medical school and the story of a hairstylist who spotted skin cancer on her client."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
     "title": "Trump and Zelenskyy have friendly Oval Office interaction in front of cameras",
     "url": "https://www.cbsnews.com/video/trump-and-zelenskyy-have-friendlier-oval-office-interaction-in-front-of-cameras/",
     "created_at": "2025-08-18T18:18:00.000Z",
     "section": "",
     "description": "President Trump and Ukrainian President Volodymyr Zelenskyy appeared before cameras in the Oval Office Monday amid efforts to end Russia's war in Ukraine. CBS News' Nancy Cordes and Holly Williams report."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Trump and Zelenskyy meet in Oval Office, speak to reporters | Special Report",
-    "url": "https://www.cbsnews.com/video/trump-meets-with-zelenskyy-special-report/",
-    "created_at": "2025-08-18T18:09:00.000Z",
-    "section": "",
-    "description": "President Trump and Ukrainian President Volodymyr Zelenskyy met at the White House and spoke to reporters Monday amid talks to end Russia's war in Ukraine. John Dickerson anchored CBS News' special report."
   },
   {
     "publisher_id": "cbs",
@@ -1647,15 +1656,6 @@
     "created_at": "2025-08-18T14:55:00.000Z",
     "section": "",
     "description": "Amazon Books editorial director Sarah Gelman shares some of her favorite summer cookbooks."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Sherrod Brown launches Senate comeback bid in Ohio for 2026",
-    "url": "https://www.cbsnews.com/news/sherrod-brown-launches-senate-comeback-bid-in-ohio-in-2026/",
-    "created_at": "2025-08-18T11:26:47.000Z",
-    "section": "",
-    "description": "Former Democratic Sen. Sherrod Brown announced a bid to once again represent Ohio in the Senate on Monday, nearly a year after his reelection effort in 2024 fell short."
   },
   {
     "publisher_id": "cbs",
