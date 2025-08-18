@@ -28,6 +28,23 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node scripts/llm_insights.mjs
 
+              - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install snscrape
+        run: |
+          python -m pip install --upgrade pip
+          pip install snscrape
+
+      - name: Ingest X posts (last 14 days)
+        run: python scripts/x_ingest.py
+
+      - name: Aggregate X heatmaps
+        run: node scripts/x_aggregate.mjs
+
+
       - name: Commit data
         run: |
           git config user.name "gh-bot"
