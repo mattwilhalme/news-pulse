@@ -1,0 +1,39 @@
+{
+  "generated_at": "2025-08-18T15:43:47.054Z",
+  "metrics": {
+    "total_posts": 140,
+    "top_publishers": [
+      {
+        "id": "wapo",
+        "count": 37
+      },
+      {
+        "id": "cbs",
+        "count": 30
+      },
+      {
+        "id": "abc",
+        "count": 25
+      }
+    ],
+    "top_slots_utc": [
+      {
+        "dow": 1,
+        "hour": 14,
+        "count": 28
+      },
+      {
+        "dow": 1,
+        "hour": 13,
+        "count": 18
+      },
+      {
+        "dow": 1,
+        "hour": 15,
+        "count": 18
+      }
+    ]
+  },
+  "summary": "LLM summary not generated yet.",
+  "bullets": []
+}

@@ -1,0 +1,37 @@
+name: Fetch • Aggregate • (LLM) • Commit
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # daily at 07:00 UTC (use '0 7 */2 * *' for every 48h)
+  workflow_dispatch:
+
+jobs:
+  build-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci || npm i
+
+      - name: Ingest RSS
+        run: node scripts/ingest.mjs
+
+      - name: Aggregate
+        run: node scripts/aggregate.mjs
+
+      - name: LLM Insights (OpenAI)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/llm_insights.mjs
+
+      - name: Commit data
+        run: |
+          git config user.name "gh-bot"
+          git config user.email "bot@example.com"
+          git add data/*.json
+          git commit -m "data: refresh" || echo "no changes"
+          git push

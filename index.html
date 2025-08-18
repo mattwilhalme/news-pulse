@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>News Pulse (Minimal)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font: 16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    h1 { margin: 0 0 8px; }
+    .grid { display: grid; gap: 16px; }
+    .card { padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+    .heatmap { display: grid; grid-template-columns: repeat(24, 1fr); gap: 2px; }
+    .cell { width: 100%; padding-top: 100%; position: relative; background: #f2f2f2; }
+    .cell > span { position: absolute; inset: 0; display: none; font-size: 10px; align-items: center; justify-content: center; }
+    .legend { font-size: 12px; color: #666; }
+    .muted { color: #666; font-size: 14px; }
+    a { color: #0b5bd3; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>News Pulse</h1>
+  <p class="muted">Zero-budget MVP. Static page that reads JSON from <code>/data</code>.</p>
+
+  <div class="grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="card">
+      <h2>Insights</h2>
+      <p id="generated">Generated: —</p>
+      <p id="summary">No summary yet.</p>
+      <ul id="bullets"></ul>
+    </div>
+    <div class="card">
+      <h2>Publish Heatmap (UTC)</h2>
+      <div class="legend">Rows = Sun→Sat, Columns = 0–23h UTC (darker = more posts)</div>
+      <div id="heatmap" class="heatmap"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h2>Recent Posts</h2>
+    <p class="muted" id="count"></p>
+    <table id="table">
+      <thead><tr><th>Publisher</th><th>Title</th><th>Published (UTC)</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="muted">(Showing first 50 rows.)</p>
+  </div>
+
+<script>
+(async function(){
+  const [posts, heatmap, insights] = await Promise.all([
+    fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
+    fetch('./data/heatmap.json').then(r=>r.json()).catch(()=>[]),
+    fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
+  ]);
+
+  // Insights
+  document.getElementById('generated').textContent = 'Generated: ' + (insights.generated_at || '—');
+  document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
+  const ul = document.getElementById('bullets');
+  (insights.bullets || []).forEach(b => {
+    const li = document.createElement('li');
+    li.textContent = b; ul.appendChild(li);
+  });
+
+  // Heatmap (7 rows x 24 cols)
+  const max = heatmap.reduce((m, x) => Math.max(m, x.count || 0), 0) || 1;
+  const hm = document.getElementById('heatmap');
+  hm.style.gridTemplateRows = 'repeat(7, 1fr)';
+  const get = (dow, hour) => heatmap.find(h => h.dow===dow && h.hour===hour)?.count || 0;
+  for (let dow=0; dow<7; dow++){
+    for (let hour=0; hour<24; hour++){
+      const v = get(dow, hour);
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      const intensity = v/max; // 0..1
+      const shade = Math.round(242 - intensity*200);
+      cell.style.background = `rgb(${shade},${shade},${shade})`;
+      cell.title = `D${dow} ${hour}:00 — ${v} posts`;
+      hm.appendChild(cell);
+    }
+  }
+
+  // Table
+  const tbody = document.querySelector('#table tbody');
+  document.getElementById('count').textContent = `Showing ${posts.length} items (last 14 days)`;
+  posts
+    .sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 50)
+    .forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${p.publisher_name || ''}</td>
+        <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
+        <td>${p.created_at || ''}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+})();
+</script>
+</body>
+</html>
