@@ -21,10 +21,19 @@ jobs:
           fetch-depth: 0
 
       # ---- Node (RSS & insights) ----
-      - name: Setup Node.js
+    - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Install Node deps
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm i
+          else
+            npm init -y
+            npm i dotenv rss-parser
+          fi
 
       - name: Ingest RSS
         run: node scripts/ingest.mjs
@@ -32,15 +41,6 @@ jobs:
       - name: Aggregate RSS
         run: node scripts/aggregate.mjs
 
-      - name: LLM Insights (OpenAI)
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          if [ -f scripts/llm_insights.mjs ]; then
-            node scripts/llm_insights.mjs
-          else
-            echo "llm_insights.mjs not present; skipping."
-          fi
 
       # ---- Python (X scraping) ----
       - name: Setup Python 3.11
