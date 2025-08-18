@@ -1,347 +1,255 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>News Pulse</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    :root{
-      --bg: #f7f8fb;          /* page background */
-      --card: #ffffff;        /* card background */
-      --border: #e6e8ee;      /* card/table borders */
-      --text: #1f2937;        /* primary text */
-      --muted: #6b7280;       /* muted text */
-      --accent: #2563eb;      /* links & buttons */
-      --accent-2: #1d4ed8;    /* button hover */
-      --shadow: 0 6px 18px rgba(0,0,0,.06);
-
-      /* heat colors (light -> dark blue) */
-      --heat-lo: #eaf2ff;
-      --heat-mid: #9dc2ff;
-      --heat-hi: #2b67f6;
+    :root {
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#111827;
+      --border:#e5e7eb;
+      --accent:#2563eb;
+      --chip:#eef2ff;
     }
-    *{ box-sizing:border-box; }
-    body{
+    body {
       margin:0;
-      font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:var(--bg);
+      display:flex;
+      justify-content:center;
     }
-    a{ color: var(--accent); text-decoration: none; }
-    header{ padding: 26px 22px 0; }
-    .wrap{ max-width: 1200px; margin: 0 auto; padding: 0 22px 40px; }
-    h1{ margin: 0 0 8px; font-size: 28px; }
-    .muted{ color: var(--muted); }
-    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 16px 18px;
-      box-shadow: var(--shadow);
+    .wrap {
+      width:100%;
+      max-width:900px;
+      margin:24px auto;
+      padding:0 16px;
     }
-    .card h2{ margin:0 0 10px; font-size: 18px; }
-    .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    button{
-      background: var(--accent);
-      color: #fff;
-      border: 0;
-      border-radius: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button:hover{ background: var(--accent-2); }
-    table{ width: 100%; border-collapse: collapse; background: var(--card); }
-    th, td{ padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; }
-    th{ color: var(--muted); font-weight: 600; }
-    .kpi{ display:flex; gap:18px; flex-wrap:wrap; }
-    .kpi .pill{
-      background: #f2f6ff;
-      border: 1px solid var(--border);
-      padding: 8px 10px;
-      border-radius: 12px;
-      min-width: 160px;
-    }
-    .pill .label{ color: var(--muted); font-size: 12px; }
-    .pill .value{ font-weight: 700; font-size: 16px; color: var(--text); }
+    header{margin-bottom:16px;text-align:center}
+    h1{margin:0 0 4px;font-size:28px}
+    .sub{color:var(--muted);font-size:13px}
 
-    /* Heatmap */
-    .heat-wrap{ overflow-x: auto; }
-    .heat-head{ display:grid; grid-template-columns: 80px repeat(24, 44px); gap:6px; align-items:end; margin-bottom: 6px; }
-    .heat-head div{ text-align:center; color: var(--muted); font-size: 12px; }
-    .heat-grid{ display:grid; grid-template-columns: 80px repeat(24, 44px); gap:6px; }
-    .dow{ color: var(--muted); font-size: 12px; display:flex; align-items:center; justify-content:flex-end; padding-right:6px; }
-    .cell{
-      width:44px; height:28px; border-radius:6px;
+    .card {
+      background:var(--card);
       border:1px solid var(--border);
-      background: var(--heat-lo);
-      position:relative;
-      transition: filter .12s ease;
+      border-radius:14px;
+      padding:16px;
+      margin-bottom:16px;
     }
-    .cell::after{
-      content: attr(data-count);
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      font-size:10px; color:#0f172a; opacity:0.0;
-    }
-    .cell:hover{ filter: saturate(1.2) brightness(0.98); }
-    .cell:hover::after{ opacity:0.9; }
-    .legend{ color: var(--muted); font-size: 12px; }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    .card h2{margin:0 0 8px;font-size:16px}
+    .hint{color:var(--muted);font-size:12px}
+
+    /* Heatmap (smaller cells) */
+    /* Heatmap (smaller cells everywhere) */
+.heatmap {
+  display:grid;
+  grid-template-columns:repeat(24,14px);
+  gap:4px;
+  padding:10px;
+  border-radius:12px;
+  background:#fafafa;
+  border:1px dashed var(--border);
+}
+.cell {
+  width:14px;
+  height:14px;
+  border-radius:3px;
+  background:#e5e7eb;
+}
+.rowlab .label {
+  width:26px;
+  text-align:right;
+  color:var(--muted);
+  font-size:11px;
+}
+.hours {
+  display:grid;
+  grid-template-columns:repeat(24,14px);
+  gap:4px;
+  margin:0 0 8px 34px;
+  color:var(--muted);
+  font-size:9px;
+}
+
+    /* Tweets */
+    .tweet{border-top:1px solid var(--border);padding:10px 0}
+    .tweet:first-child{border-top:none}
+    .tweet .meta{color:var(--muted);font-size:12px;margin-bottom:4px}
+    .eng{display:flex;gap:10px;color:var(--muted);font-size:12px;flex-wrap:wrap}
+    .eng b{color:var(--text);margin-left:4px}
+
+    /* Articles */
+    details{border:1px solid var(--border);border-radius:14px;background:var(--card)}
+    summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    .tbl-wrap{padding:0 16px 16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-top:1px solid var(--border);padding:10px 8px;text-align:left;font-size:13px}
+    th{color:var(--muted);font-weight:600}
+    tr:hover td{background:#fafafa}
+
+    /* Insights */
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .kv .k{color:var(--muted);font-size:11px}
+    .kv .v{font-weight:600}
+    .btn{display:inline-block;background:var(--accent);color:#fff;border-radius:8px;padding:6px 10px;font-size:12px}
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <h1>News Pulse</h1>
-    <div class="muted">Static dashboard. Data updates via GitHub Actions.</div>
-  </header>
+  <div class="wrap">
+    <header>
+      <h1>News Pulse</h1>
+      <div class="sub">Static dashboard. Data updates via GitHub Actions.</div>
+    </header>
 
-  <main class="wrap">
-    <!-- Row 1: RSS insights + RSS heatmap -->
-    <div class="grid">
-      <section class="card">
-        <h2>Insights</h2>
-        <div class="kpi" id="kpis">
-          <div class="pill"><div class="label">Last Updated</div><div class="value" id="updated">—</div></div>
-          <div class="pill"><div class="label">Total Posts (14d)</div><div class="value" id="total">—</div></div>
-          <div class="pill"><div class="label">Timezone</div><div class="value">PT (America/Los_Angeles)</div></div>
-        </div>
-        <p id="summary" style="margin-top:12px;">No summary yet.</p>
-        <ul id="bullets"></ul>
-        <div class="row" style="margin-top:8px;">
-          <button id="downloadCsv">Download CSV</button>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Publish Heatmap (RSS · PT · starts 6:00 AM)</h2>
-        <div class="legend" style="margin-bottom:8px;">
-          Rows = Sun→Sat, Columns = <strong>6AM–11PM, 12AM–5AM PT</strong>. Darker blue = more published items.
-        </div>
-        <div class="heat-wrap">
-          <div class="heat-head" id="heatHead"></div>
-          <div class="heat-grid" id="heatGrid"></div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Row 2: X heatmaps -->
-    <div class="grid" style="margin-top:16px;">
-      <section class="card">
-        <h2>X: Link Posts Heatmap (PT · starts 6:00 AM)</h2>
-        <div class="legend" style="margin-bottom:8px;">Counts of posts that included a link.</div>
-        <div class="heat-wrap">
-          <div class="heat-head" id="xLinksHead"></div>
-          <div class="heat-grid" id="xLinksGrid"></div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>X: Engagement Heatmap (PT · starts 6:00 AM)</h2>
-        <div class="legend" style="margin-bottom:8px;">Sum of likes + replies + retweets + quotes.</div>
-        <div class="heat-wrap">
-          <div class="heat-head" id="xEngHead"></div>
-          <div class="heat-grid" id="xEngGrid"></div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Row 3: Table -->
-    <section class="card" style="margin-top:16px;">
-      <h2>Recent Posts (PT time)</h2>
-      <p class="muted" id="count"></p>
-      <table id="table">
-        <thead><tr><th>Publisher</th><th>Title</th><th>Published (PT)</th></tr></thead>
-        <tbody></tbody>
-      </table>
-      <p class="muted">(Showing first 50 rows.)</p>
+    <!-- X heatmaps stacked -->
+    <section class="card">
+      <h2>X: Link Posts Heatmap (PT · starts 6:00 AM)</h2>
+      <div class="hint">Counts of posts that included a link. Darker = more posts.</div>
+      <div id="x-links-hours" class="hours"></div>
+      <div id="x-links" class="heatmap"></div>
     </section>
-  </main>
 
-<script>
-/* ------- Config ------- */
-const PT_ZONE = 'America/Los_Angeles';
-const START_HOUR = 6; // display columns starting at 06:00 PT
+    <section class="card">
+      <h2>X: Engagement Heatmap (PT · starts 6:00 AM)</h2>
+      <div class="hint">Sum of likes + replies + retweets + quotes. Darker = more engagement.</div>
+      <div id="x-eng-hours" class="hours"></div>
+      <div id="x-eng" class="heatmap"></div>
+    </section>
 
-/* ------- Utilities ------- */
-function toPTDate(dIso){
-  try{
-    const d = new Date(dIso);
-    const fmt = new Intl.DateTimeFormat('en-US', {
-      timeZone: PT_ZONE,
-      year:'numeric', month:'2-digit', day:'2-digit',
-      hour:'2-digit', minute:'2-digit', hour12:true
+    <!-- Latest tweets -->
+    <section class="card">
+      <h2>Latest Tweets (last 5)</h2>
+      <div id="tweets" class="hint">Loading…</div>
+    </section>
+
+    <!-- RSS heatmap -->
+    <section class="card">
+      <h2>Publish Heatmap (RSS · PT · starts 6:00 AM)</h2>
+      <div class="hint">Rows = Sun→Sat, Columns = 6AM→5AM PT. Darker blue = more published items.</div>
+      <div id="rss-hours" class="hours"></div>
+      <div id="rss" class="heatmap"></div>
+    </section>
+
+    <!-- Insights + Articles -->
+    <section class="card">
+      <h2>Insights</h2>
+      <div class="kv">
+        <div>
+          <div class="k">Last Updated</div>
+          <div class="v" id="last-updated">—</div>
+        </div>
+        <div>
+          <div class="k">Timezone</div>
+          <div class="v">PT (America/Los_Angeles)</div>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <a class="btn" href="data/posts.csv">Download CSV</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <details open>
+        <summary>Recently Published Articles</summary>
+        <div class="tbl-wrap">
+          <div class="hint" id="posts-count">Loading…</div>
+          <table id="posts-table">
+            <thead>
+              <tr><th style="width:20%">Publisher</th><th>Title</th><th style="width:18%">Published (PT)</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <script>
+    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const hours = [...Array(24).keys()].map(h => h);
+
+    // Draw hour labels
+    function drawHours(containerId){
+      const el=document.getElementById(containerId);
+      el.innerHTML="";
+      hours.forEach(h=>{
+        const d=document.createElement("div");
+        d.textContent=h;
+        el.appendChild(d);
+      });
+    }
+    drawHours("x-links-hours");
+    drawHours("x-eng-hours");
+    drawHours("rss-hours");
+
+    // Heatmap drawing
+    function drawHeatmap(containerId,data){
+      const el=document.getElementById(containerId);
+      el.innerHTML="";
+      days.forEach((day,i)=>{
+        hours.forEach((h,j)=>{
+          const cell=document.createElement("div");
+          cell.className="cell";
+          const val=data?.[i]?.[j]||0;
+          const alpha=Math.min(1, val/10);
+          cell.style.background=`rgba(37,99,235,${alpha})`;
+          el.appendChild(cell);
+        });
+      });
+    }
+
+    // Load heatmap JSONs
+    fetch("data/x_links_heatmap.json").then(r=>r.json()).then(data=>{
+      drawHeatmap("x-links", data);
     });
-    return fmt.format(d) + ' PT';
-  }catch(e){ return dIso || ''; }
-}
-function getPTParts(dIso){
-  const d = new Date(dIso);
-  const dowName = new Intl.DateTimeFormat('en-US', { timeZone: PT_ZONE, weekday:'short' }).format(d);
-  const map = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
-  const dow = map[dowName] ?? 0;
-  const hour = Number(new Intl.DateTimeFormat('en-US',{timeZone:PT_ZONE,hour:'2-digit',hour12:false}).format(d));
-  return { dow, hour };
-}
-// 12h label formatter
-function formatHourLabel(h){
-  const suffix = h < 12 ? "AM" : "PM";
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return hour12 + suffix;
-}
-function csvEscape(s){
-  if (s == null) return '';
-  s = String(s);
-  if (s.includes('"') || s.includes(',') || s.includes('\n')){
-    return '"' + s.replace(/"/g,'""') + '"';
-  }
-  return s;
-}
-function downloadCSV(rows, filename='posts_pt.csv'){
-  const header = ['publisher','title','url','published_pt','section'];
-  const lines = [header.join(',')];
-  for (const r of rows){
-    lines.push([
-      csvEscape(r.publisher_name || r.publisher || ''),
-      csvEscape(r.title || ''),
-      csvEscape(r.url || ''),
-      csvEscape(toPTDate(r.created_at)),
-      csvEscape(r.section || '')
-    ].join(','));
-  }
-  const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click(); a.remove();
-}
-
-// Shared heatmap renderer
-function renderHeatmap(containerHeadId, containerGridId, matrix){
-  const cols = Array.from({length:24}, (_,i)=> (START_HOUR + i) % 24);
-  const hh = document.getElementById(containerHeadId);
-  hh.innerHTML = '<div></div>' + cols.map(h => `<div>${formatHourLabel(h)}</div>`).join('');
-
-  // find max
-  let max = 1;
-  for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, matrix[d][h]);
-
-  function lerp(a,b,t){ return a + (b-a)*t; }
-  function heatColor(v){
-    const t = max ? (v/max) : 0;
-    // rgb for lo(234,242,255), mid(157,194,255), hi(43,103,246)
-    let r, g, b;
-    if (t < 0.5){
-      const u = t/0.5;
-      r = Math.round(lerp(234,157,u));
-      g = Math.round(lerp(242,194,u));
-      b = Math.round(lerp(255,255,u));
-    } else {
-      const u = (t-0.5)/0.5;
-      r = Math.round(lerp(157,43,u));
-      g = Math.round(lerp(194,103,u));
-      b = Math.round(lerp(255,246,u));
-    }
-    return `rgb(${r},${g},${b})`;
-  }
-
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const gridEl = document.getElementById(containerGridId);
-  let html = '';
-  for (let d=0; d<7; d++){
-    html += `<div class="dow">${days[d]}</div>`;
-    for (const h of cols){
-      const v = matrix[d][h];
-      html += `<div class="cell" style="background:${heatColor(v)}"
-                 title="${days[d]} ${formatHourLabel(h)} PT — ${v} posts"
-                 data-count="${v}"></div>`;
-    }
-  }
-  gridEl.innerHTML = html;
-}
-
-/* ------- Main ------- */
-(async function(){
-  // RSS data
-  const [posts, insights] = await Promise.all([
-    fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
-    fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
-  ]);
-
-  // KPIs & insights
-  document.getElementById('updated').textContent = insights.generated_at ? toPTDate(insights.generated_at) : '—';
-  document.getElementById('total').textContent = insights?.metrics?.total_posts ?? posts.length;
-  document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
-  const ul = document.getElementById('bullets');
-  (insights.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
-
-  // RSS grid (7x24 from posts)
-  const rssMatrix = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
-  for (const p of posts){
-    const {dow, hour} = getPTParts(p.created_at);
-    rssMatrix[dow][hour] += 1;
-  }
-  renderHeatmap('heatHead','heatGrid', rssMatrix);
-
-  // Table
-  const tbody = document.querySelector('#table tbody');
-  document.getElementById('count').textContent = `Showing ${posts.length} items (last 14 days)`;
-  posts
-    .sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
-    .slice(0, 50)
-    .forEach(p => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${p.publisher_name || ''}</td>
-        <td><a href="${p.url}" target="_blank" rel="noopener">${p.title || ''}</a></td>
-        <td>${toPTDate(p.created_at)}</td>
-      `;
-      tbody.appendChild(tr);
+    fetch("data/x_heatmap_engagement.json").then(r=>r.json()).then(data=>{
+      drawHeatmap("x-eng", data);
+    });
+    fetch("data/rss_heatmap.json").then(r=>r.json()).then(data=>{
+      drawHeatmap("rss", data);
     });
 
-  document.getElementById('downloadCsv').addEventListener('click', ()=> downloadCSV(posts));
+    // Load tweets
+    fetch("data/x_posts.json").then(r=>r.json()).then(data=>{
+      const tweetsDiv=document.getElementById("tweets");
+      tweetsDiv.innerHTML="";
+      data.slice(0,5).forEach(t=>{
+        const div=document.createElement("div");
+        div.className="tweet";
+        div.innerHTML=`
+          <div class="meta">@${t.user} – ${t.date}</div>
+          <div>${t.text}</div>
+          <div class="eng">
+            <span>❤️ <b>${t.likes}</b></span>
+            <span>💬 <b>${t.replies}</b></span>
+            <span>🔁 <b>${t.retweets}</b></span>
+            <span>🔗 <b>${t.quotes}</b></span>
+          </div>`;
+        tweetsDiv.appendChild(div);
+      });
+    });
 
-  // ---- X heatmaps (optional; render only if files exist) ----
-  try {
-    const [links, eng] = await Promise.all([
-      fetch('./data/x_heatmap_links.json').then(r=>r.ok?r.json():[]),
-      fetch('./data/x_heatmap_engagement.json').then(r=>r.ok?r.json():[])
-    ]);
+    // Load posts
+    fetch("data/posts.json").then(r=>r.json()).then(data=>{
+      const tbody=document.querySelector("#posts-table tbody");
+      document.getElementById("posts-count").textContent = data.length+" items (last 14 days)";
+      tbody.innerHTML="";
+      data.slice(0,20).forEach(p=>{
+        const tr=document.createElement("tr");
+        tr.innerHTML=`<td>${p.publisher||""}</td><td><a href="${p.link}" target="_blank">${p.title}</a></td><td>${p.published}</td>`;
+        tbody.appendChild(tr);
+      });
+    });
 
-    // Convert flat arrays ({dow,hour,value}) into 7x24 matrices
-    function toMatrix(flat){
-      const m = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
-      for (const cell of flat || []){
-        if (typeof cell.dow === 'number' && typeof cell.hour === 'number'){
-          m[cell.dow][cell.hour] = Number(cell.value || 0);
-        }
-      }
-      return m;
-    }
-
-    if (Array.isArray(links) && links.length){
-      renderHeatmap('xLinksHead','xLinksGrid', toMatrix(links));
-    } else {
-      document.getElementById('xLinksHead').innerHTML = '<div></div>';
-      document.getElementById('xLinksGrid').innerHTML = '<div class="muted">No X link data yet.</div>';
-    }
-
-    if (Array.isArray(eng) && eng.length){
-      renderHeatmap('xEngHead','xEngGrid', toMatrix(eng));
-    } else {
-      document.getElementById('xEngHead').innerHTML = '<div></div>';
-      document.getElementById('xEngGrid').innerHTML = '<div class="muted">No X engagement data yet.</div>';
-    }
-  } catch (e){
-    // If fetch fails (e.g., file not present on first run), show muted notes.
-    document.getElementById('xLinksHead').innerHTML = '<div></div>';
-    document.getElementById('xLinksGrid').innerHTML = '<div class="muted">No X link data yet.</div>';
-    document.getElementById('xEngHead').innerHTML = '<div></div>';
-    document.getElementById('xEngGrid').innerHTML = '<div class="muted">No X engagement data yet.</div>';
-  }
-})();
-</script>
+    // Load summary
+    fetch("data/x_summary.json").then(r=>r.json()).then(meta=>{
+      document.getElementById("last-updated").textContent=meta.last_updated;
+    });
+  </script>
 </body>
 </html>
