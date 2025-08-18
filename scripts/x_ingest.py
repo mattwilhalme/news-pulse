@@ -1,81 +1,69 @@
 #!/usr/bin/env python3
 """
-Ingest X (Twitter) posts for specific brand accounts using snscrape.
-Fetches the last 14 days of posts, including engagement metrics.
-Outputs JSON into data/x_raw.json.
+Ingest X (Twitter) posts using snscrape.
+- Reads handles from accounts_x.txt (one per line) if present, else uses defaults.
+- Scrapes last 14 days of public posts.
+- Saves to data/x_raw.json
 """
 
-import subprocess
-import sys
-import json
-import os
+import subprocess, sys, json, os
 from datetime import datetime, timedelta
 
-# List of X handles to scrape
-HANDLES = [
-    "nytimes",
-    "washingtonpost",
-    "wsj",
-    "ap",
-    "cnn",
-    "abc",
-    "nbcnews",
-    "cbsnews"
-]
-
+DEFAULT_HANDLES = ["nytimes","washingtonpost","wsj","ap","cnn","abc","nbcnews","cbsnews"]
 OUTFILE = "data/x_raw.json"
 
+def load_handles():
+    path = "accounts_x.txt"
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            hs = [ln.strip().lstrip("@") for ln in f if ln.strip() and not ln.strip().startswith("#")]
+        return hs or DEFAULT_HANDLES
+    return DEFAULT_HANDLES
 
 def run_snscrape(query):
-    """
-    Run snscrape as a subprocess and yield parsed JSON lines.
-    Uses the current Python executable to ensure the right environment.
-    """
+    # call the module with the same Python interpreter used by the runner
     cmd = [sys.executable, "-m", "snscrape", "--jsonl", query]
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-    for line in process.stdout:
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    for line in p.stdout:
         line = line.strip()
         if not line:
             continue
         try:
             yield json.loads(line)
         except json.JSONDecodeError:
+            # ignore odd lines; keep streaming
             continue
-
-    process.wait()
-
+    p.wait()
 
 def main():
+    handles = load_handles()
     since = (datetime.utcnow() - timedelta(days=14)).strftime("%Y-%m-%d")
-    all_posts = []
+    all_rows = []
 
-    for handle in HANDLES:
-        print(f"Fetching posts for @{handle} since {since}...")
-        query = f"from:{handle} since:{since}"
-        for post in run_snscrape(query):
-            # Only keep fields we care about
-            item = {
-                "id": post.get("id"),
-                "date": post.get("date"),
-                "content": post.get("content"),
-                "url": post.get("url"),
-                "user": post.get("user", {}).get("username"),
-                "replyCount": post.get("replyCount"),
-                "retweetCount": post.get("retweetCount"),
-                "likeCount": post.get("likeCount"),
-                "quoteCount": post.get("quoteCount"),
-            }
-            all_posts.append(item)
+    print(f"Using handles: {', '.join(handles)}")
+    print(f"Since: {since}")
 
-    # Ensure output folder exists
+    for h in handles:
+        q = f"from:{h} since:{since}"
+        print(f"→ Scraping @{h} ...")
+        for t in run_snscrape(q):
+            all_rows.append({
+                "id": t.get("id"),
+                "date": t.get("date"),
+                "content": t.get("content"),
+                "url": t.get("url"),
+                "user": (t.get("user") or {}).get("username"),
+                "replyCount": t.get("replyCount") or 0,
+                "retweetCount": t.get("retweetCount") or 0,
+                "likeCount": t.get("likeCount") or 0,
+                "quoteCount": t.get("quoteCount") or 0,
+            })
+
     os.makedirs("data", exist_ok=True)
-
     with open(OUTFILE, "w", encoding="utf-8") as f:
-        json.dump(all_posts, f, indent=2)
+        json.dump(all_rows, f, indent=2)
 
-    print(f"✅ Saved {len(all_posts)} posts to {OUTFILE}")
-
+    print(f"✅ Wrote {len(all_rows)} rows to {OUTFILE}")
 
 if __name__ == "__main__":
     main()
