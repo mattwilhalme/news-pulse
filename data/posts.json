@@ -60,7 +60,7 @@
     "publisher_name": "New York Times",
     "title": "Why Rip Currents From Hurricane Erin Are So Dangerous to the East Coast",
     "url": "https://www.nytimes.com/2025/08/18/weather/hurricane-erin-rip-current-east-coast-carolina.html",
-    "created_at": "2025-08-18T19:08:45.000Z",
+    "created_at": "2025-08-18T19:59:58.000Z",
     "section": {
       "_": "Hurricanes and Tropical Storms",
       "$": {
@@ -172,7 +172,7 @@
     "publisher_name": "New York Times",
     "title": "Oil and Gas Prices Are Falling, a Boon for Drivers, and Trump",
     "url": "https://www.nytimes.com/2025/08/18/business/energy-environment/oil-gasoline-prices-trump.html",
-    "created_at": "2025-08-18T18:35:47.000Z",
+    "created_at": "2025-08-18T20:06:48.000Z",
     "section": {
       "_": "United States Politics and Government",
       "$": {
@@ -296,20 +296,20 @@
   {
     "publisher_id": "wapo",
     "publisher_name": "Washington Post",
+    "title": "Zelensky praised meeting with Trump",
+    "url": "https://www.washingtonpost.com",
+    "created_at": "2025-08-18T19:55:30.000Z",
+    "section": "",
+    "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
     "title": "Zelensky dresses up for Trump, five months after disastrous February encounter",
     "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-fatigues-ukraine-peace/",
     "created_at": "2025-08-18T19:45:32.000Z",
     "section": "",
     "description": "President Donald Trump and others mocked Ukrainian President Volodymyr Zelensky in March when he showed up at the White House in his customary military-style fatigues. Zelensky apparently got the message."
-  },
-  {
-    "publisher_id": "wapo",
-    "publisher_name": "Washington Post",
-    "title": "Live updates: Trump pledges ‘a lot of help’ to Ukraine in congenial Oval Office meeting",
-    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
-    "created_at": "2025-08-18T19:42:11.000Z",
-    "section": "",
-    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
   },
   {
     "publisher_id": "wapo",
@@ -382,6 +382,15 @@
     "created_at": "2025-08-18T18:27:53.000Z",
     "section": "",
     "description": ""
+  },
+  {
+    "publisher_id": "wapo",
+    "publisher_name": "Washington Post",
+    "title": "Live updates: Trump pledges ‘a lot of help’ to Ukraine in congenial Oval Office meeting",
+    "url": "https://www.washingtonpost.com/politics/2025/08/18/trump-zelensky-meeting-russia-ukraine/",
+    "created_at": "2025-08-18T19:55:30.000Z",
+    "section": "",
+    "description": "Get the latest news on President Donald Trump’s meetings with Ukrainian President Volodymyr Zelensky and European leaders at the White House."
   },
   {
     "publisher_id": "wapo",
@@ -1331,15 +1340,6 @@
   {
     "publisher_id": "nbc",
     "publisher_name": "NBC News",
-    "title": "Texas Republicans plan redistricting vote after Democrats end two-week standoff",
-    "url": "https://www.nbcnews.com/politics/elections/texas-democrats-return-state-ending-two-week-standoff-redistricting-rcna225243",
-    "created_at": "2025-08-18T14:18:57.000Z",
-    "section": "",
-    "description": "The Texas House gaveled in on Monday with a quorum for the first time in two weeks after Democratic lawmakers who fled the state returned following a standoff over Republicans' redistricting effort"
-  },
-  {
-    "publisher_id": "nbc",
-    "publisher_name": "NBC News",
     "title": "Hand soap recall: What you need to know",
     "url": "https://www.nbcnews.com/select/shopping/hand-soap-recall-rcna224873",
     "created_at": "2025-08-14T13:50:38.000Z",
@@ -1374,22 +1374,67 @@
     "description": "Sur La Table is having a Cookware Essentials sale, with items from Le Creuset, Staub, All-Clad and more up to 70% off. You can save on cookware and bakeware sets and individual accessories during the sale."
   },
   {
+    "publisher_id": "nbc",
+    "publisher_name": "NBC News",
+    "title": "Former MSU student says she got cancer after using chemicals school called 'harmless'",
+    "url": "https://www.nbcnews.com/news/us-news/former-michigan-state-student-says-got-cancer-using-chemicals-school-c-rcna225572",
+    "created_at": "2025-08-18T18:57:08.000Z",
+    "section": "",
+    "description": "A former Michigan State grad student blamed her thyroid cancer on the school, which allegedly told her that \"exposure was harmless\" when she worked with various pesticides and herbicides, she and her lawyers said on Monday"
+  },
+  {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Labor Day 2025 is around the corner. Here's what to know.",
-    "url": "https://www.cbsnews.com/news/labor-day-2025-whats-open-and-closed/",
-    "created_at": "2025-08-18T19:51:32.000Z",
+    "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
+    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
+    "created_at": "2025-08-18T20:05:58.000Z",
     "section": "",
-    "description": "Wondering what will be open on Labor Day? Here's what to know."
+    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
   },
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
     "title": "Hurricane Erin likely to bring East Coast life-threatening surf, rip currents",
     "url": "https://www.cbsnews.com/news/hurricane-erin-track-path/",
-    "created_at": "2025-08-18T19:44:41.000Z",
+    "created_at": "2025-08-18T20:01:40.000Z",
     "section": "",
     "description": "Erin is the first hurricane to develop over the Atlantic this year, and meteorologists are closely tracking its path and forecast."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Journalist David Diaz remembered as a \"reporter's reporter\" at celebration of life",
+    "url": "https://www.cbsnews.com/newyork/news/david-diaz-celebration-of-life/",
+    "created_at": "2025-08-18T19:57:34.000Z",
+    "section": "",
+    "description": "The life and work of journalist and educator David Diaz was celebrated Thursday, on the eve of what would've been his 83rd birthday."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "8/18: CBS Morning News",
+    "url": "https://www.cbsnews.com/video/081825-cbs-morning-news/",
+    "created_at": "2025-08-18T19:57:14.000Z",
+    "section": "",
+    "description": "President Trump to meet with Ukrainian President Volodymyr Zelenskyy and European leaders at White House; Closing arguments underway in Jimmy Lai's national security trial in Hong Kong."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Labor Day 2025 is around the corner. Here's what to know.",
+    "url": "https://www.cbsnews.com/news/labor-day-2025-whats-open-and-closed/",
+    "created_at": "2025-08-18T19:55:31.000Z",
+    "section": "",
+    "description": "Wondering what will be open on Labor Day? Here's what to know."
+  },
+  {
+    "publisher_id": "cbs",
+    "publisher_name": "CBS News",
+    "title": "Possible obstacles in Ukraine-Russia talks for Trump, Zelenskyy and other European leaders",
+    "url": "https://www.cbsnews.com/video/possible-sticking-points-on-ukraine-russia-talks-for-trump-zelenskyy-and-other-european-leaders/",
+    "created_at": "2025-08-18T19:48:00.000Z",
+    "section": "",
+    "description": "President Trump, Ukrainian President Volodymyr Zelenskyy and other European leaders are at the White House Monday, trying to work out a path to peace in the Russia-Ukraine war. CBS News White House reporter Olivia Rinaldi has more."
   },
   {
     "publisher_id": "cbs",
@@ -1399,15 +1444,6 @@
     "created_at": "2025-08-18T19:38:00.000Z",
     "section": "",
     "description": "Leaders from European nations, including Ukrainian President Volodymyr Zelenskyy, spoke with President Trump at the White House Monday amid efforts to end Russia's war in Ukraine. Following remarks from the leaders, CBS News' Nancy Cordes, Samantha Vinograd and Robert Costa provided context."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Trump meets with Zelenskyy, European leaders for Ukraine talks at White House",
-    "url": "https://www.cbsnews.com/live-updates/trump-zelenskyy-meeting-white-house-ukraine/",
-    "created_at": "2025-08-18T19:33:06.000Z",
-    "section": "",
-    "description": "President Trump is hosting Ukrainian President Volodymyr Zelenskyy and European leaders at the White House on Monday. Follow live updates."
   },
   {
     "publisher_id": "cbs",
@@ -1547,24 +1583,6 @@
   {
     "publisher_id": "cbs",
     "publisher_name": "CBS News",
-    "title": "Democrats unveil maps of California's redistricting proposal",
-    "url": "https://www.cbsnews.com/news/democrats-unveil-california-congressional-redistricting-maps-plan/",
-    "created_at": "2025-08-18T18:09:53.000Z",
-    "section": "",
-    "description": "Democrats unveiled a proposal Friday that could give California's dominant political party an additional five U.S. House seats in a bid to win the fight to control Congress next year."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Gateway Church installs new lead pastor amid abuse scandal fallout",
-    "url": "https://www.cbsnews.com/texas/news/gateway-church-new-lead-pastor-daniel-floyd-robert-morris-abuse-scandal/",
-    "created_at": "2025-08-18T18:09:21.000Z",
-    "section": "",
-    "description": "Daniel Floyd and wife Tammie take the helm at Southlake megachurch as it seeks stability following abuse allegations against founding pastor Robert Morris."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
     "title": "Trump and Zelenskyy meet in Oval Office, speak to reporters | Special Report",
     "url": "https://www.cbsnews.com/video/trump-meets-with-zelenskyy-special-report/",
     "created_at": "2025-08-18T18:09:00.000Z",
@@ -1588,15 +1606,6 @@
     "created_at": "2025-08-18T17:04:00.000Z",
     "section": "",
     "description": "Ismael \"El Mayo\" Zambada is accused of ordering torture, plotting murders and flooding the U.S. with cocaine, heroin and other illicit drugs."
-  },
-  {
-    "publisher_id": "cbs",
-    "publisher_name": "CBS News",
-    "title": "Texas health officials declare measles outbreak in state is over",
-    "url": "https://www.cbsnews.com/news/measles-outbreak-texas-over-health-officials/",
-    "created_at": "2025-08-18T16:47:00.000Z",
-    "section": "",
-    "description": "The Texas Department of State Health Services declared the end of this year's measles outbreak, which has seen 762 confirmed cases​ and two deaths in the state."
   },
   {
     "publisher_id": "cbs",
