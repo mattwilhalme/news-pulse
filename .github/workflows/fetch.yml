@@ -1,8 +1,11 @@
-name: Fetch & Aggregate
+name: Fetch & Build Data
+
 on:
   schedule:
-    - cron: "7 * * * *"      # hourly-ish (adjust as needed)
+    - cron: "7 * * * *"   # hourly-ish
   workflow_dispatch:
+  push:
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -13,26 +16,52 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
+      # ---- Install dependencies if present (tolerate no package.json) ----
       - name: Install deps
         run: |
-          npm ci || true   # tolerate no package.json
+          npm ci || true
 
-      - name: RSS ingest -> data/posts.json
+      # ---- RSS ingest -> /data/posts.json + /data/heatmap.json ----
+      - name: RSS ingest
         run: node ingest.mjs
 
-      - name: X ingest -> data/x_raw.json
-        # You already have x_ingest.py in your repo. Make sure it writes data/x_raw.json.
+      # ---- X ingest (Nitter RSS) -> /data/x_raw.json ----
+      - name: X ingest (Nitter RSS)
         run: |
-          python3 -V
-          python3 x_ingest.py || echo "Skipping X ingest (no creds or script)."
+          node scripts/x_ingest_nitter.mjs
 
-      - name: Aggregate X -> x_posts + heatmaps + summary
+      # ---- Aggregate X -> posts + heatmaps + summary ----
+      - name: Aggregate X
         run: |
-          node x_aggregate.mjs || node aggregate.mjs || echo "No x_raw.json; wrote nothing."
+          node scripts/x_aggregate.mjs || node x_aggregate.mjs
 
+      # ---- LLM insights (server-side only; requires OPENAI_API_KEY) ----
+      - name: LLM insights -> data/insights.json
+        if: ${{ github.event_name != 'pull_request' && secrets.OPENAI_API_KEY != '' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          node llm_insights.mjs || echo "LLM insights skipped"
+
+      # ---- Sanity check: guard against secret leaks in /data ----
+      - name: Ensure secrets are not in outputs
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          if grep -R --binary-files=without-match -n "$OPENAI_API_KEY" data/ >/dev/null 2>&1; then
+            echo "❌ Secret appeared in /data output. Aborting."
+            exit 1
+          fi
+          echo "✅ No secrets in /data artifacts."
+
+      # ---- Commit data updates ----
       - name: Commit updated data files
         run: |
           git config user.name "github-actions[bot]"
@@ -40,3 +69,7 @@ jobs:
           git add data/*.json || true
           git diff --cached --quiet || git commit -m "data: refresh $(date -u +%F_%T)Z"
           git push
+
+      # ---- Kick off Pages deploy workflow (optional; pages.yml also runs on push) ----
+      - name: Emit deploy hint
+        run: echo "Data refreshed. Pages will deploy on push."

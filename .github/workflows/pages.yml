@@ -1,4 +1,5 @@
 name: Deploy GitHub Pages
+
 on:
   push:
     branches: [ main ]
@@ -21,7 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # If you add a build later, insert it here and publish ./dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
