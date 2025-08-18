@@ -1,11 +1,14 @@
+#!/usr/bin/env python3
 """
 Ingest X (Twitter) posts using snscrape.
 - Reads handles from accounts_x.txt (one per line) if present, else defaults.
 - Scrapes last 14 days.
 - Saves to data/x_raw.json
 """
-import subprocess, sys, json, as
+
+import subprocess, sys, json, os
 from datetime import datetime, timedelta
+
 DEFAULT_HANDLES = ["nytimes","washingtonpost","wsj","ap","cnn","abc","nbcnews","cbsnews"]
 OUTFILE = "data/x_raw.json"
 PER_HANDLE_MAX = 500  # cap per account
@@ -37,7 +40,7 @@ def run_snscrape(module, query, max_results=None):
 def main():
     handles = load_handles()
     since_date = (datetime.utcnow() - timedelta(days=14)).date()
-    until_date = (datetime.utcnow() + timedelta(days=1)).date()  # exclusive
+    until_date = (datetime.utcnow() + timedelta(days=1)).date()  # exclusive upper bound
 
     print("Using handles:", ", ".join(handles))
     print(f"Since: {since_date}  Until: {until_date}")
