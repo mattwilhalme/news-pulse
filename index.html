@@ -98,6 +98,7 @@
   </header>
 
   <main class="wrap">
+    <!-- Row 1: RSS insights + RSS heatmap -->
     <div class="grid">
       <section class="card">
         <h2>Insights</h2>
@@ -114,9 +115,9 @@
       </section>
 
       <section class="card">
-        <h2>Publish Heatmap (PT, starts 6:00 AM)</h2>
+        <h2>Publish Heatmap (RSS · PT · starts 6:00 AM)</h2>
         <div class="legend" style="margin-bottom:8px;">
-          Rows = Sun→Sat, Columns = <strong>6AM–11PM, 12AM–5AM PT</strong>. Darker blue = more published items in that hour.
+          Rows = Sun→Sat, Columns = <strong>6AM–11PM, 12AM–5AM PT</strong>. Darker blue = more published items.
         </div>
         <div class="heat-wrap">
           <div class="heat-head" id="heatHead"></div>
@@ -125,6 +126,28 @@
       </section>
     </div>
 
+    <!-- Row 2: X heatmaps -->
+    <div class="grid" style="margin-top:16px;">
+      <section class="card">
+        <h2>X: Link Posts Heatmap (PT · starts 6:00 AM)</h2>
+        <div class="legend" style="margin-bottom:8px;">Counts of posts that included a link.</div>
+        <div class="heat-wrap">
+          <div class="heat-head" id="xLinksHead"></div>
+          <div class="heat-grid" id="xLinksGrid"></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>X: Engagement Heatmap (PT · starts 6:00 AM)</h2>
+        <div class="legend" style="margin-bottom:8px;">Sum of likes + replies + retweets + quotes.</div>
+        <div class="heat-wrap">
+          <div class="heat-head" id="xEngHead"></div>
+          <div class="heat-grid" id="xEngGrid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Row 3: Table -->
     <section class="card" style="margin-top:16px;">
       <h2>Recent Posts (PT time)</h2>
       <p class="muted" id="count"></p>
@@ -195,37 +218,18 @@ function downloadCSV(rows, filename='posts_pt.csv'){
   a.click(); a.remove();
 }
 
-/* ------- Main ------- */
-(async function(){
-  const [posts, insights] = await Promise.all([
-    fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
-    fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
-  ]);
-
-  // KPIs & insights
-  document.getElementById('updated').textContent = insights.generated_at ? toPTDate(insights.generated_at) : '—';
-  document.getElementById('total').textContent = insights?.metrics?.total_posts ?? posts.length;
-  document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
-  const ul = document.getElementById('bullets');
-  (insights.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
-
-  // Build 7x24 grid from posts in PT
-  const grid = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
-  for (const p of posts){
-    const {dow, hour} = getPTParts(p.created_at);
-    grid[dow][hour] += 1;
-  }
-
-  // Column order starting at START_HOUR (06..23, then 00..05)
+// Shared heatmap renderer
+function renderHeatmap(containerHeadId, containerGridId, matrix){
   const cols = Array.from({length:24}, (_,i)=> (START_HOUR + i) % 24);
-
-  // Header labels in 12h AM/PM
-  const hh = document.getElementById('heatHead');
+  const hh = document.getElementById(containerHeadId);
   hh.innerHTML = '<div></div>' + cols.map(h => `<div>${formatHourLabel(h)}</div>`).join('');
 
-  // Heat color scale (darker = more). Interpolate light -> mid -> dark.
+  // find max
+  let max = 1;
+  for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, matrix[d][h]);
+
   function lerp(a,b,t){ return a + (b-a)*t; }
-  function heatColor(v, max){
+  function heatColor(v){
     const t = max ? (v/max) : 0;
     // rgb for lo(234,242,255), mid(157,194,255), hi(43,103,246)
     let r, g, b;
@@ -243,22 +247,43 @@ function downloadCSV(rows, filename='posts_pt.csv'){
     return `rgb(${r},${g},${b})`;
   }
 
-  // Render grid
-  const hg = document.getElementById('heatGrid');
-  let max = 1;
-  for (let d=0; d<7; d++) for (let h=0; h<24; h++) max = Math.max(max, grid[d][h]);
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const gridEl = document.getElementById(containerGridId);
   let html = '';
   for (let d=0; d<7; d++){
     html += `<div class="dow">${days[d]}</div>`;
     for (const h of cols){
-      const v = grid[d][h];
-      html += `<div class="cell" style="background:${heatColor(v,max)}"
+      const v = matrix[d][h];
+      html += `<div class="cell" style="background:${heatColor(v)}"
                  title="${days[d]} ${formatHourLabel(h)} PT — ${v} posts"
                  data-count="${v}"></div>`;
     }
   }
-  hg.innerHTML = html;
+  gridEl.innerHTML = html;
+}
+
+/* ------- Main ------- */
+(async function(){
+  // RSS data
+  const [posts, insights] = await Promise.all([
+    fetch('./data/posts.json').then(r=>r.json()).catch(()=>[]),
+    fetch('./data/insights.json').then(r=>r.json()).catch(()=>({bullets:[]}))
+  ]);
+
+  // KPIs & insights
+  document.getElementById('updated').textContent = insights.generated_at ? toPTDate(insights.generated_at) : '—';
+  document.getElementById('total').textContent = insights?.metrics?.total_posts ?? posts.length;
+  document.getElementById('summary').textContent = insights.summary || 'No summary yet.';
+  const ul = document.getElementById('bullets');
+  (insights.bullets || []).forEach(b => { const li = document.createElement('li'); li.textContent = b; ul.appendChild(li); });
+
+  // RSS grid (7x24 from posts)
+  const rssMatrix = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
+  for (const p of posts){
+    const {dow, hour} = getPTParts(p.created_at);
+    rssMatrix[dow][hour] += 1;
+  }
+  renderHeatmap('heatHead','heatGrid', rssMatrix);
 
   // Table
   const tbody = document.querySelector('#table tbody');
@@ -277,6 +302,45 @@ function downloadCSV(rows, filename='posts_pt.csv'){
     });
 
   document.getElementById('downloadCsv').addEventListener('click', ()=> downloadCSV(posts));
+
+  // ---- X heatmaps (optional; render only if files exist) ----
+  try {
+    const [links, eng] = await Promise.all([
+      fetch('./data/x_heatmap_links.json').then(r=>r.ok?r.json():[]),
+      fetch('./data/x_heatmap_engagement.json').then(r=>r.ok?r.json():[])
+    ]);
+
+    // Convert flat arrays ({dow,hour,value}) into 7x24 matrices
+    function toMatrix(flat){
+      const m = Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
+      for (const cell of flat || []){
+        if (typeof cell.dow === 'number' && typeof cell.hour === 'number'){
+          m[cell.dow][cell.hour] = Number(cell.value || 0);
+        }
+      }
+      return m;
+    }
+
+    if (Array.isArray(links) && links.length){
+      renderHeatmap('xLinksHead','xLinksGrid', toMatrix(links));
+    } else {
+      document.getElementById('xLinksHead').innerHTML = '<div></div>';
+      document.getElementById('xLinksGrid').innerHTML = '<div class="muted">No X link data yet.</div>';
+    }
+
+    if (Array.isArray(eng) && eng.length){
+      renderHeatmap('xEngHead','xEngGrid', toMatrix(eng));
+    } else {
+      document.getElementById('xEngHead').innerHTML = '<div></div>';
+      document.getElementById('xEngGrid').innerHTML = '<div class="muted">No X engagement data yet.</div>';
+    }
+  } catch (e){
+    // If fetch fails (e.g., file not present on first run), show muted notes.
+    document.getElementById('xLinksHead').innerHTML = '<div></div>';
+    document.getElementById('xLinksGrid').innerHTML = '<div class="muted">No X link data yet.</div>';
+    document.getElementById('xEngHead').innerHTML = '<div></div>';
+    document.getElementById('xEngGrid').innerHTML = '<div class="muted">No X engagement data yet.</div>';
+  }
 })();
 </script>
 </body>
