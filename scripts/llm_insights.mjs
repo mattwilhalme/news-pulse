@@ -9,13 +9,25 @@ if (!process.env.OPENAI_API_KEY) {
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-const posts = JSON.parse(fs.readFileSync('./data/posts.json','utf8'));
+// IMPORTANT: match what aggregate.mjs outputs
+const posts = JSON.parse(fs.readFileSync('./data/x_posts.json','utf8'));
 const insights = JSON.parse(fs.readFileSync('./data/insights.json','utf8'));
 
+// Take most recent 60 posts
 const sample = posts
-  .sort((a,b)=> new Date(b.created_at) - new Date(a.created_at))
+  .sort((a,b)=> new Date(b.date) - new Date(a.date))
   .slice(0, 60)
-  .map(p => ({publisher:p.publisher_name, title:p.title, section:p.section, created_at:p.created_at}));
+  .map(p => ({
+    publisher: p.username,
+    title: p.content.slice(0,120) + (p.content.length>120 ? '…':''),
+    created_at: p.date,
+    url: p.url,
+    likes: p.likes,
+    replies: p.replies,
+    rts: p.rts,
+    quotes: p.quotes,
+    engagement: p.engagement
+  }));
 
 const system = `You are an editorial product analyst.
 Given recent posts and simple aggregates, write a concise summary (<=120 words)
@@ -47,7 +59,8 @@ const final = {
   generated_at: new Date().toISOString(),
   summary: summary || text.slice(0, 280),
   bullets: bullets.slice(0,5),
+  sample_posts: sample   // <-- include recent tweets for frontend
 };
 
 fs.writeFileSync('./data/insights.json', JSON.stringify(final, null, 2));
-console.log('Updated insights.json with LLM summary');
+console.log('Updated insights.json with LLM summary + posts');
