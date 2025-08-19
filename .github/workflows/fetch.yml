@@ -2,9 +2,9 @@ name: Fetch & Aggregate Data
 
 on:
   workflow_dispatch:
-  schedule:
+  #schedule:
     # run at :05 every 2 hours
-    - cron: '5 */2 * * *'
+  #  - cron: '5 */2 * * *'
 
 concurrency:
   group: fetch-data
