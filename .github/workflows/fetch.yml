@@ -3,8 +3,7 @@ name: Fetch & Aggregate Data
 on:
   workflow_dispatch:
   schedule:
-    # run at :05 every 2 hours
-    - cron: '5 */2 * * *'
+    - cron: '5 */2 * * *'  # every 2 hours at :05
 
 concurrency:
   group: fetch-data
@@ -17,66 +16,38 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies (tolerate none)
-        run: npm ci || true
+      - name: Install deps
+        run: npm ci
 
-      # ------- Optional: write .env only if OPENAI key exists -------
-      - name: Write .env if OPENAI key is present
+      - name: Ingest RSS
+        run: npm run ingest:rss
+
+      - name: Ingest X via Nitter
+        run: npm run ingest:x
+
+      - name: Aggregate X → heatmaps + posts
+        run: npm run aggregate:x
+
+      - name: Generate AI insights (optional)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        shell: bash
+        if: env.OPENAI_API_KEY != ''
+        run: npm run insights
+
+      - name: Commit /data changes
         run: |
-          if [ -n "${OPENAI_API_KEY:-}" ]; then
-            echo "OPENAI_API_KEY=${OPENAI_API_KEY}" > .env
-            echo "Wrote .env with OPENAI_API_KEY"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
           else
-            echo "No OPENAI_API_KEY secret set; skipping .env"
+            git commit -m "data: refresh"
+            git push
           fi
-
-      # ------- RSS ingest -> data/posts.json + data/heatmap.json -------
-      - name: Fetch RSS posts
-        run: node ingest.mjs
-
-      # ------- X ingest (Nitter) -> data/x_raw.json (already in repo script) -------
-      - name: X ingest (Nitter RSS)
-        run: node scripts/x_ingest_nitter.mjs || true
-
-      # ------- Aggregate -> x_* jsons; safe if x_raw.json absent -------
-      - name: Aggregate data
-        run: node scripts/x_aggregate.mjs || node x_aggregate.mjs || true
-
-      # ------- LLM insights (script should no-op if key missing) -------
-      - name: Generate LLM insights (optional)
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node llm_insights.mjs || echo "LLM insights skipped."
-
-      # ------- Guard: ensure secret didn’t leak into /data -------
-      - name: Ensure secrets are not in outputs
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        shell: bash
-        run: |
-          if [ -n "${OPENAI_API_KEY:-}" ] && grep -R --binary-files=without-match -n "$OPENAI_API_KEY" data/ >/dev/null 2>&1; then
-            echo "❌ Secret appeared in /data output. Aborting."
-            exit 1
-          fi
-          echo "✅ No secrets in /data."
-
-      # ------- Commit only data/*.json if changed -------
-      - name: Commit refreshed data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "data: refresh"
-          file_pattern: |
-            data/*.json

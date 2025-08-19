@@ -1,234 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>News Pulse — Tweets + Insights</title>
-  <meta name="description" content="Zero-budget dashboard that lists recent tweets from selected news orgs and AI-generated insights. Built with GitHub Pages + Actions." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📰%3C/text%3E%3C/svg%3E" />
+  <meta charset="UTF-8" />
+  <title>News Pulse Dashboard</title>
   <style>
-    :root{
-      --bg:#0b1220;--fg:#dbe7ff;--muted:#8aa1c4;--card:#0f172a;--line:#1f2b46;
-      --tweet:#0a1324;--tweet-br:#1b2741;--link:#9ec5ff;--chip-bg:#0b1832;--chip-br:#2a3e66;--chip-tx:#9fb7e9
-    }
-    @media (prefers-color-scheme:light){
-      :root{
-        --bg:#f8fbff;--fg:#0d1b2a;--muted:#5a6d8c;--card:#ffffff;--line:#e5edf8;
-        --tweet:#f7faff;--tweet-br:#e6eef9;--link:#1d4ed8;--chip-bg:#eef4ff;--chip-br:#d9e6ff;--chip-tx:#1d4ed8
-      }
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;padding:24px;background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .wrap{max-width:980px;margin:0 auto}
-    h1,h2{margin:0 0 10px}
-    p{margin:0 0 10px}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .muted{color:var(--muted)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
-    .grid{display:grid;gap:14px}
-    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-    .tweet{background:var(--tweet);border:1px solid var(--tweet-br);border-radius:10px;padding:12px;margin:10px 0}
-    .chip{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--chip-br);background:var(--chip-bg);color:var(--chip-tx)}
-    .stats{display:inline-flex;gap:10px;font-size:12px;color:var(--muted)}
-    .empty{border:1px dashed var(--line);border-radius:10px;padding:10px;color:var(--muted)}
-    .footer{margin-top:8px;font-size:12px;color:var(--muted)}
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #f9f9f9; }
+    h1 { margin-bottom: 1rem; }
+    h2 { margin-top: 2rem; }
+    .tweet { background: #fff; border-radius: 6px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+    .tweet small { display: block; color: #666; margin-top: 0.5rem; }
+    .insight { background: #fff; border-radius: 6px; padding: 1rem; margin: 1rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
   </style>
 </head>
 <body>
-  <div class="wrap" role="main">
-    <header style="margin-bottom:16px">
-      <h1>📰 News Pulse</h1>
-      <p class="muted">Recent tweets from selected news orgs + AI insights. Zero‑budget; data written by GitHub Actions into <code>/data</code>.</p>
-    </header>
+  <h1>News Pulse</h1>
 
-    <section class="grid" aria-live="polite" aria-busy="true">
-      <!-- Tweets -->
-      <div class="card" aria-labelledby="tweets-title">
-        <h2 id="tweets-title">Latest tweets</h2>
-        <div id="tweets-status" class="muted">Loading…</div>
-        <div id="tweets"></div>
-        <div id="tweets-meta" class="footer"></div>
-      </div>
+  <h2>Recent Tweets</h2>
+  <div id="tweets">Loading tweets…</div>
 
-      <!-- Insights -->
-      <div class="card" aria-labelledby="insights-title">
-        <h2 id="insights-title">AI insights</h2>
-        <div id="insights-status" class="muted">Loading…</div>
-        <div id="insights"></div>
-        <div id="insights-meta" class="footer"></div>
-      </div>
-    </section>
-
-    <p class="footer" style="text-align:center;margin-top:18px">Times are shown in your local timezone. No cookies or tracking.</p>
-  </div>
+  <h2>Insights</h2>
+  <div id="insights">Loading insights…</div>
 
   <script>
-    // ---------- helpers ----------
-    const durl = (name) => new URL("./data/" + name, location.href).toString();
+    async function loadTweets() {
+      try {
+        const res = await fetch('./data/x_posts.json');
+        const data = await res.json();
+        const container = document.getElementById('tweets');
 
-    async function getJSON(url, fallback=null){
-      try{
-        const r = await fetch(url, { cache: "no-store" });
-        if(!r.ok) throw new Error(r.status);
-        return await r.json();
-      }catch(e){ return fallback; }
-    }
-
-    const pick = (o, ks, d=undefined) => {
-      for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) return o[k];
-      return d;
-    };
-
-    const esc = (s) => String(s)
-      .replace(/&/g,"&amp;").replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-
-    const fmtDate = (v) => {
-      const d = new Date(v || "");
-      return isNaN(d) ? "" : d.toLocaleString();
-    };
-
-    const byDateDesc = (a,b) =>
-      new Date(b.date || b.isoDate || 0) - new Date(a.date || a.isoDate || 0);
-
-    const statNum = (n) => {
-      n = Number(n || 0);
-      if (n >= 1000) return (n/1000).toFixed(n%1000===0?0:1) + "k";
-      return String(n);
-    };
-
-    // ---------- rendering ----------
-    function renderTweets(items){
-      const root = document.getElementById("tweets");
-      const status = document.getElementById("tweets-status");
-      const meta = document.getElementById("tweets-meta");
-      root.innerHTML = ""; status.textContent = ""; meta.textContent = "";
-
-      if (!items || !items.length){
-        root.innerHTML = `<div class="empty">No X data yet. Once the Actions job writes <code>data/x_posts.json</code>, tweets will appear here.</div>`;
-        return;
-      }
-
-      items.slice(0,50).forEach(t=>{
-        const username = pick(t, ["username","user","author","screenName"], "unknown");
-        const text = pick(t, ["content","text","body"], "");
-        const url = pick(t, ["url","link","statusUrl"], "");
-        const date = pick(t, ["date","isoDate","published","created_at"], "");
-
-        const likes = pick(t, ["likes","likeCount","favorite_count"], 0);
-        const replies = pick(t, ["replies","replyCount"], 0);
-        const rts = pick(t, ["rts","retweets","retweetCount"], 0);
-        const quotes = pick(t, ["quotes","quoteCount"], 0);
-
-        const el = document.createElement("article");
-        el.className = "tweet";
-        el.innerHTML = `
-          <div><span class="chip" aria-label="author">@${esc(username)}</span></div>
-          <div style="margin-top:6px">
-            ${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${esc(text) || "(no text)"}</a>`
-                  : `<span>${esc(text) || "(no text)"}</span>`}
-          </div>
-          <div class="stats" style="margin-top:6px">
-            <span title="posted at">${fmtDate(date)}</span>
-            <span aria-hidden="true">•</span>
-            <span title="likes">❤️ ${statNum(likes)}</span>
-            <span title="reposts">🔁 ${statNum(rts)}</span>
-            <span title="replies">💬 ${statNum(replies)}</span>
-            <span title="quotes">🗨️ ${statNum(quotes)}</span>
-          </div>
-        `;
-        root.appendChild(el);
-      });
-
-      const newest = items[0]?.date || items[0]?.isoDate;
-      if (newest) meta.textContent = `Newest: ${fmtDate(newest)}`;
-    }
-
-    function renderInsights(data){
-      const root = document.getElementById("insights");
-      const status = document.getElementById("insights-status");
-      const meta = document.getElementById("insights-meta");
-      root.innerHTML = ""; status.textContent = ""; meta.textContent = "";
-
-      if (!data){
-        root.innerHTML = `<div class="empty">No insights yet. Waiting for <code>data/insights.json</code>.</div>`;
-        return;
-      }
-
-      // Accept either array of strings or object { summary, bullets[], generated_at }
-      if (Array.isArray(data)){
-        if (!data.length){
-          root.innerHTML = `<div class="empty">No insights yet.</div>`;
+        if (!data.length) {
+          container.innerHTML = '<p>No tweets available.</p>';
           return;
         }
-        data.forEach(line=>{
-          const box = document.createElement("div");
-          box.className = "tweet";
-          box.textContent = String(line);
-          root.appendChild(box);
-        });
-        return;
-      }
 
-      const summary = data.summary || "";
-      const bullets = Array.isArray(data.bullets) ? data.bullets : [];
-      const generatedAt = data.generated_at ? fmtDate(data.generated_at) : "";
+        const html = data.slice(0, 15).map(t => `
+          <div class="tweet">
+            <strong>@${t.username}</strong>: ${t.content}<br>
+            <small>${new Date(t.date).toLocaleString()} | ❤️ ${t.likes} | 🔁 ${t.rts} | 💬 ${t.replies}</small>
+          </div>
+        `).join('');
 
-      if (summary){
-        const box = document.createElement("div");
-        box.className = "tweet";
-        box.textContent = summary;
-        root.appendChild(box);
+        container.innerHTML = html;
+      } catch (err) {
+        console.error(err);
+        document.getElementById('tweets').innerHTML = '<p>Error loading tweets.</p>';
       }
-      if (bullets.length){
-        const box = document.createElement("div");
-        box.className = "tweet";
-        const ul = document.createElement("ul");
-        ul.style.margin = 0; ul.style.paddingLeft = "18px";
-        bullets.forEach(b=>{
-          const li = document.createElement("li");
-          li.textContent = String(b);
-          ul.appendChild(li);
-        });
-        box.appendChild(ul);
-        root.appendChild(box);
-      }
-      if (!summary && !bullets.length){
-        root.innerHTML = `<div class="empty">No insights yet.</div>`;
-      }
-      if (generatedAt) meta.textContent = `Generated ${generatedAt}`;
     }
 
-    // ---------- load ----------
-    async function loadAll(){
-      // Prefer x_posts.json; fall back to x_summary.json
-      const posts = await getJSON(durl("x_posts.json"), null)
-               ?? await getJSON(durl("x_summary.json"), []);
-      const normalized = (Array.isArray(posts) ? posts : [])
-        .map(p=>({
-          username: pick(p,["username","user","author","screenName"],"unknown"),
-          content: pick(p,["content","text","body"],""),
-          url: pick(p,["url","link","statusUrl"],""),
-          date: pick(p,["date","isoDate","published","created_at"],null),
-          likes: pick(p,["likes","likeCount","favorite_count"],0),
-          replies: pick(p,["replies","replyCount"],0),
-          rts: pick(p,["rts","retweets","retweetCount"],0),
-          quotes: pick(p,["quotes","quoteCount"],0)
-        }))
-        .sort(byDateDesc);
+    async function loadInsights() {
+      try {
+        const res = await fetch('./data/insights.json');
+        const data = await res.json();
+        const container = document.getElementById('insights');
 
-      renderTweets(normalized);
-
-      const insights = await getJSON(durl("insights.json"), null);
-      renderInsights(insights);
-
-      // Mark main region as ready for screen readers
-      document.querySelector("section.grid").setAttribute("aria-busy","false");
+        const bullets = (data.bullets || []).map(b => `<li>${b}</li>`).join('');
+        container.innerHTML = `
+          <div class="insight">
+            <p>${data.summary || 'No summary available.'}</p>
+            <ul>${bullets}</ul>
+            <small>Generated: ${new Date(data.generated_at).toLocaleString()}</small>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        document.getElementById('insights').innerHTML = '<p>Error loading insights.</p>';
+      }
     }
 
-    loadAll();
+    loadTweets();
+    loadInsights();
   </script>
 </body>
 </html>

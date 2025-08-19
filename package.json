@@ -1,14 +1,18 @@
 {
   "name": "news-pulse",
+  "version": "1.0.0",
   "type": "module",
+  "private": true,
   "scripts": {
-    "ingest": "node scripts/ingest.mjs",
-    "aggregate": "node scripts/aggregate.mjs",
-    "insights": "node scripts/llm_insights.mjs"
+    "ingest:rss": "node ingest.mjs",
+    "ingest:x": "node x_ingest_nitter.mjs",
+    "aggregate:x": "node x_aggregate.mjs",
+    "insights": "node llm_insights.mjs",
+    "fetch": "npm run ingest:rss && npm run ingest:x && npm run aggregate:x && npm run insights"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "node-fetch": "^3.3.2",
-    "openai": "^4.56.0"
+    "openai": "^4.56.0",
+    "rss-parser": "^3.13.0"
   }
 }
