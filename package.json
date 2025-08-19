@@ -1,17 +1,14 @@
 {
-  "name": "news-pulse-min",
-  "version": "1.0.0",
-  "description": "Zero-budget static news pulse dashboard (RSS -> JSON -> static HTML).",
+  "name": "news-pulse",
   "type": "module",
   "scripts": {
     "ingest": "node scripts/ingest.mjs",
     "aggregate": "node scripts/aggregate.mjs",
-    "llm": "node scripts/llm_insights.mjs",
-    "build:data": "npm run ingest && npm run aggregate && npm run llm"
+    "insights": "node scripts/llm_insights.mjs"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "openai": "^4.59.0",
-    "rss-parser": "^3.13.0"
+    "node-fetch": "^3.3.2",
+    "openai": "^4.56.0"
   }
 }

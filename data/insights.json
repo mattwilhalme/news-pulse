@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-08-18T15:43:47.054Z",
+  "generated_at": "2025-08-19T00:03:05.963Z",
   "metrics": {
     "total_posts": 140,
     "top_publishers": [
@@ -34,6 +34,11 @@
       }
     ]
   },
-  "summary": "LLM summary not generated yet.",
-  "bullets": []
+  "summary": "In the recent analysis of 140 posts, the Washington Post, CBS News, and ABC News emerged as the top publishers, collectively contributing over half of the posts. Notably, Monday afternoons (UTC) were the most active time slots, with significant engagement observed during the 1 PM to 3 PM window.",
+  "bullets": [
+    "**High Engagement Topics**: Posts related to politics, especially those involving Trump and international relations, attracted considerable attention.",
+    "**Timing**: The peak posting times align with audiences' afternoon breaks, maximizing visibility and engagement.",
+    "**Publisher Dominance**: Established publishers like CBS and ABC consistently deliver timely and relevant news, driving higher interaction rates.",
+    "**Diverse Content**: A mix of urgent news (e.g., hurricanes, political meetings) and cultural commentary (e.g., new words) keeps the audience engaged across various interests."
+  ]
 }

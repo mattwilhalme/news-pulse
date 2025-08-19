@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "username": "nytimes",
+    "text": "Sample tweet from nytimes",
+    "date": "2025-08-19T00:02:44.997Z"
+  },
+  {
+    "username": "washingtonpost",
+    "text": "Sample tweet from washingtonpost",
+    "date": "2025-08-19T00:02:44.999Z"
+  },
+  {
+    "username": "WSJ",
+    "text": "Sample tweet from WSJ",
+    "date": "2025-08-19T00:02:44.999Z"
+  }
+]

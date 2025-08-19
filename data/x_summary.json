@@ -1,10 +1,17 @@
-{
-  "generated_at": "2025-08-18T23:20:16.102Z",
-  "timezone": "PT (America/Los_Angeles)",
-  "start_hour": 6,
-  "totals": {
-    "posts": 0,
-    "link_posts": 0,
-    "engagement_sum": 0
+[
+  {
+    "username": "nytimes",
+    "text": "Sample tweet from nytimes",
+    "date": "2025-08-19T00:02:44.997Z"
+  },
+  {
+    "username": "washingtonpost",
+    "text": "Sample tweet from washingtonpost",
+    "date": "2025-08-19T00:02:44.999Z"
+  },
+  {
+    "username": "WSJ",
+    "text": "Sample tweet from WSJ",
+    "date": "2025-08-19T00:02:44.999Z"
   }
-}
+]

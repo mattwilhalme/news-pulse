@@ -1,305 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>News Pulse</title>
-<style>
-  :root {
-    --bg: #0b0f19;
-    --card: #111827;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent-r: 37; --accent-g: 99; --accent-b: 235; /* tailwind blue-600 */
-    --cell: 14px; /* heatmap cell size */
-  }
-  html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
-  a { color: #93c5fd; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
-  header { text-align:center; margin-bottom: 18px; }
-  header h1 { font-size: 22px; margin: 0 0 6px; }
-  header p  { color: var(--muted); margin: 0; }
-  .cards { display: grid; gap: 16px; }
-  .card { background: var(--card); border: 1px solid #1f2937; border-radius: 14px; padding: 14px; }
-  .card h2 { font-size: 16px; margin: 0 0 8px; }
-  .hint { color: var(--muted); font-size: 13px; }
-  .row { display: grid; gap: 16px; }
-  /* Stack heatmaps on mobile, two-up on wide screens if desired */
-  @media (min-width: 860px) {
-    .row.two { grid-template-columns: 1fr; }
-  }
-  .heatmap {
-    overflow-x: auto;
-    padding-bottom: 8px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 52px repeat(24, var(--cell)); /* first col = y labels */
-    gap: 2px 2px;
-    align-items: center;
-  }
-  .grid .ylabel, .grid .xlabel {
-    color: var(--muted);
-    font-size: 12px;
-    text-align: right;
-    padding-right: 6px;
-    white-space: nowrap;
-  }
-  .grid .xlabel { text-align: center; padding-right: 0; }
-  .cell {
-    width: var(--cell);
-    height: var(--cell);
-    border-radius: 3px;
-    background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.06); /* fallback */
-  }
-  .legend { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 8px; }
-  .legendbar { height: 12px; flex: 1; background: linear-gradient(to right,
-     rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08),
-     rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25),
-     rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.5),
-     rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.75),
-     rgba(var(--accent-r),var(--accent-g),var(--accent-b),1)
-  ); border-radius: 6px; }
-  .list { display: grid; gap: 10px; }
-  .tweet, .post { display: grid; gap: 4px; padding: 10px; background: #0d1320; border: 1px solid #1f2937; border-radius: 10px; }
-  .counts { color: var(--muted); font-size: 12px; display:flex; gap:10px; }
-  details summary { cursor: pointer; }
-  footer { margin-top: 18px; text-align: center; color: var(--muted); font-size: 12px; }
-  .empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
-</style>
+  <meta charset="UTF-8">
+  <title>News Pulse</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+    h1 { color: #333; }
+    .tweet { padding: 10px; margin: 10px 0; background: white; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .insight { background: #eef6ff; padding: 10px; border-radius: 6px; margin: 15px 0; }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>News Pulse</h1>
-      <p>Zero‑budget dashboard of RSS + X activity (Pacific Time)</p>
-    </header>
+  <h1>📰 News Pulse</h1>
+  <div id="tweets"></div>
+  <h2>💡 Insights</h2>
+  <div id="insights"></div>
 
-    <div class="cards">
-      <section class="card">
-        <h2>RSS publish heatmap <span class="hint">(PT, 6AM→5AM)</span></h2>
-        <div id="rss-heatmap" class="heatmap" role="img" aria-label="RSS publish heatmap"></div>
-      </section>
+  <script>
+    async function loadData() {
+      const tweets = await fetch('./data/x_summary.json').then(r => r.json()).catch(()=>[]);
+      const insights = await fetch('./data/insights.json').then(r => r.json()).catch(()=>[]);
 
-      <section class="card">
-        <h2>X link‑post heatmap <span class="hint">(PT, 6AM→5AM)</span></h2>
-        <div id="x-links-heatmap" class="heatmap" role="img" aria-label="X link post heatmap"></div>
-      </section>
+      const tweetContainer = document.getElementById('tweets');
+      tweets.forEach(t => {
+        const div = document.createElement('div');
+        div.className = 'tweet';
+        div.innerHTML = `<b>@${t.username}</b>: ${t.text}`;
+        tweetContainer.appendChild(div);
+      });
 
-      <section class="card">
-        <h2>X engagement heatmap <span class="hint">(PT, 6AM→5AM)</span></h2>
-        <div id="x-eng-heatmap" class="heatmap" role="img" aria-label="X engagement heatmap"></div>
-      </section>
-
-      <section class="card">
-        <h2>Latest 5 tweets</h2>
-        <div id="tweets" class="list"></div>
-      </section>
-
-      <section class="card">
-        <h2>Recently published articles</h2>
-        <details open>
-          <summary class="hint">Toggle the list</summary>
-          <div id="posts" class="list"></div>
-        </details>
-      </section>
-
-      <section class="card">
-        <h2>Meta</h2>
-        <div id="meta" class="hint"></div>
-      </section>
-    </div>
-
-    <footer>Built with GitHub Pages + Actions. Times shown in America/Los_Angeles.</footer>
-  </div>
-
-<script>
-const START = 6; // 6AM start
-const PT = "America/Los_Angeles";
-const HRS = Array.from({length:24}, (_,i)=> (START + i) % 24);
-const DOWS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-
-const fmtHour = h => {
-  const ampm = h >= 12 ? "p" : "a";
-  const hr12 = h % 12 === 0 ? 12 : h % 12;
-  return hr12 + ampm;
-};
-
-async function getJSON(path) {
-  try {
-    const res = await fetch(path, { cache: "no-store" });
-    if (!res.ok) throw new Error(String(res.status));
-    return await res.json();
-  } catch (e) {
-    return null;
-  }
-}
-
-function makeEmptyGrid() {
-  return Array.from({length:7}, ()=> Array.from({length:24}, ()=>0));
-}
-
-function normalizeToGrid(input) {
-  // Accept 7x24 or flat [{dow,hour,value}] (also accept {count})
-  const grid = makeEmptyGrid();
-  if (!input) return grid;
-
-  if (Array.isArray(input) && input.length === 7 && Array.isArray(input[0])) {
-    // 7×24 matrix; reorder columns to 6..23,0..5
-    for (let d=0; d<7; d++) {
-      for (let i=0; i<24; i++) {
-        const h = HRS[i];
-        grid[d][h] = Number(input[d][h] || 0);
-      }
+      const insightContainer = document.getElementById('insights');
+      insights.forEach(i => {
+        const div = document.createElement('div');
+        div.className = 'insight';
+        div.innerText = i;
+        insightContainer.appendChild(div);
+      });
     }
-    return grid;
-  }
-
-  if (Array.isArray(input)) {
-    for (const row of input) {
-      if (!row) continue;
-      const d = Number(row.dow ?? row.day ?? 0);
-      const h = Number(row.hour ?? 0);
-      const v = Number(row.value ?? row.count ?? 0);
-      if (d>=0 && d<7 && h>=0 && h<24) grid[d][h] += v;
-    }
-  }
-  return grid;
-}
-
-function maxInGrid(g) {
-  let m = 0;
-  for (let d=0; d<7; d++) for (let h=0; h<24; h++) m = Math.max(m, g[d][h] || 0);
-  return m || 1; // avoid div/0
-}
-
-function renderHeatmap(el, grid, legendLabel) {
-  el.innerHTML = "";
-  const wrap = document.createElement("div");
-  wrap.className = "grid";
-
-  // Top header row: empty corner, then hours
-  wrap.append(elm("div", { className:"xlabel", style:"" }, " "));
-  for (const h of HRS) wrap.append(elm("div", { className:"xlabel" }, fmtHour(h)));
-
-  const max = maxInGrid(grid);
-
-  // Rows
-  for (let d=0; d<7; d++) {
-    wrap.append(elm("div", { className:"ylabel" }, DOWS[d]));
-    for (const h of HRS) {
-      const v = Number(grid[d][h] || 0);
-      const alpha = Math.max(0.08, Math.min(1, v / max));
-      const cell = elm("div", { className:"cell" });
-      cell.style.background = `rgba(37,99,235, ${alpha})`;
-      cell.title = `${DOWS[d]} @ ${fmtHour(h)} → ${v}`;
-      wrap.append(cell);
-    }
-  }
-
-  el.append(wrap);
-  const legend = elm("div", { className: "legend" }, 
-    elm("span", {}, "low"), elm("div",{className:"legendbar"},""), elm("span",{}, "high"),
-    elm("span", {style:"margin-left:8px"}, legendLabel ? `· ${legendLabel}` : "")
-  );
-  el.append(legend);
-}
-
-function elm(tag, attrs={}, text="") {
-  const e = document.createElement(tag);
-  for (const [k,v] of Object.entries(attrs)) e[k] = v;
-  if (text) e.textContent = text;
-  return e;
-}
-
-function toLocalPT(iso) {
-  try {
-    const d = new Date(iso);
-    return d.toLocaleString("en-US", { timeZone: PT, month:"short", day:"2-digit", hour:"2-digit", minute:"2-digit" });
-  } catch { return iso; }
-}
-
-async function init() {
-  // Load data
-  const [rssHeatRaw, xLinksRaw, xEngRaw, xPosts, xSummary, rssPosts] = await Promise.all([
-    getJSON("/data/heatmap.json"),
-    getJSON("/data/x_heatmap_links.json"),       // make sure filename matches!
-    getJSON("/data/x_heatmap_engagement.json"),
-    getJSON("/data/x_posts.json"),               // may be null if not generated yet
-    getJSON("/data/x_summary.json"),
-    getJSON("/data/posts.json")
-  ]);
-
-  // Normalize & render heatmaps
-  renderHeatmap(
-    document.getElementById("rss-heatmap"),
-    normalizeToGrid(rssHeatRaw),
-    "RSS publish volume"
-  );
-  renderHeatmap(
-    document.getElementById("x-links-heatmap"),
-    normalizeToGrid(xLinksRaw),
-    "X link posts"
-  );
-  renderHeatmap(
-    document.getElementById("x-eng-heatmap"),
-    normalizeToGrid(xEngRaw),
-    "X engagement (sum of likes + replies + RTs + quotes)"
-  );
-
-  // Tweets (latest 5 by most recent date)
-  const tweetsEl = document.getElementById("tweets");
-  if (Array.isArray(xPosts) && xPosts.length) {
-    const top5 = xPosts
-      .filter(t => t.date)
-      .sort((a,b) => new Date(b.date) - new Date(a.date))
-      .slice(0,5);
-    for (const t of top5) {
-      const url = t.url || "#";
-      tweetsEl.append(elm("div", { className:"tweet" }, ""));
-      const last = tweetsEl.lastChild;
-      last.append(elm("div", {}, t.content?.trim() || "(no text)"));
-      last.append(elm("div", { className:"counts" },
-        `❤️ ${t.likes||0}`, `💬 ${t.replies||0}`, `🔁 ${t.rts||0}`, `🔎 ${t.quotes||0}`,
-        "·", toLocalPT(t.date),
-        url ? ` · ` : ""
-      ));
-      if (url) {
-        const a = document.createElement("a");
-        a.href = url; a.textContent = "Open";
-        last.querySelector(".counts").append(a);
-      }
-    }
-  } else {
-    tweetsEl.innerHTML = `<div class="empty">No X data yet. (Waiting for <code>x_posts.json</code>)</div>`;
-  }
-
-  // Recent posts (RSS)
-  const postsEl = document.getElementById("posts");
-  if (Array.isArray(rssPosts) && rssPosts.length) {
-    const sorted = [...rssPosts].sort((a,b)=> new Date(b.created_at) - new Date(a.created_at)).slice(0, 50);
-    for (const p of sorted) {
-      const div = elm("div", { className:"post" }, "");
-      const a = document.createElement("a"); a.href = p.url; a.textContent = p.title || "(untitled)";
-      const meta = elm("div", { className:"counts" },
-        `${p.publisher_name || p.publisher_id || "—"}`, "·", toLocalPT(p.created_at)
-      );
-      div.append(a, meta);
-      postsEl.append(div);
-    }
-  } else {
-    postsEl.innerHTML = `<div class="empty">No recent RSS posts found.</div>`;
-  }
-
-  // Meta
-  const meta = document.getElementById("meta");
-  const parts = [];
-  if (xSummary?.generated_at) parts.push(`X summary: ${toLocalPT(xSummary.generated_at)}`);
-  if (xSummary?.totals) parts.push(`X totals — posts: ${xSummary.totals.posts||0}, link posts: ${xSummary.totals.link_posts||0}, engagement sum: ${xSummary.totals.engagement_sum||0}`);
-  meta.textContent = parts.join(" · ") || "No metadata yet.";
-}
-init();
-</script>
+    loadData();
+  </script>
 </body>
 </html>
